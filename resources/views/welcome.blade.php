@@ -5,7 +5,7 @@
     
     <h1> <img src =  "assets/Logo-Melody.png" alt="Melody" width="60" height="60" align = "center"> Melody</h1>
     <p align = center>¡Crea tu cuenta!</p>
-    <hr>
+    
     <div type = "container mid">
     <label for="email"><b>NOMBRE DE USUARIO</b></label>
     <input type="text" placeholder=" " name="usuario" id="email" required>
