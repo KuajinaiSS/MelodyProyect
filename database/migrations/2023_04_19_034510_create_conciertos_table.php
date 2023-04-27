@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('conciertos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->integer('cantidad_entradas_d');
+            $table->string('id_persona');
+            $table->date('fecha');
+            $table->integer('entradas_disponibles');
             $table->timestamps();
         });
     }
