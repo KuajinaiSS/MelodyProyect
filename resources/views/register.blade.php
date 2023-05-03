@@ -15,15 +15,15 @@
         <form methos="post">
             <div class="username">
                 <div><label>NOMBRE DE USUARIO</label></div>
-                <input type="text" required>     
+                <input type="text" required>
             </div>
             <div class="email">
                 <div><label>CORREO ELECTRÓNICO</label></div>
-                <input type="text" required>                
+                <input type="text" required>
             </div>
             <div class="password">
                 <div><label>CONTRASEÑA</label></div>
-                <input type="text" required>     
+                <input type="text" required>
             </div>
             <div class="register"><a href="a">¿Ya tienes cuenta? ¡Inicia sesión aquí!</a></div>
             <input type="submit" value="REGISTRAR">
