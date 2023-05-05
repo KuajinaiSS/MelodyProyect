@@ -20,23 +20,27 @@
 
 body {
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 header {
     font-family: League Spartan;
     background-color: #017AEB;
     border-bottom: 2px solid black;
-
     display: flex;
-    justify-content: space-between;
     align-items: center;
     height: 85px;
-    padding: 5px 10%;
+    padding: 5px 40px;
 }
+
 
 .header .logo {
     cursor: pointer;
+    margin-right: 20px;
 }
+
 
 .header .logo img {
     height: 70px;
@@ -44,72 +48,62 @@ header {
     transition: all 0.5s;
 }
 
-.header .logo img:hover {
+
+.header .logo img:hover,
+.header .nav-links li:hover,
+.header .usuario:hover {
     transform: scale(1.1);
+    transition: all 1s;
 }
 
-.header .nav-links {
-
-    list-style: none;
+.header .nav-links li a:hover,
+.header .usuario:hover{
+    color: #212020;
+    transition: all 0.5s;
 }
+
 
 .header .nav-links li {
     font-family: League Spartan;
     display: inline-block;
-    padding: 0 20px;
+    padding: 20px;
+    transition: all 0.5s;
 }
 
-.header .nav-links li:hover {
-    transform: scale(1.1);
-}
 
 .header .nav-links a {
     font-size: 25px;
     font-weight: bold;
     color: #eceff1;
     text-decoration: none;
-
+    text-transform: uppercase;
 }
 
-.header .nav-links li a:hover {
-    font-weight: 700;
-    color: #ffbc0e;
-}
-
-.header .btn button {
-    font-weight: 700;
-    color: #1b3039;
-    padding: 9px 25px;
-    background: #eceff1;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-}
-
-.header .btn button:hover {
-    background-color: #e2f1f8;
-    color: #ffbc0e;
-    transform: scale(1.1);
+.header .usuario {
+    font-size: 25px;
+    font-weight: bold;
+    color: #eceff1;
+    text-decoration: none;
+    margin-left: auto;
 }
 
 
 /* FOOTER */
 .footer{
-    height: 85px;
-    padding: 10px 5%;
-    align-items: center;
-    text-align: center;
+    font-size: 20px;
+    height: 90px;
+    padding: 20px 40px;
     font-family: "League Spartan";
     background-color: black;
     color: white;
+    margin-top: auto;
 }
 
-footer .copyrigth{
+.footer .copyrigth{
+    font-size: 15px;
+    height: 90px;
     font-family: 'Instrument Serif', serif;
-
 }
 
-.item1{
-    font-family: League Spartan;
-}
+
+
