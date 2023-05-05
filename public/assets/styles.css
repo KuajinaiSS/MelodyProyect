@@ -1,104 +1,113 @@
-* {box-sizing: border-box}
-* {font-family: Helvetica, sans-serif}
+* {
+    box-sizing: border-box
+}
+
+* {
+    font-family: Helvetica, sans-serif
+}
 
 /* Add padding to containers */
 .container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: auto;
-  width: 60%;
-  height: 100px;
-  left: 20% ;
-  top: 70px;
-  text-align: left;
-  
-  
-}
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: auto;
+    width: 60%;
+    height: 100px;
+    left: 20%;
+    top: 70px;
+    text-align: left;
 
-body{
-  box-shadow: 0 0 10px ;
-  margin-bottom: 10em;
-  margin-top: 3em;
-  margin-left: 5em;
-  margin-right: 5em;
-  border-radius: 15px;
-  
 
 }
-h1{
-  background-color: #017AEB;
-  color: #f1f1f1;
-  border-radius: 15px;
-  text-align: center;
-  
+
+body {
+    box-shadow: 0 0 10px;
+    margin-bottom: 10em;
+    margin-top: 3em;
+    margin-left: 5em;
+    margin-right: 5em;
+    border-radius: 15px;
+
+
 }
-footer{
-  position: absolute;
-  height: auto;
-  line-height: 50px;
-  bottom: 0;
-  left: 0;
-  margin-left: 20px;
-  right: 0;
-  background: #fff;
-  width: 100vw;
-  padding-top: 10px;
-  color: #111;
-  /* box-shadow: 0 0 8px; */
+
+h1 {
+    background-color: #017AEB;
+    color: #f1f1f1;
+    border-radius: 15px;
+    text-align: center;
+
 }
+
+footer {
+    position: absolute;
+    height: auto;
+    line-height: 50px;
+    bottom: 0;
+    left: 0;
+    margin-left: 20px;
+    right: 0;
+    background: #fff;
+    width: 100vw;
+    padding-top: 10px;
+    color: #111;
+    /* box-shadow: 0 0 8px; */
+}
+
 /* Full-width input fields */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-  border-radius: 15px;
+input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    border-radius: 15px;
 }
 
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-  border-radius: 15px;
+input[type=text]:focus,
+input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+    border-radius: 15px;
 }
 
 /* Overwrite default styles of hr */
 hr {
-  border: 3px solid #017AEB;  /*725A7A*/
-  margin-bottom: 25px;
-  text-align: center;
-  
+    border: 3px solid #017AEB;
+    /*725A7A*/
+    margin-bottom: 25px;
+    text-align: center;
+
 }
 
 /* Set a style for the submit/register button */
 .registerbtn {
-  background-color:  #017AEB;
-  color: white;
-  padding: 16px 20px;
-  margin: 30px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-  border-radius: 15px;
+    background-color: #017AEB;
+    color: white;
+    padding: 16px 20px;
+    margin: 30px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    border-radius: 15px;
 }
 
 .registerbtn:hover {
-  opacity:1;
+    opacity: 1;
 }
 
 /* Add a blue text color to links */
 a {
-  color: dodgerblue;
+    color: dodgerblue;
 }
 
 /* Set a grey background color and center the text of the "sign in" section */
 .signin {
-  text-align: center;
-  position: center;
-  top: 480px;
+    text-align: center;
+    position: center;
+    top: 480px;
 }
-
-
