@@ -8,8 +8,8 @@
 
     <?php
     /**
-    * Aqui va el titulo de la pestaña.
-    */
+     * Aqui va el titulo de la pestaña.
+     */
     ?>
     <title>Melody - @yield('tituloPestana')</title>
 
@@ -27,27 +27,39 @@
             <ul>
                 <li><a href="#">Inicio</a></li>
                 <li><a href="#">Conciertos</a></li>
-                <li><a href="#">Extra (?</a></li>
+                <li><a href="{{ route('viewLogin') }}">Extra (?</a></li>
             </ul>
         </nav>
 
-        <a class="usuario" href="#">
-            <?php
-            /**
-            * Aqui va el nombre del usuario que inicio seccion.
-            */
-            ?>
-            Bienvenido, @yield('nombreUsuario')
-        </a>
+
+        <div class="usuario">
+            <a href="#">
+                <?php
+                /**
+                 * Aqui va el nombre del usuario que inicio seccion.
+                 */
+                ?>
+                Bienvenido, @yield('nombreUsuario')
+            </a>
+            <img src={{ asset('img/user.png') }} alt="xd">
+        </div>
+
+
 
     </header>
 
-    <?php
-    /**
-    * Aqui va el contenido principal de la pagina (main).
-    */
-    ?>
-    @yield('contenido')
+
+    <main>
+
+        <?php
+        /**
+         * Aqui va el contenido principal de la pagina (main).
+         */
+        ?>
+        @yield('contenido')
+
+    </main>
+
 
 
     <footer class="footer">

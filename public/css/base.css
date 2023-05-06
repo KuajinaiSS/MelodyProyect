@@ -85,6 +85,17 @@ header {
     color: #eceff1;
     text-decoration: none;
     margin-left: auto;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.header .usuario img{
+
+    height: 50px;
+
 }
 
 

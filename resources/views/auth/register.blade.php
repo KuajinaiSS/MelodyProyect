@@ -1,7 +1,7 @@
+@extends('layout.base');
 
+@section('contenido')
 <link href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css">
-
-
 <form action="action_page.php">
 
 
@@ -31,3 +31,5 @@
 
     </body>
 </form>
+
+@endsection
