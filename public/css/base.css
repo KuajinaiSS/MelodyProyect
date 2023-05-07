@@ -80,16 +80,19 @@ header {
 }
 
 .header .usuario {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+}
+
+.header .usuario a{
+
     font-size: 25px;
     font-weight: bold;
     color: #eceff1;
     text-decoration: none;
-    margin-left: auto;
-
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
 }
 
 .header .usuario img{
