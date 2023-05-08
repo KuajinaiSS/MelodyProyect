@@ -1,3 +1,16 @@
+@extends('layout.base')
+@section('tituloPestana')
+Inicio
+@endsection
+
+@section('nombreUsuario')
+itagood
+@endsection
+
+@section('contenido')
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <link href="{{ asset('assets/styles.css') }}" rel="stylesheet" type="text/css">
@@ -12,7 +25,7 @@
 <body>
     <section>
         <h1> Recomendados </h1>
-        <div class="container"> 
+        <div class="container">
     </section>
 
     </div>
@@ -36,7 +49,7 @@
             <p>30 Septiembre 2023</p>
             <p>Valor: $10.000 CLP</p>
             <p>Entradas Disponibles: 1000</p>
-            
+
             <button class="buttonBuy">COMPRAR</button>
         </div>
 
@@ -58,7 +71,7 @@
             <p>15 Julio 2023</p>
             <p>Valor: $100.000 CLP</p>
             <p>Entradas Disponibles: 0</p>
-            
+
             <button class="buttonSpend">AGOTADO</button>
         </div>
 
@@ -69,7 +82,7 @@
             <p>20 Junio 2023</p>
             <p>Valor: $50.000 CLP</p>
             <p>Entradas Disponibles: 100</p>
-            
+
             <button class="buttonBuy">COMPRAR</button>
         </div>
 
@@ -80,8 +93,10 @@
             <p>58 Febrero 2024</p>
             <p>Valor: $150.000 CLP</p>
             <p>Entradas Disponibles: 0</p>
-            
+
             <button class="buttonSpend">AGOTADO</button>
         </div>
     </div>
 </html>
+
+@endsection

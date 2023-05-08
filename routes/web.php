@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ConcertController;
 use App\Http\Controllers\RegisterController;
@@ -17,7 +18,7 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', function () {
-    return view('test');
+    return view('inicio');
 });
 
 
@@ -38,5 +39,8 @@ Route::get('register',[RegisterController::class, 'index'])->name('viewRegister'
 // ruta de concert que retorna la vista "concert/index.blade.php"
 Route::get('concert',[ConcertController::class, 'index'])->name('viewConcert');
 
+/* RUTAS DE INICIO*/
 
+
+Route::get('home',[HomeController::class, 'index'])->name('viewHome');
 

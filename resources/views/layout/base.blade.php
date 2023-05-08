@@ -26,7 +26,7 @@
 
         <nav class="nav-links">
             <ul>
-                <li><a href="#">Inicio</a></li>
+                <li><a href="{{ route('viewHome') }}">Inicio</a></li>
                 <li><a href="#">Conciertos</a></li>
                 <li><a href="{{ route('viewLogin') }}">Extra (?</a></li>
             </ul>
