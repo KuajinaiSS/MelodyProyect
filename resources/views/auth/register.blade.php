@@ -10,7 +10,10 @@
 </head>
 <body>
     <div class="forms">
-        <h1><img src="{{asset('img/MelodyLogo.png')}}" class = "img" width="40" height="40" > Melody</h1>
+        <div class="logo">
+            <img src="{{asset('img/MelodyLogo.png')}}" class ="img" width="45" height="45">
+            <h1 class="logoNombre">Melody</h1>
+        </div>
         <p>¡Crea tu cuenta!</p>
         <form action="{{route('register')}}" method="POST" novalidate>
             @csrf

@@ -27,17 +27,24 @@ body{
 
 }
 
-.forms h1{
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #017aeb;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.logoNombre{
+    margin-left: 5px;
     font-family: League Spartan;
     text-align: center;
     color: white;
-    background: #017aeb;
-    transform: translate(0,-24%);
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    height: 70px;
-    font-size: 25px;
-    text-shadow: #545454;
+}
+
+.img{
+    text-align: center;
 }
 
 .forms h2{
@@ -48,13 +55,7 @@ body{
 
 }
 
-.forms img{
-    transform: translate(0,25%);
-}
-
-
 .forms p{
-    transform: translate(0,-20px);
     text-align: center;
     color: #545454;
     font-size: 25px;
@@ -299,6 +300,6 @@ form .concertName{
     font-size: 12px;
     color: rgba(245, 38, 38, 0.842);
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: -15px;
+
+
 }
