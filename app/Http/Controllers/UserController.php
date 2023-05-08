@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
-class ConciertoController extends Controller
+class UserController extends Controller
 {
     //
 }
