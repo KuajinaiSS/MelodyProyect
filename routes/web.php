@@ -18,29 +18,8 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', function () {
-    return view('inicio');
+    return view('auth.register');
 });
-
-
-/* RUTAS DE LOGIN */
-
-// ruta de login que retorna la vista "auth/login.blade.php"
-Route::get('login',[LoginController::class, 'index'])->name('viewLogin');
-
-
-/*  RUTAS DE REGISTER */
-
-// ruta de register que retorna la vista "auth/register.blade.php"
-Route::get('register',[RegisterController::class, 'index'])->name('viewRegister');
-
-
-/* RUTAS DE CONCERT */
-
-// ruta de concert que retorna la vista "concert/index.blade.php"
-Route::get('concert',[ConcertController::class, 'index'])->name('viewConcert');
-
-/* RUTAS DE INICIO*/
-
-
-Route::get('home',[HomeController::class, 'index'])->name('viewHome');
-
+Route::get('/iniciarSesion', function () {
+    return view('iniciarSesion');
+});
