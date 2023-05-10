@@ -18,7 +18,7 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', function () {
-    return view('inicio');
+    return view('home');
 });
 
 

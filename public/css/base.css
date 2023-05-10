@@ -106,9 +106,8 @@ header {
 .footer{
     font-size: 20px;
     height: 90px;
-    padding: 20px 40px;
+    padding: 20px 0px;
     font-family: "League Spartan";
-    background-color: black;
     color: white;
     margin-top: auto;
     text-align: left;
