@@ -39,7 +39,7 @@
                 @enderror
             </div>
             <div class="register"><a href="{{route('login')}}">¿Ya tienes cuenta? ¡Inicia sesión aquí!</a></div>
-            <input type="submit" value="REGISTRAR">
+            <input type="submit" value="REGISTRAR" class="store">
         </form>
 
     </div>

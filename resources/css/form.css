@@ -149,7 +149,7 @@ form .password{
     color: gray;
 }
 
-input[type="submit"]{
+.store{
     margin: 50px 0;
     transform: translate(90px,0);
     width: 220px;
@@ -167,7 +167,7 @@ input[type="submit"]{
 
 }
 
-input[type='submit']:hover{
+.store:hover{
     background-color: #4DA3F4;
     border-color: #4DA3F4;
 }

@@ -56,7 +56,7 @@
                 </a>
                 <form action="{{route('logout')}}" method="POST" class="verticalMenu" >
                     @csrf
-                    <li><input type="submit" value="Cerrar Sesión" class=""></li>
+                    <li><input type="submit" value="Cerrar Sesión" class="logout"></li>
                 </form>
             </li>
         </ul>

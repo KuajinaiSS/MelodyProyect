@@ -44,7 +44,7 @@ class ConcertController extends Controller
             'date' => $request->date
         ]);
 
-        dd('se creo el concierto');
+        return back()->with('message','Concierto creado con exito');
 
 
     }

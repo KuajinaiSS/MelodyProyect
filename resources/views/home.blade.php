@@ -9,6 +9,8 @@ itagood
 
 @section('contenido')
 
+@auth
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -97,5 +99,5 @@ itagood
         </div>
     </div>
 </html>
-
+@endauth
 @endsection

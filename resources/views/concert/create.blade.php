@@ -9,6 +9,9 @@ itagood
 
 @section('contenido')
 
+@auth
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -25,6 +28,7 @@ itagood
         <h2>¡Ingresa un concierto!</h2>
         <form action="{{route('concert')}}" method="POST" novalidate>
             @csrf
+
             <div class="concertName">
                 <div><label>NOMBRE DEL CONCIERTO</label></div>
                 <input id="concertName" name="concertName" type="text">
@@ -56,7 +60,7 @@ itagood
                 <div class="errorMsg"><p>{{session('message')}}</p></div>
                 @endif
             </div>
-            <input type="submit" value="CREAR CONCIERTO">
+            <input type="submit" value="CREAR CONCIERTO" class="store">
         </form>
 
     </div>
@@ -66,5 +70,5 @@ itagood
 <?php return view('home')?>
 @endif
 </html>
-
+@endauth
 @endsection
