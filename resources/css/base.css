@@ -23,6 +23,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+
 }
 
 header {
@@ -33,6 +34,7 @@ header {
     align-items: center;
     height: 85px;
     padding: 5px 40px;
+    margin-bottom: 30px;
 }
 
 
@@ -104,23 +106,28 @@ header {
 
 /* FOOTER */
 .footer{
-    font-size: 20px;
-    height: 90px;
-    padding: 20px 0px;
-    font-family: "League Spartan";
-    color: white;
-    margin-top: auto;
-    text-align: left;
-}
+    position: relative;
+    height: 80px;
+    background-color:#232220;
+    margin-top: 30px;
+    text-indent: 15px;
 
-.footer .copyrigth{
+}
+.copyrigth{
+    font-family: Helvetica World;
     font-size: 15px;
-    height: 90px;
-    font-family: 'Instrument Serif', serif;
+    color: white;
+    margin-bottom: 20px;
+
 }
 
-.footer h3{
+.tradeMark{
+    font-family: League Spartan;
+    font-size: 20px;
+    margin-top: 15px;
+    color: white;
     text-align: left;
+
 }
 
 

@@ -17,7 +17,7 @@
         <p>¡Inicia sesión!</p>
         <form action="{{route('login')}}" method="POST" novalidate>
             @csrf
-            <div class="username">
+            <div class="name">
                 <div><label>CORREO ELECTRÓNICO</label></div>
                 <input type="text">
             </div>

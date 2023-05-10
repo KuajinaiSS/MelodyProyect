@@ -9,7 +9,7 @@ class ConcertController extends Controller
 {
     public function create(){
 
-        return view('concerts.create');
+        return view('concert.create');
     }
 
     public function store(Request $request){

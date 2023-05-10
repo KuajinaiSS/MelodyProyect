@@ -13,7 +13,7 @@ itagood
 
 <!DOCTYPE html>
 <html lang="en">
-<link href="{{ asset('css/home.css') }}" rel="stylesheet" type="text/css">
+@vite('resources/css/home.css')
 
 <head>
     <meta charset="UTF-8">

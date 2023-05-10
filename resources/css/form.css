@@ -6,6 +6,7 @@
 }
 
 body{
+
     margin: 0;
     padding: 0;
     font-family: Helvetica World;
@@ -14,7 +15,7 @@ body{
 }
 
 .forms{
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -197,7 +198,7 @@ form .name{
 }
 
 form .price{
-    width: 314px;
+    width: auto;
     padding: 0 40px;
     margin: 10px 0;
 }
@@ -221,7 +222,7 @@ form .price{
 }
 
 form .stock{
-    width: 314px;
+    width: auto;
     padding: 0 40px;
     margin: 10px 0;
 }
@@ -245,7 +246,7 @@ form .stock{
 }
 
 form .date{
-    width: 314px;
+    width: auto;
     padding: 0 40px;
     margin: 10px 0;
 }
@@ -271,7 +272,7 @@ form .date{
 
 form .concertName{
     padding: 0 40px;
-    width: 314px;
+    width: auto;
     margin: 10px 0;
 }
 

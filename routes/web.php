@@ -21,12 +21,17 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/register',[RegisterController::class, 'index'])->name('register');
-Route::post('/register',[RegisterController::class, 'store']);
 
-Route::get('/login', [LoginController::class, 'index'])->name('login');
+// register rutas
+Route::get('register',[RegisterController::class, 'index'])->name('register');
+Route::post('register',[RegisterController::class, 'store']);
 
+// login route test
+Route::get('login', [LoginController::class, 'index'])->name('login');
 
-Route::get('/concert_create',[ConcertController::class, 'create'])->name('concert.create');
-Route::post('/concert_create',[ConcertController::class, 'store'])->name('concert');
+// concert rutas
+Route::get('concert_create',[ConcertController::class, 'create'])->name('concert.create');
+Route::post('concert_create',[ConcertController::class, 'store'])->name('concert');
 
+// home rutas
+Route::get('home',[HomeController::class, 'index'])->name('viewHome');

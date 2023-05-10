@@ -14,7 +14,7 @@
     ?>
     <title>Melody - @yield('tituloPestana')</title>
 
-    <link rel="stylesheet" href={{ asset('css/base.css') }}>
+    @vite('resources/css/base.css')
 </head>
 
 <body>
@@ -28,7 +28,7 @@
             <ul>
                 <li><a href="{{ route('viewHome') }}">Inicio</a></li>
                 <li><a href="#">Conciertos</a></li>
-                <li><a href="{{ route('viewLogin') }}">Extra (?</a></li>
+                <li><a href="{{ route('concert.create')}}">test register</a></li>
             </ul>
         </nav>
 
@@ -64,9 +64,8 @@
 
 
     <footer class="footer">
-        <h3>Melody™</h3>
-        <p class="copyrigth"> Todos los derechos reservados - {{ now()->year }}. </p>
-
+        <h3 class="tradeMark">Melody™</h3>
+        <p class="copyrigth"> Todos los derechos reservados - 2023. </p>
     </footer>
 
 

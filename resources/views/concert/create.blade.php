@@ -1,3 +1,14 @@
+@extends('layout.base')
+@section('tituloPestana')
+Crear Concierto
+@endsection
+
+@section('nombreUsuario')
+itagood
+@endsection
+
+@section('contenido')
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -50,3 +61,5 @@
     </div>
 </body>
 </html>
+
+@endsection
