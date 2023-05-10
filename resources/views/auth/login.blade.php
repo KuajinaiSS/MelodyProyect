@@ -17,15 +17,23 @@
         <p>¡Inicia sesión!</p>
         <form action="{{route('login')}}" method="POST" novalidate>
             @csrf
+            @if (session('message'))
+            <div class="errorMsg"><p>{{session('message')}}</p></div>
+            @endif
             <div class="name">
                 <div><label>CORREO ELECTRÓNICO</label></div>
-                <input type="text">
+                <input id="email" name="email" type="text">
+                @error('email')
+                <div class="errorMsg"><p>{{ $message }}</p></div>
+                @enderror
             </div>
             <div class="password">
                 <div><label>CONTRASEÑA</label></div>
-                <input type="text" >
+                <input id="password" name="password" type="password">
+                @error('password')
+                <div class="errorMsg"><p>{{ $message }}</p></div>
+                @enderror
             </div>
-
             <div class="register"><a href="{{route('register')}}">¿No tienes cuenta? ¡Registrate aquí!</a></div>
             <input type="submit" value="INGRESAR">
         </form>

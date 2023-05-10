@@ -29,39 +29,28 @@ body {
 header {
     font-family: League Spartan;
     background-color: #017AEB;
-    border-bottom: 2px solid black;
     display: flex;
     align-items: center;
-    height: 85px;
-    padding: 5px 40px;
+    height: auto;
     margin-bottom: 30px;
 }
 
 
 .header .logo {
-    cursor: pointer;
+    margin-left: 15px;
     margin-right: 20px;
 }
 
-
-.header .logo img {
-    height: 70px;
+.logoImg {
+    height: 50px;
     width: auto;
-    transition: all 0.5s;
-}
 
-
-.header .logo img:hover,
-.header .nav-links li:hover,
-.header .usuario:hover {
-    transform: scale(1.1);
-    transition: all 1s;
 }
 
 .header .nav-links li a:hover,
 .header .usuario:hover{
-    color: #212020;
-    transition: all 0.5s;
+    color: #eeeeee;
+
 }
 
 
@@ -69,38 +58,87 @@ header {
     font-family: League Spartan;
     display: inline-block;
     padding: 20px;
-    transition: all 0.5s;
+
 }
 
 
-.header .nav-links a {
-    font-size: 25px;
+.header .nav-links a{
+    font-size: 20px;
     font-weight: bold;
-    color: #eceff1;
+    color: white;
     text-decoration: none;
     text-transform: uppercase;
+
 }
 
-.header .usuario {
+a img{
+    scale: 0;
+}
+
+.userLoggedIn{
     margin-left: auto;
-    display: flex;
+    margin-right: 10px;
+    list-style: none;
     align-items: center;
-    gap: 8px;
+
 
 }
 
-.header .usuario a{
+.userLoggedIn li{
+    display: inline-block;
+    height: 20px;
 
-    font-size: 25px;
-    font-weight: bold;
-    color: #eceff1;
-    text-decoration: none;
 }
 
-.header .usuario img{
+.userLoggedIn > li > a {
 
+	color: white;
+	text-decoration: none;
+    padding: 30px 0px 30px 0px;
+    align-items: center;
+
+}
+
+.userLoggedIn > li >a :hover{
+    color: #eeeeee;
+}
+
+.verticalMenu{
+    position: absolute;
+	display: none;
+	list-style: none;
+	width: auto;
     height: 50px;
+	background-color:  #232220;
+    margin-top: 20px;
+}
 
+.userLoggedIn li:hover .verticalMenu{
+    display: block;
+
+}
+
+.verticalMenu li:hover{
+   color: red;
+}
+
+.verticalMenu li input{
+    font-family: League Spartan;
+    display: block;
+    border: none;
+	color: white;
+	text-decoration: none;
+	padding: 15px 15px 15px 15px;
+    background-color: #232220;
+}
+.verticalMenu li input:hover{
+    color: #ababab;
+}
+
+.loggedInImg{
+    margin-right: 15px;
+    height: 40px;
+    width: auto;
 }
 
 
@@ -111,6 +149,8 @@ header {
     background-color:#232220;
     margin-top: 30px;
     text-indent: 15px;
+    margin-bottom: 0;
+
 
 }
 .copyrigth{

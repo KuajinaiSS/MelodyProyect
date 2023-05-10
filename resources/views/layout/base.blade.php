@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-
+    @auth
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="{{asset('img/Logo-Melody.png')}}">
+    <link rel="shortcut icon" href="{{asset('img/melodyLogo.png')}}">
 
     <?php
     /**
@@ -19,34 +19,48 @@
 
 <body>
     <header class="header">
-
         <div class="logo">
-            <img src={{ asset('img/Logo-Melody.png') }} alt="Logo de la marca">
+            <img src="{{asset('img/melodyLogo.png')}}" class="logoImg">
         </div>
 
         <nav class="nav-links">
-            <ul>
-                <li><a href="{{ route('viewHome') }}">Inicio</a></li>
-                <li><a href="#">Conciertos</a></li>
-                <li><a href="{{ route('concert.create')}}">test register</a></li>
+            <ul class="linkList">
+                <li class="link">
+                    <a href="{{route('viewHome')}}">
+                        Inicio
+                        <img src="{{asset('img/marker.png')}}" class="marker1" width="30" height="6">
+                    </a>
+
+                </li>
+                <li class="link">
+                    <a href="#concerts">
+                        Conciertos
+                        <img src="{{asset('img/marker.png')}}" class="marker2" width="30" height="6">
+                    </a>
+                </li>
+                @if(auth()->user()->rol === 1)
+                <li class="link">
+                    <a href="{{route('concert.create')}}">
+                        Crear Concierto
+                        <img src="{{asset('img/marker.png')}}" class="marker2" width="30" height="6">
+                    </a>
+                </li>
+                @endif
             </ul>
         </nav>
 
-
-        <div class="usuario">
-            <a href="#">
-                <?php
-                /**
-                 * Aqui va el nombre del usuario que inicio seccion.
-                 */
-                ?>
-                Bienvenido, @yield('nombreUsuario')
-            </a>
-            <img src={{ asset('img/user.png') }} alt="xd">
-        </div>
-
-
-
+        <ul class="userLoggedIn">
+            <li>
+                <a href="#options" class="userOptions">
+                    Bienvenido, {{ auth()->user()->name }}
+                </a>
+                <form action="{{route('logout')}}" method="POST" class="verticalMenu" >
+                    @csrf
+                    <li><input type="submit" value="Cerrar Sesión" class=""></li>
+                </form>
+            </li>
+        </ul>
+        <img src="{{asset('img/userLoggedIn.png')}}" class="loggedInImg">
     </header>
 
 
@@ -62,7 +76,6 @@
     </main>
 
 
-
     <footer class="footer">
         <h3 class="tradeMark">Melody™</h3>
         <p class="copyrigth"> Todos los derechos reservados - 2023. </p>
@@ -70,5 +83,9 @@
 
 
 </body>
+@endauth
 
+@guest
+<?php return view('auth.login')?>
+@endguest
 </html>

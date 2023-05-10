@@ -10,7 +10,6 @@ itagood
 @section('contenido')
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 @vite('resources/css/home.css')

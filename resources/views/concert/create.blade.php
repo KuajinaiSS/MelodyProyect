@@ -19,6 +19,7 @@ itagood
     <title>Crear concierto - Melody</title>
     @vite('resources/css/form.css')
 </head>
+@if(auth()->user()->rol === 1)
 <body>
     <div class="forms">
         <h2>¡Ingresa un concierto!</h2>
@@ -60,6 +61,10 @@ itagood
 
     </div>
 </body>
+@endif
+@if(auth()->user()->rol === 0)
+<?php return view('home')?>
+@endif
 </html>
 
 @endsection
