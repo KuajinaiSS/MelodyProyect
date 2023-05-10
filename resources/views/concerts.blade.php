@@ -20,13 +20,13 @@ itagood
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Inicio</title>
+    <title>Pagina inicio</title>
 </head>
 
 <body>
-    <img src="{{asset('img/marker.png')}}" class="marker" width="30" height="6">
     <section>
-        <h1> Recomendados </h1>
+        <h1> Buscar </h1>
+        <div class="container">
     </section>
 
     </div>

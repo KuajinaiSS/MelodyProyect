@@ -60,3 +60,8 @@ h4{
     border: none;
     border-radius: 15px;
 }
+
+.marker{
+    position: absolute;
+    transform: translate(0,-20px);
+}

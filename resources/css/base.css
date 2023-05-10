@@ -50,14 +50,13 @@ header {
 .header .nav-links li a:hover,
 .header .usuario:hover{
     color: #eeeeee;
-
 }
 
 
 .header .nav-links li {
     font-family: League Spartan;
     display: inline-block;
-    padding: 20px;
+
 
 }
 
@@ -110,7 +109,7 @@ a img{
 	width: auto;
     height: 50px;
 	background-color:  #232220;
-    margin-top: 20px;
+    margin-top: 18px;
 }
 
 .userLoggedIn li:hover .verticalMenu{

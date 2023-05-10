@@ -42,7 +42,7 @@
                 <li class="link">
                     <a href="{{route('concert.create')}}">
                         Crear Concierto
-                        <img src="{{asset('img/marker.png')}}" class="marker2" width="30" height="6">
+                        <img src="{{asset('img/marker.png')}}" class="marker3" width="30" height="6">
                     </a>
                 </li>
                 @endif
