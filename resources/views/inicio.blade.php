@@ -13,7 +13,7 @@ itagood
 
 <!DOCTYPE html>
 <html lang="en">
-<link href="{{ asset('assets/styles.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css">
 
 <head>
     <meta charset="UTF-8">
