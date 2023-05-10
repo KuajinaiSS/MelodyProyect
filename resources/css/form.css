@@ -1,0 +1,305 @@
+@font-face {
+    font-family: Helvetica World;
+    src: url('https://fonts.googleapis.com/css2?family=Arimo&display=swap') format('truetype');
+    font-family: League Spartan;
+    src: url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap') format('truetype');
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica World;
+    height: 100vh;
+    background-color: white;
+}
+
+.forms{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 400px;
+    background: white;
+    border-radius: 15px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d9d9d9;
+
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #017aeb;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.logoNombre{
+    margin-left: 5px;
+    font-family: League Spartan;
+    text-align: center;
+    color: white;
+}
+
+.img{
+    text-align: center;
+}
+
+.forms h2{
+    font-family: League Spartan;
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 10%;
+
+}
+
+.forms p{
+    text-align: center;
+    color: #545454;
+    font-size: 25px;
+}
+
+
+form .name{
+    padding: 0 40px;
+    width: 314px;
+    margin: 10px 0;
+}
+
+.name label{
+    margin: 0 13px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+
+.name input{
+    margin: 5px 0;
+    left: 50%;
+    text-indent: 10px;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color:#d9d9d9;
+    width: 100%;
+    height: 30px;
+}
+
+
+form .email{
+    padding: 0 40px;
+    width: 314px;
+    margin: 10px 0;
+}
+
+.email label{
+    margin: 0 13px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.email input{
+    margin: 5px 0;
+    left: 50%;
+    text-indent: 10px;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d9d9d9;
+    width: 100%;
+    height: 30px;
+}
+
+form .password{
+    padding: 0 40px;
+    width: 314px;
+    margin: 10px 0;
+}
+
+.password label{
+    margin: 0 13px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.password input{
+    margin: 5px 0;
+    left: 50%;
+    text-indent: 10px;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d9d9d9;
+    width: 100%;
+    height: 30px;
+}
+
+.register a{
+    margin-left: 13%;
+    font-size: 13px;
+    color: #545454;
+    text-decoration: none;
+}
+
+.register a:hover{
+    color: gray;
+}
+
+input[type="submit"]{
+    margin: 50px 0;
+    transform: translate(90px,0);
+    width: 220px;
+    height: 50px;
+    background: #017aeb;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #017aeb;
+
+
+    font-family: League Spartan;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+
+}
+
+input[type='submit']:hover{
+    background-color: #4DA3F4;
+    border-color: #4DA3F4;
+}
+
+
+form .name{
+    width: 314px;
+    padding: 0 40px;
+    margin: 10px 0;
+}
+
+.name label{
+    margin: 0 13px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.name input{
+    margin: 5px 0;
+    left: 50%;
+    text-indent: 10px;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d9d9d9;
+    width: 100%;
+    height: 30px;
+}
+
+form .price{
+    width: 314px;
+    padding: 0 40px;
+    margin: 10px 0;
+}
+
+.price label{
+    margin: 0 13px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.price input{
+    margin: 5px 0;
+    left: 50%;
+    text-indent: 10px;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d9d9d9;
+    width: 100%;
+    height: 30px;
+}
+
+form .stock{
+    width: 314px;
+    padding: 0 40px;
+    margin: 10px 0;
+}
+
+.stock label{
+    margin: 0 13px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.stock input{
+    margin: 5px 0;
+    left: 50%;
+    text-indent: 10px;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d9d9d9;
+    width: 100%;
+    height: 30px;
+}
+
+form .date{
+    width: 314px;
+    padding: 0 40px;
+    margin: 10px 0;
+}
+
+.date label{
+    margin: 0 13px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.date input{
+
+    margin: 5px 0;
+    left: 50%;
+    text-indent: 5px;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d9d9d9;
+    width: 100%;
+    height: 30px;
+}
+
+form .concertName{
+    padding: 0 40px;
+    width: 314px;
+    margin: 10px 0;
+}
+
+.concertName label{
+    margin: 0 13px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+
+.concertName input{
+    margin: 5px 0;
+    left: 50%;
+    text-indent: 10px;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color:#d9d9d9;
+    width: 100%;
+    height: 30px;
+}
+
+.errorMsg p{
+    font-family: League Spartan;
+    font-size: 12px;
+    color: rgba(245, 38, 38, 0.842);
+    text-align: center;
+
+
+}
