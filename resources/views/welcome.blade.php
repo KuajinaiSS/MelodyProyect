@@ -1,3 +1,14 @@
+@extends('layout.base')
+@section('tituloPestana')
+laravel
+@endsection
+
+@section('nombreUsuario')
+Laravel
+@endsection
+
+@section('contenido')
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -5,6 +16,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>gyilkosss</title>
+
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -138,3 +150,5 @@
         </div>
     </body>
 </html>
+
+@endsection

@@ -1,17 +1,14 @@
-<link href="{{ asset('assets/styles.css') }}" rel="stylesheet" type="text/css">
+@extends('layout.base');
 
-<head>
-    hola
-</head>
-
-
+@section('contenido')
+<link href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css">
 <form action="action_page.php">
 
 
     <body style="scale:.8">
         <div class="container">
 
-            <h1> <img src="assets/Logo-Melody.png" alt="Melody" width="60" height="60" align="center"> Melody</h1>
+            <h1> <img src= {{ asset('img/Logo-Melody.png') }} alt="Melody" width="60" height="60" align="center"> Melody</h1>
             <p align=center>¡Crea tu cuenta!</p>
 
 
@@ -33,7 +30,6 @@
 
 
     </body>
-    <footer>
-        <p> Melody. Derechos reservados 2023</p>
-    </footer>
 </form>
+
+@endsection

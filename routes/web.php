@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ConcertController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function (){
+Route::get('/', function () {
     return view('inicio');
 });
+
+
+/* RUTAS DE LOGIN */
+
+// ruta de login que retorna la vista "auth/login.blade.php"
+Route::get('login',[LoginController::class, 'index'])->name('viewLogin');
+
+
+/*  RUTAS DE REGISTER */
+
+// ruta de register que retorna la vista "auth/register.blade.php"
+Route::get('register',[RegisterController::class, 'index'])->name('viewRegister');
+
+
+/* RUTAS DE CONCERT */
+
+// ruta de concert que retorna la vista "concert/index.blade.php"
+Route::get('concert',[ConcertController::class, 'index'])->name('viewConcert');
+
+/* RUTAS DE INICIO*/
+
+
+Route::get('home',[HomeController::class, 'index'])->name('viewHome');
+
