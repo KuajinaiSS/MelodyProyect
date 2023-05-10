@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_persona');
+            $table->unsignedBigInteger('id_usuario');
             $table->unsignedBigInteger('id_concierto');
-            $table->foreign('id_persona')->references('id')->on('personas');
+            $table->foreign('id_usuario')->references('id')->on('usuarios');
             $table->foreign('id_concierto')->references('id')->on('conciertos');
             $table->integer('cantidad_entradas');
             $table->integer('valor_total');

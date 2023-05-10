@@ -2,9 +2,65 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Concierto;
 use Illuminate\Http\Request;
 
-class ConciertoController extends Controller
+class ConcertController extends Controller
 {
-    //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function index()
+    {
+        // Retornar al dashboard
+        return view('layouts.dashboard');
+    }
+
+    public function create()
+    {
+        return view('concerts.create');
+    }
+
+    public function store(Request $request)
+    {
+        // dd($request);
+        $messages = makeMessages();
+
+        // Validar
+        $this->validate($request, [
+            'name' => ['required', 'min:5'],
+            'price' => ['required', 'numeric', 'min:20000', 'max:2147483647'],
+            'stock' => ['required', 'numeric', 'between:100,400'],
+            'date' => ['required', 'date']
+        ], $messages);
+
+        //  Verificamos si la fecha ingresada es mayor a la fecha actual.
+        $invalidDate = validDate($request->date);
+        if ($invalidDate) {
+            return back()->with('message', 'La fecha debe ser mayor a ' . date("d-m-Y"));
+        }
+
+
+        // Verificar si en la fecha ingresada existe un concierto.
+        $existConcert = existConcertDay($request->date);
+        if ($existConcert) {
+            return back()->with('message', 'Ya existe un concierto para el dia ingresado');
+        }
+
+        // Crear Concierto
+        Concert::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'stock' => $request->stock,
+            'date' => $request->date,
+            'image' => "843392092f000"
+        ]);
+
+        // toastr()->success('El concierto fue creado con éxito', 'Concierto creado!');
+
+        return redirect()->route('dashboard');
+    }
 }

@@ -25,9 +25,9 @@
             <label for="psw"><b>CONTRASEÑA</b></label>
             <input type="password" placeholder=" " name="psw" id="psw" required>
             <div class="container signin">
-                <p>¿Ya tienes una cuenta? <a href="#">¡Inicia sesión aquí!</a>.</p>
+                <p>¿Ya tienes una cuenta? <a href="iniciarSesion">¡Inicia sesión aquí!</a>.</p>
             </div>
-            <button type="submit" class="registerbtn" href="iniciarSesion">REGISTRAR</button>
+            <button type="submit" class="registerbtn" href="{{ route('iniciarSesion') }}">REGISTRAR</button>
         </div>
 
 
