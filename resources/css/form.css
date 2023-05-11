@@ -175,30 +175,6 @@ form .password{
 }
 
 
-form .name{
-    width: 314px;
-    padding: 0 40px;
-    margin: 10px 0;
-}
-
-.name label{
-    margin: 0 13px;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-.name input{
-    margin: 5px 0;
-    left: 50%;
-    text-indent: 10px;
-    border-radius: 20px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #d9d9d9;
-    width: 100%;
-    height: 30px;
-}
-
 form .price{
     width: auto;
     padding: 0 40px;
@@ -311,3 +287,21 @@ form .concertName{
     position: absolute;
     transform: translate(415px,-45px);
 }
+
+.alert{
+    position: absolute;
+}
+
+.popupMessage{
+    font-family: League Spartan;
+    border-radius: 15px;
+    color:#545454;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d9d9d9;
+}
+
+.button{
+    font-family: League Spartan;
+}
+

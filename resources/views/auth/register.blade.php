@@ -61,9 +61,18 @@
             showCancelButton: true,
             confirmButtonColor: '#00c787',
             cancelButtonColor: '#FF5C77',
-            confirmButtonText: 'Enviar',
-            cancelButtonText: 'Cancelar',
+            confirmButtonText: 'ENVIAR',
+            cancelButtonText: 'CANCELAR',
             allowOutsideClick: false,
+            allowEscapeKey: false,
+            allowEnterKey: false,
+            customClass:{
+                container: 'alert',
+                popup: 'popupMessage',
+                confirmButton: 'button',
+                cancelButton: 'button',
+                input: 'input'
+            }
         }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {

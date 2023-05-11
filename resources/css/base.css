@@ -32,8 +32,9 @@ header {
     display: flex;
     align-items: center;
     height: auto;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
 }
+
 
 
 .header .logo {
@@ -169,5 +170,21 @@ a img{
 
 }
 
+.alert{
+    position: absolute;
+}
+
+.popupMessage{
+    font-family: League Spartan;
+    border-radius: 15px;
+    color:#545454;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d9d9d9;
+}
+
+.button{
+    font-family: League Spartan;
+}
 
 
