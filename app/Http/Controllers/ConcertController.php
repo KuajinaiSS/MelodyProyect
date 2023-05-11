@@ -2,63 +2,50 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Concert;
 use Illuminate\Http\Request;
 
 class ConcertController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        return view('concert.index');
-    }
+    public function create(){
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
         return view('concert.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    public function store(Request $request){
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        //Create Error message
+        $message = makeMessage();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+        //Validate inputs
+        $this->validate($request, [
+            'concertName'=> ['required','min:5'],
+            'price' => ['required','numeric','min:20000','max:2147483647'],
+            'stock' => ['required','numeric','between:100,400'],
+            'date' => ['required','date']
+        ], $message);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        //verify date format
+        $invalidDate = validDate($request->date);
+        if($invalidDate){
+            return back()->with('message', 'La fecha debe ser mayor a '. date("d-m-Y"));
+        }
+
+        $existConcert = existConcertDay($request->date);
+        if($existConcert){
+            return back()->with('message','Ya existe un concierto para el día ingresado');
+        }
+
+        Concert::create([
+            'concertName' => $request->concertName,
+            'price' => $request->price,
+            'stock' => $request->stock,
+            'date' => $request->date
+        ]);
+
+        dd('se creo el concierto');
+
+
     }
 }

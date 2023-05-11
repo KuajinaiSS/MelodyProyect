@@ -6,6 +6,7 @@
 }
 
 body{
+
     margin: 0;
     padding: 0;
     font-family: Helvetica World;
@@ -13,8 +14,8 @@ body{
     background-color: white;
 }
 
-.formulario{
-    position: absolute;
+.forms{
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -27,38 +28,48 @@ body{
 
 }
 
-.formulario h1{
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #017aeb;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.logoNombre{
+    margin-left: 5px;
     font-family: League Spartan;
     text-align: center;
     color: white;
-    background: #017aeb;
-    transform: translate(0,-24%);
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    height: 70px;
-    font-size: 25px;
-    text-shadow: #545454;
 }
 
-.formulario img{
-    transform: translate(0,25%);
+.img{
+    text-align: center;
 }
 
+.forms h2{
+    font-family: League Spartan;
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 10%;
 
-.formulario p{
-    transform: translate(0,-20px);
+}
+
+.forms p{
     text-align: center;
     color: #545454;
     font-size: 25px;
 }
 
 
-form .username{
+form .name{
     padding: 0 40px;
+    width: 314px;
     margin: 10px 0;
 }
 
-.username label{
+.name label{
     margin: 0 13px;
     font-size: 13px;
     font-weight: bold;
@@ -66,7 +77,7 @@ form .username{
 
 
 
-.username input{
+.name input{
     margin: 5px 0;
     left: 50%;
     text-indent: 10px;
@@ -81,6 +92,7 @@ form .username{
 
 form .email{
     padding: 0 40px;
+    width: 314px;
     margin: 10px 0;
 }
 
@@ -104,6 +116,7 @@ form .email{
 
 form .password{
     padding: 0 40px;
+    width: 314px;
     margin: 10px 0;
 }
 
@@ -137,13 +150,15 @@ form .password{
 }
 
 input[type="submit"]{
-    margin: 50px 25%;
-    width: auto;
+    margin: 50px 0;
+    transform: translate(90px,0);
+    width: 220px;
     height: 50px;
     background: #017aeb;
     border-radius: 30px;
     border-style: solid;
     border-color: #017aeb;
+
 
     font-family: League Spartan;
     font-size: 20px;
@@ -157,13 +172,9 @@ input[type='submit']:hover{
     border-color: #4DA3F4;
 }
 
-.errorMsg p{
-    font-size: 15px;
-    color: rgba(245, 38, 38, 0.842);
-}
-
 
 form .name{
+    width: 314px;
     padding: 0 40px;
     margin: 10px 0;
 }
@@ -187,6 +198,7 @@ form .name{
 }
 
 form .price{
+    width: auto;
     padding: 0 40px;
     margin: 10px 0;
 }
@@ -210,6 +222,7 @@ form .price{
 }
 
 form .stock{
+    width: auto;
     padding: 0 40px;
     margin: 10px 0;
 }
@@ -233,6 +246,7 @@ form .stock{
 }
 
 form .date{
+    width: auto;
     padding: 0 40px;
     margin: 10px 0;
 }
@@ -254,4 +268,39 @@ form .date{
     border-color: #d9d9d9;
     width: 100%;
     height: 30px;
+}
+
+form .concertName{
+    padding: 0 40px;
+    width: auto;
+    margin: 10px 0;
+}
+
+.concertName label{
+    margin: 0 13px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+
+.concertName input{
+    margin: 5px 0;
+    left: 50%;
+    text-indent: 10px;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color:#d9d9d9;
+    width: 100%;
+    height: 30px;
+}
+
+.errorMsg p{
+    font-family: League Spartan;
+    font-size: 12px;
+    color: rgba(245, 38, 38, 0.842);
+    text-align: center;
+
+
 }

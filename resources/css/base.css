@@ -1,0 +1,174 @@
+/* FUENTES */
+@font-face{
+    font-family: Helvetica World;
+    src: url('https://fonts.googleapis.com/css2?family=Arimo&display=swap') format('truetype');
+}
+
+@font-face{
+    font-family: League Spartan;
+    src: url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap') format('truetype');
+}
+
+
+/* HEADER */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+}
+
+header {
+    font-family: League Spartan;
+    background-color: #017AEB;
+    display: flex;
+    align-items: center;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+
+.header .logo {
+    margin-left: 15px;
+    margin-right: 20px;
+}
+
+.logoImg {
+    height: 50px;
+    width: auto;
+
+}
+
+.header .nav-links li a:hover,
+.header .usuario:hover{
+    color: #eeeeee;
+
+}
+
+
+.header .nav-links li {
+    font-family: League Spartan;
+    display: inline-block;
+    padding: 20px;
+
+}
+
+
+.header .nav-links a{
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+
+}
+
+a img{
+    scale: 0;
+}
+
+.userLoggedIn{
+    margin-left: auto;
+    margin-right: 10px;
+    list-style: none;
+    align-items: center;
+
+
+}
+
+.userLoggedIn li{
+    display: inline-block;
+    height: 20px;
+
+}
+
+.userLoggedIn > li > a {
+
+	color: white;
+	text-decoration: none;
+    padding: 30px 0px 30px 0px;
+    align-items: center;
+
+}
+
+.userLoggedIn > li >a :hover{
+    color: #eeeeee;
+}
+
+.verticalMenu{
+    position: absolute;
+	display: none;
+	list-style: none;
+	width: auto;
+    height: 50px;
+	background-color:  #232220;
+    margin-top: 20px;
+}
+
+.userLoggedIn li:hover .verticalMenu{
+    display: block;
+
+}
+
+.verticalMenu li:hover{
+   color: red;
+}
+
+.verticalMenu li input{
+    font-family: League Spartan;
+    display: block;
+    border: none;
+	color: white;
+	text-decoration: none;
+	padding: 15px 15px 15px 15px;
+    background-color: #232220;
+}
+.verticalMenu li input:hover{
+    color: #ababab;
+}
+
+.loggedInImg{
+    margin-right: 15px;
+    height: 40px;
+    width: auto;
+}
+
+
+/* FOOTER */
+.footer{
+    position: relative;
+    height: 80px;
+    background-color:#232220;
+    margin-top: 30px;
+    text-indent: 15px;
+    margin-bottom: 0;
+
+
+}
+.copyrigth{
+    font-family: Helvetica World;
+    font-size: 15px;
+    color: white;
+    margin-bottom: 20px;
+
+}
+
+.tradeMark{
+    font-family: League Spartan;
+    font-size: 20px;
+    margin-top: 15px;
+    color: white;
+    text-align: left;
+
+}
+
+
+

@@ -10,10 +10,9 @@ itagood
 @section('contenido')
 
 
-
 <!DOCTYPE html>
 <html lang="en">
-<link href="{{ asset('assets/styles.css') }}" rel="stylesheet" type="text/css">
+@vite('resources/css/home.css')
 
 <head>
     <meta charset="UTF-8">
