@@ -1,6 +1,7 @@
 @font-face {
     font-family: Helvetica World;
     src: url('https://fonts.googleapis.com/css2?family=Arimo&display=swap') format('truetype');
+
     font-family: League Spartan;
     src: url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap') format('truetype');
 }
@@ -25,6 +26,7 @@ body{
     border-width: 1px;
     border-style: solid;
     border-color: #d9d9d9;
+    margin-bottom: 30px;
 
 }
 
@@ -303,4 +305,9 @@ form .concertName{
     text-align: center;
 
 
+}
+
+.marker{
+    position: absolute;
+    transform: translate(415px,-45px);
 }

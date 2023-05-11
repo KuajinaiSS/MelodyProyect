@@ -26,77 +26,29 @@ itagood
 <body>
     <img src="{{asset('img/marker.png')}}" class="marker" width="30" height="6">
     <section>
-        <h1> Recomendados </h1>
+        <h1 class="recomended"> Recomendados </h1>
     </section>
 
     </div>
-    <div class="container">
+    @if($concerts->count() === 0)
+        <h3 class="noConcerts">No hay conciertos disponibles</h3>
+    @endif
 
-        <div>
+    @if ($concerts->count() > 0)
+        <div class="container">
+        @foreach ($concerts as $concert)
+        <div class="content">
             <img src="{{ asset('img/ticket.png') }}" alt="Concierto" width="150" height="150" align="center">
-            <h2>The Weeknd</h2>
-            <h3>"Super Bowl Half Time Show"</h3>
-            <p>25 Abril 2023</p>
-            <p>Valor: $30.000 CLP</p>
-            <p>Entradas Disponibles: 300</p>
+            <h2 class="concertName">{{$concert->concertName}}</h2>
+            <p class="date">{{$concert->date}}</p>
+            <p class="price">Valor: ${{$concert->price}} CLP</p>
+            <p class="stock">Entradas Disponibles: {{$concert->stock}}</p>
 
             <button class="buttonBuy">COMPRAR</button>
         </div>
+        @endforeach
+    @endif
 
-        <div>
-            <img src="{{ asset('img/ticket.png') }}" alt="Concierto" width="150" height="150" align="center">
-            <h2>Chancho en Piedra</h2>
-            <h3>"Grandes exitos de ayer y oink!"</h3>
-            <p>30 Septiembre 2023</p>
-            <p>Valor: $10.000 CLP</p>
-            <p>Entradas Disponibles: 1000</p>
-
-            <button class="buttonBuy">COMPRAR</button>
-        </div>
-
-        <div>
-            <img src="{{ asset('img/ticket.png') }}" alt="Concierto" width="150" height="150" align="center">
-            <h2>Los Jaivas</h2>
-            <h3>"Super Bowl Half Time Show"</h3>
-            <p>18 Septiembre 2023</p>
-            <p>Valor: $15.000 CLP</p>
-            <p>Entradas Disponibles: 300</p>
-
-            <button class="buttonBuy">COMPRAR</button>
-        </div>
-
-        <div>
-            <img src="{{ asset('img/ticket.png') }}" alt="Concierto" width="150" height="150 align="center">
-            <h2>Lollapalooza</h2>
-            <h3>"2023 EDITION"</h3>
-            <p>15 Julio 2023</p>
-            <p>Valor: $100.000 CLP</p>
-            <p>Entradas Disponibles: 0</p>
-
-            <button class="buttonSpend">AGOTADO</button>
-        </div>
-
-        <div>
-            <img src="{{ asset('img/ticket.png') }}" alt="Concierto" width="150" height="150" align="center">
-            <h2>Chico Trujillo</h2>
-            <h3>"European Invasion"</h3>
-            <p>20 Junio 2023</p>
-            <p>Valor: $50.000 CLP</p>
-            <p>Entradas Disponibles: 100</p>
-
-            <button class="buttonBuy">COMPRAR</button>
-        </div>
-
-        <div>
-            <img src="{{ asset('img/ticket.png') }}" alt="Concierto" width="150" height="150" align="center">
-            <h2> Calvin Harris</h2>
-            <h3> "Sunny Hill Festival"</h3>
-            <p>58 Febrero 2024</p>
-            <p>Valor: $150.000 CLP</p>
-            <p>Entradas Disponibles: 0</p>
-
-            <button class="buttonSpend">AGOTADO</button>
-        </div>
     </div>
 </html>
 @endauth

@@ -17,6 +17,8 @@ class ConcertController extends Controller
         //Create Error message
         $message = makeMessage();
 
+
+
         //Validate inputs
         $this->validate($request, [
             'concertName'=> ['required','min:5'],

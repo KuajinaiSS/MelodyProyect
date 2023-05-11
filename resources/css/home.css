@@ -1,67 +1,103 @@
-h1{
-    text-align: center;
-    font-size: 50px;
+@font-face {
+    font-family: Helvetica World;
+    src: url('https://fonts.googleapis.com/css2?family=Arimo&display=swap') format('truetype');
+    font-family: League Spartan;
+    src: url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap') format('truetype');
 }
-h2{
+
+
+
+.recomended{
+    margin-top: 30px;
+    font-family: League Spartan;
     text-align: center;
-    font-size: 35px;
+    font-size: 30px;
 }
-h3{
+
+.concertName{
+    font-family: League Spartan;
     text-align: center;
     font-size: 25px;
 }
-h4{
+
+.date{
+    font-family: Helvetica World;
     text-align: center;
-    font-size: 50px;
+    font-size: 20px;
 }
+
+.price{
+    font-family: Helvetica World;
+    text-align: center;
+    font-size: 20px;
+}
+.stock{
+    font-family: Helvetica World;
+    text-align: center;
+    font-size: 20px;
+}
+
+
 .container {
+    justify-content: center;
     display: grid;
     grid-template-columns: auto auto auto;
     gap: 100px;
-    padding: 25px;
-
+    margin-top: 40px;
 }
-.container > div {
-    background-color: rgba(255, 255, 255, 0.8);
+.container .content {
+
+    background-color: white;
     text-align: center;
     font-size: 25px;
+    width: 400px;
+    height: 400px;
 }
 .buttonBuy {
+    margin-top: 30px;
+    font-family: League Spartan;
     display: inline-block;
     padding: 15px 25px;
     font-size: 30px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
-    outline: black;
     color: #fff;
     background-color: #00c787;
     border: none;
-    border-radius: 15px;
+    border-radius: 40px;
 }
 
-.buttonBuy:hover {background-color: #45b67e}
+.buttonBuy:hover {background-color: #01b179}
 
 .buttonBuy:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px #666;
+    background-color: #009e6c;
     transform: translateY(4px);
 }
 .buttonSpend {
+    margin-top: 20px;
+    font-family: League Spartan;
     display: inline-block;
     padding: 15px 25px;
     font-size: 30px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
-    outline: black;
     color: #fff;
     background-color: #232220;
     border: none;
-    border-radius: 15px;
+    border-radius: 40px;
 }
 
 .marker{
     position: absolute;
-    transform: translate(0,-20px);
+    transform: translate(103px,-45px);
+}
+
+.noConcerts{
+    margin-top: 50px;
+    text-align: center;
+    font-family: Helvetica World;
+    font-size: 30px;
+    font-weight: normal;
 }

@@ -24,6 +24,7 @@ itagood
 </head>
 @if(auth()->user()->rol === 1)
 <body>
+    <img src="{{asset('img/marker.png')}}" class="marker" width="30" height="6">
     <div class="forms">
         <h2>¡Ingresa un concierto!</h2>
         <form action="{{route('concert')}}" method="POST" novalidate>
