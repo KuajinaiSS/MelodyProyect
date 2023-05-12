@@ -26,7 +26,9 @@ Crear Concierto
         <h2>¡Ingresa un concierto!</h2>
         <form id="form" action="{{route('concert')}}" method="POST" novalidate>
             @csrf
-
+            @if (session('confirmMessage'))
+                <div class="confirmMsg"><p>{{session('confirmMessage')}}</p></div>
+            @endif
             <div class="concertName">
                 <div><label>NOMBRE DEL CONCIERTO</label></div>
                 <input id="concertName" name="concertName" type="text">

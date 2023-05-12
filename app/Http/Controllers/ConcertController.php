@@ -46,7 +46,7 @@ class ConcertController extends Controller
             'date' => $request->date
         ]);
 
-        return back()->with('message','Concierto creado con exito');
+        return back()->with('confirmMessage','Concierto creado con exito');
 
 
     }
