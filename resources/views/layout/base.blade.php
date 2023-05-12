@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="{{asset('img/melodyLogo.png')}}">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.all.min.js"></script>
-    <title>Melody - @yield('tituloPestana')</title>
+    <title>@yield('tabTittle') - Melody</title>
     @vite('resources/css/base.css')
 </head>
 
@@ -63,7 +63,7 @@
          * Aqui va el contenido principal de la pagina (main).
          */
         ?>
-        @yield('contenido')
+        @yield('content')
 
     </main>
 

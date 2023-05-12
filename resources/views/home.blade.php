@@ -1,13 +1,9 @@
 @extends('layout.base')
-@section('tituloPestana')
+@section('tabTittle')
 Inicio
 @endsection
 
-@section('nombreUsuario')
-itagood
-@endsection
-
-@section('contenido')
+@section('content')
 
 @auth
 
@@ -43,8 +39,15 @@ itagood
             <p class="date">{{$concert->date}}</p>
             <p class="price">Valor: ${{$concert->price}} CLP</p>
             <p class="stock">Entradas Disponibles: {{$concert->stock}}</p>
+            @if(auth()->user()->rol === 0)
+                @if ($concert->stock > 0)
+                    <button class="buttonBuy">COMPRAR</button>
+                @endif
+                @if ($concert->stock === 0)
+                    <button class="buttonSpend" disabled>AGOTADO</button>
+                @endif
+            @endif
 
-            <button class="buttonBuy">COMPRAR</button>
         </div>
         @endforeach
     @endif

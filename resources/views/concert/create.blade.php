@@ -1,13 +1,10 @@
 @extends('layout.base')
-@section('tituloPestana')
+@section('tabTittle')
 Crear Concierto
 @endsection
 
-@section('nombreUsuario')
-itagood
-@endsection
 
-@section('contenido')
+@section('content')
 
 @auth
 
@@ -25,7 +22,7 @@ itagood
 @if(auth()->user()->rol === 1)
 <body>
     <img src="{{asset('img/marker.png')}}" class="marker" width="30" height="6">
-    <div class="forms">
+    <div class="concertForms">
         <h2>¡Ingresa un concierto!</h2>
         <form id="form" action="{{route('concert')}}" method="POST" novalidate>
             @csrf

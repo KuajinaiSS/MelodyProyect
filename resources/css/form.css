@@ -16,7 +16,14 @@ body{
 }
 
 .forms{
+    position: absolute;
+}
+
+.concertForms{
     position: relative;
+}
+
+.concertForms, .forms{
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -50,7 +57,7 @@ body{
     text-align: center;
 }
 
-.forms h2{
+.forms h2, .concertForms h2{
     font-family: League Spartan;
     text-align: center;
     margin-top: 5%;
@@ -285,7 +292,7 @@ form .concertName{
 
 .marker{
     position: absolute;
-    transform: translate(415px,-45px);
+    transform: translate(415px,-70px);
 }
 
 .alert{
@@ -293,6 +300,7 @@ form .concertName{
 }
 
 .popupMessage{
+
     font-family: League Spartan;
     border-radius: 15px;
     color:#545454;

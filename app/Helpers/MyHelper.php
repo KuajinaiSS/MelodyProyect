@@ -20,6 +20,7 @@ function makeMessage(){
         'price.required' => 'Debe completar el campo "Precio"',
         'price.numeric' => 'El valor ingresado no es numérico',
         'price.min' => 'El valor de la entrada no puede ser inferior a $20.000 pesos',
+        'price.max' => 'El valor ingresado no es valido',
         'stock.required' => 'Debe completar el campo "Stock"',
         'stock.numeric' => 'El valor ingresado no es numérico o es inferior a 100 y superior a 400',
         'stock.between' => 'El valor ingresado no es numérico o es inferior a 100 y superior a 400',
