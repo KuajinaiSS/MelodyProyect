@@ -14,7 +14,7 @@
 
 <body>
     <header class="header">
-        <div class="logo">
+        <div class="headerLogo">
             <img src="{{asset('img/melodyLogo.png')}}" class="logoImg">
         </div>
 
