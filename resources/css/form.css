@@ -295,14 +295,14 @@ form .concertName{
 
 .errorMsg p{
     font-family: League Spartan;
-    font-size: 12px;
+    font-size: 15px;
     color: rgba(245, 38, 38, 0.842);
     text-align: center;
 }
 
 .confirmMsg{
     font-family: League Spartan;
-    font-size: 15px;
+    font-size: 12px;
     color: #00c787;
     text-align: center;
 }
