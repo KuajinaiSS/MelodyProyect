@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ConcertController;
 use App\Http\Controllers\RegisterController;
 
@@ -18,29 +19,26 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', function () {
-    return view('inicio');
+    return redirect()->route('login');
 });
 
 
-/* RUTAS DE LOGIN */
+// register route
+Route::get('register',[RegisterController::class, 'index'])->name('register');
+Route::post('register',[RegisterController::class, 'store']);
 
-// ruta de login que retorna la vista "auth/login.blade.php"
-Route::get('login',[LoginController::class, 'index'])->name('viewLogin');
+// login route
+Route::get('login', [LoginController::class, 'index'])->name('login');
+Route::post('login', [LoginController::class, 'store']);
 
-
-/*  RUTAS DE REGISTER */
-
-// ruta de register que retorna la vista "auth/register.blade.php"
-Route::get('register',[RegisterController::class, 'index'])->name('viewRegister');
-
-
-/* RUTAS DE CONCERT */
-
-// ruta de concert que retorna la vista "concert/index.blade.php"
-Route::get('concert',[ConcertController::class, 'index'])->name('viewConcert');
-
-/* RUTAS DE INICIO*/
+//logout route
+Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
 
+// concert route
+Route::get('concert_create',[ConcertController::class, 'create'])->name('concert.create');
+Route::post('concert_create',[ConcertController::class, 'store'])->name('concert');
+
+// home routes
 Route::get('home',[HomeController::class, 'index'])->name('viewHome');
 

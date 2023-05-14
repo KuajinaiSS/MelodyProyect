@@ -9,11 +9,12 @@ itagood
 
 @section('contenido')
 
+@auth
 
 
 <!DOCTYPE html>
 <html lang="en">
-<link href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css">
+@vite('resources/css/home.css')
 
 <head>
     <meta charset="UTF-8">
@@ -24,7 +25,7 @@ itagood
 
 <body>
     <section>
-        <h1> Recomendados </h1>
+        <h1> Buscar </h1>
         <div class="container">
     </section>
 
@@ -98,5 +99,6 @@ itagood
         </div>
     </div>
 </html>
+@endauth
 
 @endsection

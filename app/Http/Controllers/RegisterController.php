@@ -1,64 +1,48 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
+    public function index(){
+
         return view('auth.register');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function show()
     {
-        //
+        return view('formulario');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    public function store(Request $request){
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        $message = makeMessage();
+        //validate
+        $this->validate($request, [
+            'name' => ['required','min:3', 'regex:/^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/'],
+            'email' => ['required', 'email','unique:users'],
+            'password' => ['required','min:8','regex:/^(?=.*[a-zA-Z])(?=.*\d).+$/'],
+        ],$message);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+        //Create user
+        User::create([
+            'name' => $request->name,
+            'email' => Str::lower($request->email),
+            'password' => Hash::make($request->password),
+        ]);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+        //Auth user
+        auth()->attempt([
+            'email' => $request->email,
+            'password' => $request->password,
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+
+        //redirect
+        return redirect()->route('viewHome');
     }
 }
