@@ -103,10 +103,22 @@
     transform: translate(105px,-75px);
 }
 
+.marker2{
+    position: absolute;
+    transform: translate(240px,-75px);
+}
+
 .noConcerts{
     margin-top: 50px;
     text-align: center;
     font-family: Helvetica World;
     font-size: 30px;
     font-weight: normal;
+}
+
+.expImg{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }

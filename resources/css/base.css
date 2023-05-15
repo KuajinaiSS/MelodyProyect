@@ -156,9 +156,8 @@ a img{
     background-color:#232220;
     margin-top: auto;
     text-indent: 15px;
-    bottom: 0;
-
-
+    bottom: 0%;
+    width: 100%;
 }
 .copyrigth{
     font-family: Helvetica World;
@@ -178,10 +177,11 @@ a img{
 }
 
 .alert{
-    position: absolute;
+    position: relative;
 }
 
 .popupMessage{
+    position: relative;
     font-family: League Spartan;
     border-radius: 15px;
     color:#545454;

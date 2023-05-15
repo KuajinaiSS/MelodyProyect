@@ -20,7 +20,7 @@ Inicio
 </head>
 
 <body>
-    <img src="{{asset('img/marker.png')}}" class="marker" width="30" height="6">
+    <img src="{{asset('img/marker.png')}}" class="marker" width="25" height="6">
     <section>
         <h1 class="recomended"> Recomendados </h1>
     </section>

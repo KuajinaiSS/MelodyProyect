@@ -27,7 +27,7 @@
 
                 </li>
                 <li class="link">
-                    <a href="#concerts">
+                    <a href="{{route('concerts')}}">
                         Conciertos
                     </a>
                 </li>

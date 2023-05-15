@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class ConcertController extends Controller
 {
+    public function index(){
+        $concerts = Concert::getConcerts();
+        return view('concerts',[
+            'concerts' => $concerts
+        ]);
+    }
+
     public function create(){
 
         return view('concert.create');
