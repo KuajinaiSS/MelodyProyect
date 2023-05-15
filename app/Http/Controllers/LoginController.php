@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -16,14 +17,14 @@ class LoginController extends Controller
         // Validate
         $this->validate($request, [
             'email' => ['required', 'email'],
-            'password' => ['required', 'min:8']
+            'password' => ['required']
         ], $message);
 
-        // Se intenta validar al usuario
+        // tryng to validate user
         if (!auth()->attempt($request->only('email', 'password'), $request->remember)) {
-            return back()->with('message', 'Los datos ingresados son incorrectos');
+            return back()->with('message', 'Usuario no registrado o contraseña incorrecta ');
         }
 
-        return redirect()->route('dashboard');
+        return redirect()->route('viewHome');
     }
 }

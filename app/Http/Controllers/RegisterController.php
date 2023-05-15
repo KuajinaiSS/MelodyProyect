@@ -36,13 +36,13 @@ class RegisterController extends Controller
         ]);
 
         //Auth user
-        /*auth()->attempt([
+        auth()->attempt([
             'email' => $request->email,
             'password' => $request->password,
-        ]);*/
+        ]);
 
 
         //redirect
-        dd('Se registro el usuario');
+        return redirect()->route('viewHome');
     }
 }

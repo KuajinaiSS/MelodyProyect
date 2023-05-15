@@ -7,15 +7,24 @@ use Illuminate\Http\Request;
 
 class ConcertController extends Controller
 {
+    public function index(){
+        $concerts = Concert::getConcerts();
+        return view('concerts',[
+            'concerts' => $concerts
+        ]);
+    }
+
     public function create(){
 
-        return view('concerts.create');
+        return view('concert.create');
     }
 
     public function store(Request $request){
 
         //Create Error message
         $message = makeMessage();
+
+
 
         //Validate inputs
         $this->validate($request, [
@@ -44,7 +53,7 @@ class ConcertController extends Controller
             'date' => $request->date
         ]);
 
-        dd('se creo el concierto');
+        return back()->with('confirmMessage','Concierto creado con exito');
 
 
     }
