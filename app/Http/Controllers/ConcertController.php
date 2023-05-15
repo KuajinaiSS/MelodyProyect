@@ -28,7 +28,7 @@ class ConcertController extends Controller
 
         //Validate inputs
         $this->validate($request, [
-            'concertName'=> ['required','min:5'],
+            'concertName'=> ['required','min:5','max:2147483648'],
             'price' => ['required','numeric','min:20000','max:2147483647'],
             'stock' => ['required','numeric','between:100,400'],
             'date' => ['required','date']
