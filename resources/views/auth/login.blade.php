@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ asset('img/MelodyLogo.png') }}">
     <title>Inciar sesión - Melody</title>
+
     @vite('resources/css/form.css')
 </head>
 
@@ -42,8 +43,8 @@
                     </div>
                 @enderror
             </div>
-            <div class="register"><a href="{{ route('register') }}">¿No tienes cuenta? ¡Registrate aquí!</a></div>
-            <input type="submit" value="INGRESAR">
+            <div class="register"><a href="{{ route('register') }}">¿No tienes cuenta? ¡Regístrate aquí!</a></div>
+            <input type="submit" value="INGRESAR" class="store">
         </form>
 
     </div>

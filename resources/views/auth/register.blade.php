@@ -1,67 +1,95 @@
-@extends('layout.base');
+<!DOCTYPE html>
+<html lang="es">
 
-@section('contenido')
-    <link href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css">
-    <form action="action_page.php">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ asset('img/MelodyLogo.png') }}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <title>Crear cuenta - Melody</title>
 
+    @vite('resources/css/form.css')
+</head>
 
-        <body style="scale:.8">
-            <div class="container">
-
-                <h1> <img src={{ asset('img/Logo-Melody.png') }} alt="Melody" width="60" height="60" align="center">
-                    Melody</h1>
-                <p align=center>¡Crea tu cuenta!</p>
-
-
-                <label for="email"><b>NOMBRE DE USUARIO</b></label>
-                <input type="text" placeholder=" " name="usuario" id="email" required>
-
-                <label for="email"><b>CORREO ELECTRÓNICO</b></label>
-                <input type="text" placeholder=" " name="email" id="email" required>
-
-
-                <label for="psw"><b>CONTRASEÑA</b></label>
-                <input type="password" placeholder=" " name="psw" id="psw" required>
-                <div class="container signin">
-                    <p>¿Ya tienes una cuenta? <a href="iniciarSesion">¡Inicia sesión aquí!</a>.</p>
-                </div>
-                <button type="submit" class="registerbtn" href="{{ route('iniciarSesion') }}">REGISTRAR</button>
+<body>
+    <div class="forms">
+        <div class="logo">
+            <img src="{{ asset('img/MelodyLogo.png') }}" class="img" width="45" height="45">
+            <h1 class="logoNombre">Melody</h1>
+        </div>
+        <p>¡Crea tu cuenta!</p>
+        <form id="form" action="{{ route('register') }}" method="POST" novalidate>
+            @csrf
+            <div class="name">
+                <div><label>NOMBRE</label></div>
+                <input id="name" name="name" type="text" width="400px">
+                @error('name')
+                    <div class="errorMsg">
+                        <p>{{ $message }}</p>
+                    </div>
+                @enderror
             </div>
-            <p>¡Crea tu cuenta!</p>
-            <form action="{{ route('register') }}" method="POST" novalidate>
-                @csrf
-                <div class="name">
-                    <div><label>NOMBRE</label></div>
-                    <input id="name" name="name" type="text" width="400px">
-                    @error('name')
-                        <div class="errorMsg">
-                            <p>{{ $message }}</p>
-                        </div>
-                    @enderror
-                </div>
-                <div class="email">
-                    <div><label>CORREO ELECTRÓNICO</label></div>
-                    <input id="email" name="email" type="text">
-                    @error('email')
-                        <div class="errorMsg">
-                            <p>{{ $message }}</p>
-                        </div>
-                    @enderror
-                </div>
-                <div class="password">
-                    <div><label>CONTRASEÑA</label></div>
-                    <input id="password" name="password" type="password">
-                    @error('password')
-                        <div class="errorMsg">
-                            <p>{{ $message }}</p>
-                        </div>
-                    @enderror
-                </div>
-                <div class="register"><a href="{{ route('login') }}">¿Ya tienes cuenta? ¡Inicia sesión aquí!</a></div>
-                <input type="submit" value="REGISTRAR">
-            </form>
-
+            <div class="email">
+                <div><label>CORREO ELECTRÓNICO</label></div>
+                <input id="email" name="email" type="text">
+                @error('email')
+                    <div class="errorMsg">
+                        <p>{{ $message }}</p>
+                    </div>
+                @enderror
             </div>
-        </body>
+            <div class="password">
+                <div><label>CONTRASEÑA</label></div>
+                <input id="password" name="password" type="password">
+                @error('password')
+                    <div class="errorMsg">
+                        <p>{{ $message }}</p>
+                    </div>
+                @enderror
+            </div>
+            <div class="register"><a href="{{ route('login') }}">¿Ya tienes cuenta? ¡Inicia sesión aquí!</a></div>
+            <input id="button" type="button" value="REGISTRAR" class="store">
+        </form>
 
-        </html>
+    </div>
+</body>
+
+<script>
+    // Aqui va nuestro script de sweetalert
+    const button = document.getElementById("button");
+    const form = document.getElementById("form");
+
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        Swal.fire({
+            title: '¿Estás seguro que quieres enviar estos datos?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#00c787',
+            cancelButtonColor: '#FF5C77',
+            confirmButtonText: 'ACEPTAR',
+            cancelButtonText: 'CANCELAR',
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            allowEnterKey: false,
+            customClass: {
+                container: 'alert',
+                popup: 'popupMessage',
+                confirmButton: 'button',
+                cancelButton: 'button',
+                input: 'input'
+            }
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                form.submit();
+            }
+        })
+    })
+</script>
+
+
+
+</html>

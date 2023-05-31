@@ -1,62 +1,124 @@
-h1{
-    text-align: center;
-    font-size: 50px;
+@font-face {
+    font-family: 'Helvetica World';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/arimo/v28/P5sfzZCDf9_T_3cV7NCUECyoxNk37cxcABrBdwEoaQ.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-h2{
-    text-align: center;
-    font-size: 35px;
+
+@font-face {
+    font-family: 'League Spartan';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/leaguespartan/v11/kJEnBuEW6A0lliaV_m88ja5Twtx8BWhtkDVmjZvMGYPZA81d.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-h3{
+
+.recomended{
+    margin-top: 30px;
+    font-family: League Spartan;
+    text-align: center;
+    font-size: 30px;
+}
+
+.concertName{
+    font-family: League Spartan;
     text-align: center;
     font-size: 25px;
 }
-h4{
+
+.date{
+    font-family: Helvetica World;
     text-align: center;
-    font-size: 50px;
+    font-size: 20px;
 }
+
+.price{
+    font-family: Helvetica World;
+    text-align: center;
+    font-size: 20px;
+}
+.stock{
+    font-family: Helvetica World;
+    text-align: center;
+    font-size: 20px;
+}
+
+
 .container {
+    justify-content: center;
     display: grid;
     grid-template-columns: auto auto auto;
     gap: 100px;
-    padding: 25px;
-
+    margin-top: 40px;
 }
-.container > div {
-    background-color: rgba(255, 255, 255, 0.8);
+.container .content {
+
+    background-color: white;
     text-align: center;
     font-size: 25px;
+    width: 400px;
+    height: 400px;
 }
 .buttonBuy {
+    margin-top: 30px;
+    font-family: League Spartan;
     display: inline-block;
     padding: 15px 25px;
     font-size: 30px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
-    outline: black;
     color: #fff;
     background-color: #00c787;
     border: none;
-    border-radius: 15px;
+    border-radius: 40px;
 }
 
-.buttonBuy:hover {background-color: #45b67e}
+.buttonBuy:hover {background-color: #01b179}
 
 .buttonBuy:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px #666;
+    background-color: #009e6c;
     transform: translateY(4px);
 }
 .buttonSpend {
+    margin-top: 30px;
+    font-family: League Spartan;
     display: inline-block;
     padding: 15px 25px;
     font-size: 30px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
-    outline: black;
     color: #fff;
     background-color: #232220;
     border: none;
-    border-radius: 15px;
+    border-radius: 40px;
+}
+
+.marker{
+    position: absolute;
+    transform: translate(105px,-75px);
+}
+
+.marker2{
+    position: absolute;
+    transform: translate(240px,-75px);
+}
+
+.noConcerts{
+    margin-top: 50px;
+    text-align: center;
+    font-family: Helvetica World;
+    font-size: 30px;
+    font-weight: normal;
+}
+
+.expImg{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }

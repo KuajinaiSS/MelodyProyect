@@ -19,7 +19,7 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return redirect()->route('login');
 });
 
 
@@ -36,8 +36,10 @@ Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
 
 // concert route
+Route::get('concerts',[ConcertController::class, 'index'])->name('concerts');
 Route::get('concert_create',[ConcertController::class, 'create'])->name('concert.create');
 Route::post('concert_create',[ConcertController::class, 'store'])->name('concert');
+
 
 // home routes
 Route::get('home',[HomeController::class, 'index'])->name('viewHome');

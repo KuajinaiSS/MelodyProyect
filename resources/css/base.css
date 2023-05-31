@@ -1,14 +1,21 @@
 /* FUENTES */
-@font-face{
-    font-family: Helvetica World;
-    src: url('https://fonts.googleapis.com/css2?family=Arimo&display=swap') format('truetype');
+@font-face {
+    font-family: 'Helvetica World';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/arimo/v28/P5sfzZCDf9_T_3cV7NCUECyoxNk37cxcABrBdwEoaQ.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-@font-face{
-    font-family: League Spartan;
-    src: url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap') format('truetype');
+@font-face {
+    font-family: 'League Spartan';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/leaguespartan/v11/kJEnBuEW6A0lliaV_m88ja5Twtx8BWhtkDVmjZvMGYPZA81d.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-
 
 /* HEADER */
 
@@ -32,11 +39,12 @@ header {
     display: flex;
     align-items: center;
     height: auto;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
 }
 
 
-.header .logo {
+
+.header .headerLogo {
     margin-left: 15px;
     margin-right: 20px;
 }
@@ -50,20 +58,19 @@ header {
 .header .nav-links li a:hover,
 .header .usuario:hover{
     color: #eeeeee;
-
 }
 
 
 .header .nav-links li {
     font-family: League Spartan;
     display: inline-block;
-    padding: 20px;
+    margin-right: 20px;
 
 }
 
 
 .header .nav-links a{
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
     color: white;
     text-decoration: none;
@@ -80,7 +87,7 @@ a img{
     margin-right: 10px;
     list-style: none;
     align-items: center;
-
+    font-size: 20px;
 
 }
 
@@ -104,13 +111,14 @@ a img{
 }
 
 .verticalMenu{
+
     position: absolute;
 	display: none;
 	list-style: none;
 	width: auto;
     height: 50px;
 	background-color:  #232220;
-    margin-top: 20px;
+    margin-top: 18px;
 }
 
 .userLoggedIn li:hover .verticalMenu{
@@ -118,12 +126,11 @@ a img{
 
 }
 
-.verticalMenu li:hover{
-   color: red;
-}
 
-.verticalMenu li input{
+
+.verticalMenu li .logout{
     font-family: League Spartan;
+    font-size: 18px;
     display: block;
     border: none;
 	color: white;
@@ -131,7 +138,7 @@ a img{
 	padding: 15px 15px 15px 15px;
     background-color: #232220;
 }
-.verticalMenu li input:hover{
+.verticalMenu li .logout:hover{
     color: #ababab;
 }
 
@@ -147,15 +154,14 @@ a img{
     position: relative;
     height: 80px;
     background-color:#232220;
-    margin-top: 30px;
+    margin-top: auto;
     text-indent: 15px;
-    margin-bottom: 0;
-
-
+    bottom: 0%;
+    width: 100%;
 }
 .copyrigth{
     font-family: Helvetica World;
-    font-size: 15px;
+    font-size: 18px;
     color: white;
     margin-bottom: 20px;
 
@@ -163,12 +169,29 @@ a img{
 
 .tradeMark{
     font-family: League Spartan;
-    font-size: 20px;
+    font-size: 25px;
     margin-top: 15px;
     color: white;
     text-align: left;
 
 }
 
+.alert{
+    position: relative;
+}
+
+.popupMessage{
+    position: relative;
+    font-family: League Spartan;
+    border-radius: 15px;
+    color:#545454;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d9d9d9;
+}
+
+.button{
+    font-family: League Spartan;
+}
 
 

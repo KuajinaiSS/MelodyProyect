@@ -6,20 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{asset('img/melodyLogo.png')}}">
-
-    <?php
-    /**
-     * Aqui va el titulo de la pestaña.
-     */
-    ?>
-    <title>Melody - @yield('tituloPestana')</title>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <title>@yield('tabTittle') - Melody</title>
     @vite('resources/css/base.css')
 </head>
 
 <body>
     <header class="header">
-        <div class="logo">
+        <div class="headerLogo">
             <img src="{{asset('img/melodyLogo.png')}}" class="logoImg">
         </div>
 
@@ -28,21 +23,18 @@
                 <li class="link">
                     <a href="{{route('viewHome')}}">
                         Inicio
-                        <img src="{{asset('img/marker.png')}}" class="marker1" width="30" height="6">
                     </a>
 
                 </li>
                 <li class="link">
-                    <a href="#concerts">
+                    <a href="{{route('concerts')}}">
                         Conciertos
-                        <img src="{{asset('img/marker.png')}}" class="marker2" width="30" height="6">
                     </a>
                 </li>
                 @if(auth()->user()->rol === 1)
                 <li class="link">
                     <a href="{{route('concert.create')}}">
                         Crear Concierto
-                        <img src="{{asset('img/marker.png')}}" class="marker2" width="30" height="6">
                     </a>
                 </li>
                 @endif
@@ -56,7 +48,7 @@
                 </a>
                 <form action="{{route('logout')}}" method="POST" class="verticalMenu" >
                     @csrf
-                    <li><input type="submit" value="Cerrar Sesión" class=""></li>
+                    <li><input type="submit" value="Cerrar Sesión" class="logout"></li>
                 </form>
             </li>
         </ul>
@@ -71,7 +63,7 @@
          * Aqui va el contenido principal de la pagina (main).
          */
         ?>
-        @yield('contenido')
+        @yield('content')
 
     </main>
 
@@ -86,6 +78,6 @@
 @endauth
 
 @guest
-<?php return view('auth.login')?>
+<meta http-equiv="refresh" content = "0;{{route("login")}}">
 @endguest
 </html>
