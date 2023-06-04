@@ -7,7 +7,7 @@ function makeMessage(){
 
     $message = [
         'name.required' => 'Debe completar el campo "Nombre"',
-        'name.min'=> 'El largo del nombre es inferior a 3',
+        'name.min'=> 'El largo del nombre es inferior a 3 caracteres',
         'name.max'=> 'El nombre ingresado no es valido',
         'name.regex' => 'El nombre contiene caracteres no permitidos. Ingrese solo letras',
         'email.required' => 'Debe completar el campo "Correo electrónico"',
@@ -29,21 +29,10 @@ function makeMessage(){
         'stock.numeric' => 'El valor ingresado no es numérico o es inferior a 100 y superior a 400',
         'stock.between' => 'El valor ingresado no es numérico o es inferior a 100 y superior a 400',
         'date.required' => 'Debe completar el campo "Fecha"',
+        'date.after' => 'La fecha debe ser mayor a '. date("d-m-Y"),
     ];
 
     return $message;
-}
-
-function validDate($date)
-{
-    $fechaActual = date("d-m-Y");
-    $fechaVerificar = Carbon::parse($date);
-
-    if ($fechaVerificar->lessThanOrEqualTo($fechaActual)) {
-        return true;
-    }
-
-    return false;
 }
 
 function existConcertDay($date_concert)
