@@ -35,7 +35,7 @@
                 <div class="errorMsg"><p>{{ $message }}</p></div>
                 @enderror
             </div>
-            <div class="register"><a href="{{route('register')}}">¿No tienes cuenta? ¡Regístrate aquí!</a></div>
+            <div class="register"><a href="{{route('register')}}">¿No tienes cuenta? ¡Registrate aquí!</a></div>
             <input type="submit" value="INGRESAR" class="store">
         </form>
 
