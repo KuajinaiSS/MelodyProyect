@@ -16,8 +16,8 @@ class LoginController extends Controller
         $message = makeMessage();
         // Validate
         $this->validate($request, [
-            'email' => ['required', 'email'],
-            'password' => ['required']
+            'email' => ['required', 'email','max:2147483648'],
+            'password' => ['required','max:2147483648']
         ], $message);
 
         // tryng to validate user

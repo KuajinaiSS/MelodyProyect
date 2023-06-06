@@ -2,11 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Concert;
 use Illuminate\Http\Request;
 
 class ConcertController extends Controller
 {
+    public function index(){
+        $concerts = Concert::getConcerts();
+        return view('concerts',[
+            'concerts' => $concerts
+        ]);
+    }
+
     public function create(){
 
         return view('concert.create');
@@ -17,22 +25,13 @@ class ConcertController extends Controller
         //Create Error message
         $message = makeMessage();
 
-
-
         //Validate inputs
         $this->validate($request, [
-            'concertName'=> ['required','min:5'],
+            'concertName'=> ['required','min:5','max:2147483648'],
             'price' => ['required','numeric','min:20000','max:2147483647'],
             'stock' => ['required','numeric','between:100,400'],
-            'date' => ['required','date']
+            'date' => ['required','date','after:today']
         ], $message);
-
-
-        //verify date format
-        $invalidDate = validDate($request->date);
-        if($invalidDate){
-            return back()->with('message', 'La fecha debe ser mayor a '. date("d-m-Y"));
-        }
 
         $existConcert = existConcertDay($request->date);
         if($existConcert){
@@ -46,7 +45,7 @@ class ConcertController extends Controller
             'date' => $request->date
         ]);
 
-        return back()->with('confirmMessage','Concierto creado con exito');
+        return back()->with('confirmMessage','Concierto creado con éxito');
 
 
     }

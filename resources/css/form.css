@@ -1,9 +1,19 @@
 @font-face {
-    font-family: Helvetica World;
-    src: url('https://fonts.googleapis.com/css2?family=Arimo&display=swap') format('truetype');
+    font-family: 'Helvetica World';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/arimo/v28/P5sfzZCDf9_T_3cV7NCUECyoxNk37cxcABrBdwEoaQ.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
-    font-family: League Spartan;
-    src: url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap') format('truetype');
+@font-face {
+    font-family: 'League Spartan';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/leaguespartan/v11/kJEnBuEW6A0lliaV_m88ja5Twtx8BWhtkDVmjZvMGYPZA81d.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 body{
@@ -15,16 +25,9 @@ body{
     background-color: white;
 }
 
-.forms{
+.forms, .concertForms{
     position: absolute;
-}
-
-.concertForms{
-    position: relative;
-}
-
-.concertForms, .forms{
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%,-50%);
     width: 400px;
@@ -34,7 +37,6 @@ body{
     border-style: solid;
     border-color: #d9d9d9;
     margin-bottom: 30px;
-
 }
 
 .logo{
@@ -47,6 +49,7 @@ body{
 }
 
 .logoNombre{
+    font-size: 35px;
     margin-left: 5px;
     font-family: League Spartan;
     text-align: center;
@@ -80,7 +83,7 @@ form .name{
 
 .name label{
     margin: 0 13px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
 }
 
@@ -107,7 +110,7 @@ form .email{
 
 .email label{
     margin: 0 13px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
 }
 
@@ -131,7 +134,7 @@ form .password{
 
 .password label{
     margin: 0 13px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
 }
 
@@ -170,7 +173,7 @@ form .password{
 
 
     font-family: League Spartan;
-    font-size: 20px;
+    font-size: 23px;
     text-align: center;
     color: white;
 
@@ -190,7 +193,7 @@ form .price{
 
 .price label{
     margin: 0 13px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
 }
 
@@ -214,7 +217,7 @@ form .stock{
 
 .stock label{
     margin: 0 13px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
 }
 
@@ -238,7 +241,7 @@ form .date{
 
 .date label{
     margin: 0 13px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
 }
 
@@ -263,7 +266,7 @@ form .concertName{
 
 .concertName label{
     margin: 0 13px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
 }
 
@@ -283,25 +286,29 @@ form .concertName{
 
 .errorMsg p{
     font-family: League Spartan;
-    font-size: 12px;
+    font-size: 15px;
     color: rgba(245, 38, 38, 0.842);
     text-align: center;
 }
 
 .confirmMsg{
     font-family: League Spartan;
-    font-size: 12px;
+    font-size: 15px;
     color: #00c787;
     text-align: center;
 }
 
 .marker{
     position: absolute;
-    transform: translate(415px,-70px);
+    transform: translate(440px,-75px);
 }
 
 .alert{
-    position: absolute;
+    position:absolute;
+}
+
+.footer{
+    position: fixed;
 }
 
 .popupMessage{
