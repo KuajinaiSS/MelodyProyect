@@ -10,6 +10,7 @@
     <script src="sweetalert2.all.min.js"></script>
     <title>@yield('tabTittle') - Melody</title>
     @vite('resources/css/base.css')
+    @stack('stylesTailwind')
 </head>
 
 <body>
