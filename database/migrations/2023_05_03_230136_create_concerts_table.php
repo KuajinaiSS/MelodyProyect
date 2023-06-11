@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('concertName');
             $table->integer('price');
-            $table->integer('stock'); // stock fijo
-            $table->integer('availableStock'); // stock que disminuye
+            $table->integer('stock');
             $table->date('date');
             $table->timestamps();
         });
