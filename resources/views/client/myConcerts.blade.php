@@ -61,7 +61,11 @@ Mis compras
                     </td>
 
                     <td class="px-6 py-4">
-                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+
+                        <a href="#" class="font-medium text-blue-600 hover:underline">
+                            <button>Edit</button>
+                        </a>
+                        
                     </td>
 
             </tr>
