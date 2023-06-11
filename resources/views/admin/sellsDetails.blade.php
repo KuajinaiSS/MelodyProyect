@@ -1,6 +1,6 @@
 @extends('layout.base')
 @section('tabTittle')
-Detalle de ventas
+Ventas conciertos
 @endsection
 
 

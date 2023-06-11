@@ -35,7 +35,7 @@
 
 
                 <li class="link">
-                    <a href="{{route('admin.concertsDetail')}}">
+                    <a href="{{route('client.myConcerts')}}">
                         AUX
                     </a>
                 </li>
