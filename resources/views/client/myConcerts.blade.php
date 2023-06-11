@@ -13,8 +13,8 @@ Mis compras
 
 
 <div class="mx-24 my-16 relative overflow-x-auto shadow-md sm:rounded-lg ">
-    <table class="w-full mx-auto myTable text-sm text-center text-white">
-        <thead class="text-xs text-white uppercase Blue">
+    <table class="w-full mx-auto text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
                     Nombre del Concierto
@@ -39,35 +39,27 @@ Mis compras
         <tbody>
 
             @for ($i=0; $i < 10;$i++)
-                <tr class="border-black Cyan">
-                    <th scope="row" class="px-6 py-4">
-                        Juan
-                    </th>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Juan
+                </th>
+                <td class="px-6 py-4">
+                    Silver
+                </td>
+                <td class="px-6 py-4">
+                    Laptop
+                </td>
+                <td class="px-6 py-4">
+                    $2999
+                </td>
 
-                    <td class="px-6 py-4">
-                        Silver
-                    </td>
+                <td class="px-6 py-4">
+                    $2999
+                </td>
 
-                    <td class="px-6 py-4">
-                        Laptop
-                    </td>
-
-                    <td class="px-6 py-4">
-                        300
-                    </td>
-
-                    <td class="px-6 py-4">
-                        $2999
-                    </td>
-
-                    <td class="px-6 py-4">
-
-                        <a href="#" class="font-medium text-blue-600 hover:underline">
-                            <button>Edit</button>
-                        </a>
-                        
-                    </td>
-
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                </td>
             </tr>
             @endfor
         </tbody>

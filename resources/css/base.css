@@ -194,19 +194,4 @@ a img{
     font-family: League Spartan;
 }
 
-.Blue{
-    background-color: #017AEB;
-}
 
-
-.Cyan{
-    background-color: #00BBF0;
-}
-
-.myTable {
-    border-collapse: collapse;
-}
-
-.myTable, .myTable th, .myTable td {
-    border: 3px solid black;
-}
