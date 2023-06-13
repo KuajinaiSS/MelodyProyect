@@ -12,8 +12,12 @@ class ConcertDetailController extends Controller
      */
     public function index()
     {
-        return view('admin.concertsDetails');
+        return view('admin.concertsDetails',[
+            'user' => auth()->user()
+    ]);
+
     }
+
 
 
     /**
