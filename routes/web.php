@@ -46,7 +46,7 @@ Route::post('concert_create',[ConcertController::class, 'store'])->name('concert
 
 // admin routes
 Route::get('concertDetail',[ConcertController::class, 'indexConcertDetails'])->name('admin.concertsDetail');
-Route::get('sellsDetail',[ConcertController::class, 'indexSellsConcertDetails'])->name('admin.sellsDetail');
+Route::get('/sellsDetail/{id_concert}',[ConcertController::class, 'indexSellsConcertDetails'])->name('admin.sellsDetail');
 
 
 // clients routes
