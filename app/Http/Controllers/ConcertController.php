@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\User;
 use App\Models\Concert;
 use App\Models\DetailOrder;
 use Illuminate\Http\Request;
@@ -25,21 +26,26 @@ class ConcertController extends Controller
     }
 
     public function indexSellsConcertDetails($id_concert){
-        dd($id_concert);
+        $details = DetailOrder::getDetailOrder();
+        $concert = Concert::findOrFail($id_concert);
+        $collection = collect();
 
-        $details = DetailOrder::getDetailsByConcert($id_concert);
-        $collection = collect([]);
+
         foreach($details as $detail){
-            $user = User::findOrFail($detail->$user_id);
-            $data = [
-                'user' => $user,
-                'detail_order' => $detail,
-            ];
-            $collection.add($data);
+            if($detail->concert_id == $id_concert){
+                $user = User::findOrFail($detail->user_id);
+                $data = [
+                    'user' => $user,
+                    'detail_order' => $detail,
+                ];
+                $collection->push($data);
+            }
+
         }
 
         return view('admin.sellsDetails',[
-            'allData' => $collection
+            'allData' => $collection,
+            'concert' => $concert
         ]);
     }
 
