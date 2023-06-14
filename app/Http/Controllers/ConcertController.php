@@ -25,6 +25,8 @@ class ConcertController extends Controller
     }
 
     public function indexSellsConcertDetails($id_concert){
+        dd($id_concert);
+
         $details = DetailOrder::getDetailsByConcert($id_concert);
         $collection = collect([]);
         foreach($details as $detail){
