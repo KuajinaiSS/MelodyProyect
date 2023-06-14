@@ -31,6 +31,7 @@
                         Conciertos
                     </a>
                 </li>
+                
                 @if(auth()->user()->rol === 1)
                 <li class="link">
                     <a href="{{route('concert.create')}}">

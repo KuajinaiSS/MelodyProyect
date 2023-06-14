@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\buyController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ConcertController;
 use App\Http\Controllers\RegisterController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +21,7 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', function () {
-    return redirect()->route('login');
+    return view('buy');
 });
 
 
@@ -40,6 +42,8 @@ Route::get('concerts',[ConcertController::class, 'index'])->name('concerts');
 Route::get('concert_create',[ConcertController::class, 'create'])->name('concert.create');
 Route::post('concert_create',[ConcertController::class, 'store'])->name('concert');
 
+// buy route
+Route::get('buy',[buyController::class, 'create'])->name('buy');
 
 // home routes
 Route::get('home',[HomeController::class, 'index'])->name('viewHome');
