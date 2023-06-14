@@ -24,7 +24,7 @@
         <h1>¡Compra tus entradas!</h1>
         <table>
             <td>
-                <h2>Nombre del Concierto:</h2>
+                <h2>Nombre del Concierto: </h2>
                 <p2>Concierto Ejemplo</p2>
                 <h2>Fecha:</h2>
                 <p2>XX/XX/XX</p2>
