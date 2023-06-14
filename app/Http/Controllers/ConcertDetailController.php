@@ -10,12 +10,21 @@ class ConcertDetailController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        return view('admin.concertsDetails',[
-            'user' => auth()->user()
-    ]);
+    public function indexSellsConcertDetails($id_concert){
+        $details = DetailOrder::getDetailsByConcert($id_concert);
+        $collection = collection;
+        foreach($details as $detail){
+            $user = User::findOrFail($detail->$user_id);
+            $data = [
+                'user' => $user,
+                'detail_order' => $detail,
+            ];
+            $collection.add($data);
+        }
 
+        return view('admin.sellsDetails',[
+            'allData' => $collection
+        ]);
     }
 
 

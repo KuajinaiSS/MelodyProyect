@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Concert;
+use App\Models\DetailOrder;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ConcertController extends Controller
 {
@@ -14,6 +16,31 @@ class ConcertController extends Controller
             'concerts' => $concerts
         ]);
     }
+
+    public function indexConcertDetails(){
+        $concerts = Concert::getConcerts();
+        return view('admin.concertsDetails',[
+            'concerts' => $concerts
+        ]);
+    }
+
+    public function indexSellsConcertDetails($id_concert){
+        $details = DetailOrder::getDetailsByConcert($id_concert);
+        $collection = collect([]);
+        foreach($details as $detail){
+            $user = User::findOrFail($detail->$user_id);
+            $data = [
+                'user' => $user,
+                'detail_order' => $detail,
+            ];
+            $collection.add($data);
+        }
+
+        return view('admin.sellsDetails',[
+            'allData' => $collection
+        ]);
+    }
+
 
     public function create(){
 

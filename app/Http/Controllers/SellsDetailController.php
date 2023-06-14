@@ -13,6 +13,7 @@ class SellsDetailController extends Controller
     public function index()
     {
         return view('admin.sellsDetails');
+
     }
 
     /**

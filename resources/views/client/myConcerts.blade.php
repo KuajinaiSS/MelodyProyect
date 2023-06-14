@@ -10,39 +10,39 @@
 
 
 
-        <table>
+    <table>
 
-            <thead>
+        <thead>
+            <tr>
+                <th>Nombre del Concierto</th>
+                <th>Fecha del concierto</th>
+                <th>Cantidad de entradas</th>
+                <th>Cantidad de entradas vendidas</th>
+                <th>Cantidad de entradas dispoibles</th>
+                <th> </th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+            @for ($i = 0; $i < 10; $i++)
                 <tr>
-                    <th>Nombre del Concierto</th>
-                    <th>Cantidad de entradas</th>
-                    <th>Cantidad de entradas vendidas</th>
-                    <th>Cantidad de entradas disponibles</th>
-                    <th>Monto vendido</th>
-                    <th>XD</th>
+                    <td>Juan</td>
+                    <td>Silver</td>
+                    <td>Laptop</td>
+                    <td>$2999</td>
+                    <td>$2999</td>
+                    <td>
+                        <a href="{{ route('admin.sellsDetail') }}"><button class="buttonDetail">Ver Detalle</button> </a>
+                    </td>
                 </tr>
-            </thead>
+            @endfor
 
+        <tfoot>
+            <th class="finalRow"> </th>
+        </tfoot>
 
-            <tbody>
-                @for ($i = 0; $i < 10; $i++)
-                    <tr>
-                        <td>Juan</td>
-                        <td>Silver</td>
-                        <td>Laptop</td>
-                        <td>$2999</td>
-                        <td>$2999</td>
-                        <td>
-                            <button class="buttonDetail">Ver Detalle</button>
-                        </td>
-                    </tr>
-                @endfor
+        </tbody>
 
-                <tfoot>
-                    <th class="finalRow">  </th>
-                </tfoot>
-
-            </tbody>
-
-        </table>
+    </table>
 @endsection

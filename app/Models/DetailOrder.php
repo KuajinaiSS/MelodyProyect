@@ -26,4 +26,12 @@ class DetailOrder extends Model
     {
         return $this->hasOne(Voucher::class, 'detail_order_id');
     }
+
+    public static function getDetailOrder(){
+        return self::all();
+    }
+
+    public static function getDetailsByConcert($id_concert){
+        return DetailsOrder::where('concert_id','==',$id_concert)->get();
+    }
 }
