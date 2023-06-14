@@ -42,7 +42,6 @@ Conciertos
             <p class="stock">Entradas Disponibles: {{$concert->stock}}</p>
             @if(auth()->user()->rol === 0)
                 @if ($concert->stock > 0)
-                    <a href={{route("")}}
                     <button class="buttonBuy">COMPRAR</button>
                 @endif
                 @if ($concert->stock === 0)

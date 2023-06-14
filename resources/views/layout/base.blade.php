@@ -32,6 +32,17 @@
                         Conciertos
                     </a>
                 </li>
+
+
+                <li class="link">
+                    <a href="{{route('client.myConcerts')}}">
+                        AUX
+                    </a>
+                </li>
+
+
+
+
                 @if(auth()->user()->rol === 1)
                 <li class="link">
                     <a href="{{route('concert.create')}}">
