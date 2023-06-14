@@ -55,6 +55,13 @@ class ConcertController extends Controller
         return view('concert.create');
     }
 
+    public function getConcert($id){
+        $concert = Concert::findOrFail($id);
+        return view('buy',[
+            'concert' => $concert
+        ]);
+    }
+
     public function store(Request $request){
 
         //Create Error message
