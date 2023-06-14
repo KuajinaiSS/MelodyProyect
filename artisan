@@ -19,11 +19,12 @@ require __DIR__.'/vendor/autoload.php';
 
 $app = require_once __DIR__.'/bootstrap/app.php';
 
+
 /*
 |--------------------------------------------------------------------------
 | Run The Artisan Application
 |--------------------------------------------------------------------------
-|
+|require_once __DIR__ . '/../app/Helpers/MyHelper.php';
 | When we run the console application, the current CLI command will be
 | executed in this console and the response sent back to a terminal
 | or another output device for the developers. Here goes nothing!
