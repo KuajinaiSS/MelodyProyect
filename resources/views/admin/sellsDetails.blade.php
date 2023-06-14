@@ -76,7 +76,7 @@
                     {{-- Total pagado LISTO --}}
                     <td>
                         <p>
-                            {{ $data['detail_order']->total }}
+                            ${{ $data['detail_order']->total }}
                         </p>
                     </td>
             @endforeach
