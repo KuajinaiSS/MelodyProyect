@@ -29,6 +29,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -54,9 +55,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(DetailOrder::class, 'user_id');
     }
-
-    public static function getUsers(){
-        return self::all();
-    }
-
 }
