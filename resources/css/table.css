@@ -1,0 +1,93 @@
+/* FUENTES */
+@font-face {
+    font-family: 'Helvetica World';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/arimo/v28/P5sfzZCDf9_T_3cV7NCUECyoxNk37cxcABrBdwEoaQ.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'League Spartan';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/leaguespartan/v11/kJEnBuEW6A0lliaV_m88ja5Twtx8BWhtkDVmjZvMGYPZA81d.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+.titulo {
+    font-family: League Spartan;
+    text-align: center;
+    font-size: 30px;
+
+}
+
+.finalRow{
+    padding: 18px;
+}
+
+table{
+    font-family: Helvetica World;
+    font-size: 18px;
+    text-align: center;
+
+    border: 3px solid black;
+    border-radius: 25px;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-spacing: 0px;
+}
+
+th, td {
+    padding: 10px;
+
+}
+
+td{
+    border: 1px solid black;
+}
+
+
+
+
+.buttonDetail {
+
+    display: inline-block;
+    padding: 7px 15px;
+    margin: 5px 20px;
+    font-size: 18px;  /*superior inferior - derecho izquierdo*/
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #00c787;
+    border: none;
+    border-radius: 40px;
+
+}
+
+
+.buttonDetail:hover {
+    background-color: #01b179
+}
+
+.buttonDetail:active {
+    background-color: #009e6c;
+    transform: translateY(2px);
+}
+
+/*
+tr:hover td {
+	background-color: gray;
+}
+
+
+tr:nth-child(even){
+	background-color: #ddd;
+}
+*/
