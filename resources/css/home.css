@@ -48,10 +48,10 @@
 
 .container {
     justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: auto auto auto;
     gap: 100px;
     margin-top: 40px;
-    text-align: center;
 }
 .containerCompraGen {
     justify-content: center;

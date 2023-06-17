@@ -25,19 +25,19 @@
         <table>
             <td>
                 <h2>Nombre del Concierto:</h2>
-                <p2>Concierto Ejemplo</p2>
+                <p2>{{$concert->concertName }}</p2>
                 <h2>Fecha:</h2>
-                <p2>XX/XX/XX</p2>
+                <p2>{{ $concert->date }}</p2>
                 <h2>Valor de entrada:</h2>
-                <p2>$XX.XXX</p2>
+                <p2>{{ $concert->price }}</p2>
                 <h2>Cantidad de entradas:</h2>
                 <select name="menu2">
 
-                    {{-- <option selected value="">--Seleccione las entradas--</option>
+                    <option selected value="">--Seleccione las entradas--</option>
                     @for ($i = 1; $i <= $concert->stock; $i++)
                         <option value="{{ $i }}">{{ $i }}</option>
 
-                    @endfor --}}
+                    @endfor
 
                 /select>
             </td>

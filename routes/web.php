@@ -19,8 +19,8 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', function () {
-    //return redirect()->route('login');
-    return view('buy');
+    return redirect()->route('login');
+    //return view('buy');
 });
 
 
@@ -41,6 +41,16 @@ Route::get('concerts',[ConcertController::class, 'index'])->name('concerts');
 Route::get('concert_create',[ConcertController::class, 'create'])->name('concert.create');
 Route::post('concert_create',[ConcertController::class, 'store'])->name('concert');
 
+// buy route
+Route::get('buy/{id}',[buyController::class, 'create'])->name('buy');
+
+// admin routes
+Route::get('concertDetail',[ConcertController::class, 'indexConcertDetails'])->name('admin.concertsDetail');
+Route::get('/sellsDetail/{id}',[ConcertController::class, 'indexSellsConcertDetails'])->name('admin.sellsDetail');
+
+
+// clients routes
+Route::get('myConcerts',[MyConcertsController::class, 'index'])->name('client.myConcerts');
 
 // home routes
 Route::get('home',[HomeController::class, 'index'])->name('viewHome');

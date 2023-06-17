@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+use App\Models\User;
 use App\Models\Concert;
+use App\Models\DetailOrder;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ConcertController extends Controller
 {
@@ -14,9 +18,48 @@ class ConcertController extends Controller
         ]);
     }
 
+    public function indexConcertDetails(){
+        $concerts = Concert::getConcerts();
+        return view('admin.concertsDetails',[
+            'concerts' => $concerts
+        ]);
+    }
+
+    public function indexSellsConcertDetails($id_concert){
+        $details = DetailOrder::getDetailOrder();
+        $concert = Concert::findOrFail($id_concert);
+        $collection = collect();
+
+
+        foreach($details as $detail){
+            if($detail->concert_id == $id_concert){
+                $user = User::findOrFail($detail->user_id);
+                $data = [
+                    'user' => $user,
+                    'detail_order' => $detail,
+                ];
+                $collection->push($data);
+            }
+
+        }
+
+        return view('admin.sellsDetails',[
+            'allData' => $collection,
+            'concert' => $concert
+        ]);
+    }
+
+
     public function create(){
 
         return view('concert.create');
+    }
+
+    public function getConcert($id){
+        $concert = Concert::findOrFail($id);
+        return view('buy',[
+            'concert' => $concert
+        ]);
     }
 
     public function store(Request $request){
