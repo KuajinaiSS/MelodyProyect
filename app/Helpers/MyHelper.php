@@ -29,21 +29,13 @@ function makeMessage(){
         'stock.numeric' => 'El valor ingresado no es numérico o es inferior a 100 y superior a 400',
         'stock.between' => 'El valor ingresado no es numérico o es inferior a 100 y superior a 400',
         'date.required' => 'Debe completar el campo "Fecha"',
+        'date_search.required' => 'Ingrese una fecha válida.',
+        'quantity.required' => 'Debe indicar la cantidad de entradas.',
+        'quantity.min' => 'La cantidad de entradas debe ser mayor o igual a :min.',
+        'pay_method.required' => 'Debe seleccionar un metodo de pago.',
     ];
 
     return $message;
-}
-
-function validDate($date)
-{
-    $fechaActual = date("d-m-Y");
-    $fechaVerificar = Carbon::parse($date);
-
-    if ($fechaVerificar->lessThanOrEqualTo($fechaActual)) {
-        return true;
-    }
-
-    return false;
 }
 
 function existConcertDay($date_concert)
@@ -58,4 +50,34 @@ function existConcertDay($date_concert)
         }
     }
     return false;
+}
+
+function verifyStock($id, $quantity)
+{
+    $concert = Concert::find($id);
+
+    if ($quantity > $concert->stock) {
+        return false;
+    }
+    return true;
+}
+
+
+function discountStock($id, $quantity)
+{
+    $concert = Concert::find($id);
+
+    $concert->stock -= $quantity;
+    $concert->save();
+    return true;
+}
+
+function generateReservationNum()
+{
+    do {
+        $number = mt_rand(1000, 9999);
+    }
+    while (substr($number, 0, 1) === '0');
+
+    return $number;
 }
