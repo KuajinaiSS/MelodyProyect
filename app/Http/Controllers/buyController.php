@@ -25,7 +25,7 @@ class BuyController extends Controller
 
     public function store(Request $request, $id){
         $reservationNumber = generateReservationNum();
-
+        $concert = Concert::find($id);
         $request->request->add(['reservation_number' => $reservationNumber]);
 
         $messages = makeMessage();
@@ -38,7 +38,7 @@ class BuyController extends Controller
         $validStock = verifyStock($id, $request->quantity);
 
         if(!$validStock){
-            return back()->with('message','No hay suficiente stock para este concierto');
+            return back()->with('message','La cantidad de entradas ingresada no es numérica o supera las entradas disponibles a comprar');
         }
 
         $buyDetail = DetailOrder::create([

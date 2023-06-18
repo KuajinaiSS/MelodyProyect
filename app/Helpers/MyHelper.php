@@ -32,12 +32,12 @@ function makeMessage(){
         'date.required' => 'Debe completar el campo "Fecha"',
         'date.after' => 'La fecha debe ser mayor a '. date("d-m-Y"),
         'date_search.required' => 'Ingrese una fecha válida',
-        'quantity.required' => 'Debe indicar la cantidad de entradas',
-        'quantity.numeric' => 'La cantidad de entradas debe ser un valor numérico',
-        'quantity.min' => 'La cantidad de entradas debe ser mayor o igual a 1',
+        'quantity.required' => 'Debe completar el campo "Cantidad de entradas"',
+        'quantity.numeric' => 'La cantidad de entradas ingresada no es numérica o supera las entradas disponibles a comprar',
+        'quantity.min' => 'La cantidad de entradas ingresada no es numérica o es igual a 0',
         'pay_method.required' => 'Debe seleccionar un metodo de pago',
         'reservation_number.min' => 'Error del sistema, inténtelo más tarde',
-        'reservation_number.max' => 'Error del sistema, inteéntelo más tarde',
+        'reservation_number.max' => 'Error del sistema, inténtelo más tarde',
         'total.required' => 'Debe indicar el total de la compra'
     ];
 
