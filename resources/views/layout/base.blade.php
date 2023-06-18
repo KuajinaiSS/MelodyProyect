@@ -10,6 +10,7 @@
     <script src="sweetalert2.all.min.js"></script>
     <title>@yield('tabTittle') - Melody</title>
     @vite('resources/css/base.css')
+    @stack('stylesTailwind')
 </head>
 
 <body>
@@ -31,6 +32,17 @@
                         Conciertos
                     </a>
                 </li>
+
+
+                <li class="link">
+                    <a href="{{route('admin.concertsDetail')}}">
+                        AUX
+                    </a>
+                </li>
+
+
+
+
                 @if(auth()->user()->rol === 1)
                 <li class="link">
                     <a href="{{route('concert.create')}}">
