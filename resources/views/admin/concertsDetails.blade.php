@@ -5,8 +5,13 @@
 
 @vite('resources/css/table.css')
 
+
+
+
 @section('content')
-    <h1 class="titulo">Detalle Concierto</h1>
+@auth
+@if(auth()->user()->role === 1)
+    <h1 class="titulo">Detalle Conciertos</h1>
 
     <table>
         <thead>
@@ -17,7 +22,7 @@
                 <th>Cantidad de entradas vendidas</th>
                 <th>Cantidad de entradas disponibles</th>
                 <th>Monto total vendido</th>
-                <th>detalle</th>
+                <th> </th>
             </tr>
         </thead>
         <tbody>
@@ -34,7 +39,7 @@
                     {{-- Fecha del concierto LISTO --}}
                     <td>
                         <p>
-                            {{ date('d/m/Y', strtotime( $concert->date )) }}
+                            {{ $concert->date  }}
                         </p>
                     </td>
                     {{-- Cantidad de entradas LISTO --}}
@@ -82,4 +87,12 @@
         </tbody>
     </table>
     </div>
+
+@elseif(auth()->user()->role === 0)
+<meta http-equiv="refresh" content = "0;{{route("viewHome")}}">
+@endif
+@endauth
 @endsection
+
+
+

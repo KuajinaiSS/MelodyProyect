@@ -3,9 +3,14 @@
     Detalle de Ventas
 @endsection
 
+
 @vite('resources/css/table.css')
 
+
+
 @section('content')
+@auth
+@if(auth()->user()->role === 1)
     <h1 class="titulo">{{ $concert->concertName }}</h1>
 
 
@@ -55,7 +60,7 @@
                     {{-- Fecha de la compra LISTO--}}
                     <td>
                         <p>
-                            23/09/2034
+                            {{ date('d/m/Y', strtotime( $data['detail_order']->created_at ))  }}
                         </p>
                     </td>
 
@@ -113,5 +118,17 @@
         </tbody>
     </table>
     @endif
+
+
     </div>
+
+
+@elseif(auth()->user()->role === 0)
+<meta http-equiv="refresh" content = "0;{{route("viewHome")}}">
+
+@endif
+@endauth
 @endsection
+
+
+
