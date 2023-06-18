@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\buyController;
+use App\Http\Controllers\ThanksController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -66,3 +67,5 @@ Route::get('/detail-order/{id}', [VoucherController::class, 'generatePDF'])->nam
 Route::get('descargar-pdf/{id}', [VoucherController::class, 'downloadPDF'])->name('pdf.descargar');
 Route::get('/pdf', [VoucherController::class, 'pdf'])->name('pdf.example');
 
+// Thanks route
+Route::get('thanksMsg',[ThanksController::class, 'index'])->name('thanksMsg');
