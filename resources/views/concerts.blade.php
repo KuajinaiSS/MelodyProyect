@@ -20,18 +20,40 @@ Conciertos
 
 <body>
     <img src="{{asset('img/marker.png')}}" class="marker2" width="25" height="6">
-    <section>
-        <div class="search">
-            <img src="{{ asset('img/exampleSearchBar.png') }}" class="expImg" width="600px">
-        </div>
-    </section>
-
+    <div class="search">
+        <form action="{{route('concert.byDate')}}" method="POST" novalidate>
+            @csrf
+            <input class= "byDate" id="byDate" name="byDate" type="date" onkeydown="return false">
+            @error('concertName')
+                <div class="errorMsg"><p>{{ $message }}</p></div>
+            @enderror
+            <input type="submit" value="Buscar" class="searchBtn">
+        </form>
+        <a href="{{route('concerts')}}" class="clearSearch">Limpiar Filtros</a>
     </div>
-    @if($concerts->count() === 0)
-        <h3 class="noConcerts">No hay conciertos disponibles</h3>
-    @endif
 
-    @if ($concerts->count() > 0)
+    @if (session('notFoundMessage'))
+        <div class="notFoundMsg"><p>{{session('notFoundMessage')}}</p></div>
+    @elseif(session('concertByDate'))
+        <div class="container">
+            <div class="content">
+                <img src="{{ asset('img/ticket.png') }}" alt="Concierto" width="150" height="150" align="center">
+                <h2 class="concertName">{{session('concertByDate')->concertName}}</h2>
+                <p class="date">{{session('concertByDate')->date}}</p>
+                <p class="price">Valor: ${{session('concertByDate')->price}} CLP</p>
+                <p class="stock">Entradas Disponibles: {{session('concertByDate')->stock}}</p>
+                @if(auth()->user()->rol === 0)
+                    @if (session('concertByDate')->stock > 0)
+                        <button class="buttonBuy">COMPRAR</button>
+                    @endif
+                    @if (session('concertByDate')->stock === 0)
+                        <button class="buttonSpend" disabled>AGOTADO</button>
+                    @endif
+                @endif
+
+            </div>
+        </div>
+    @elseif ($concerts->count() > 0)
         <div class="container">
         @foreach ($concerts as $concert)
         <div class="content">
@@ -53,7 +75,6 @@ Conciertos
         @endforeach
     @endif
 
-    </div>
 </html>
 @endauth
 

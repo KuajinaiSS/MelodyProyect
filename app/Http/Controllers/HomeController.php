@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Concert;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $concerts = Concert::getConcerts();
+        $concerts = Concert::getConcertsDate();
+        foreach($concerts as $concert){
+            $dateCorrectFormat = Carbon::create($concert->date)->format('d/m/Y');
+            $concert->date = $dateCorrectFormat;
+        }
+
+        $concertsSorted = $concerts->sortByDesc('stock');
+
         return view('home',[
-            'concerts' => $concerts
+            'concerts' => $concertsSorted->take(9)
         ]);
     }
 

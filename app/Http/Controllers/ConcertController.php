@@ -9,7 +9,13 @@ use Illuminate\Http\Request;
 class ConcertController extends Controller
 {
     public function index(){
-        $concerts = Concert::getConcerts();
+        $concerts = Concert::getConcertsDate();
+
+        foreach($concerts as $concert){
+            $dateCorrectFormat = Carbon::create($concert->date)->format('d/m/Y');
+            $concert->date = $dateCorrectFormat;
+        }
+
         return view('concerts',[
             'concerts' => $concerts
         ]);
@@ -46,6 +52,32 @@ class ConcertController extends Controller
         ]);
 
         return back()->with('confirmMessage','Concierto creado con éxito');
+
+
+    }
+
+    public function searchByDate(Request $request){
+
+        //Create Error message
+        $message = makeMessage();
+
+        $this->validate($request,[
+            'byDate' => ['required']
+        ],$message);
+
+        $concerts = Concert::getConcertsDate();
+        $date = date($request->byDate);
+
+
+        foreach ($concerts as $concert) {
+            if ($concert->date == $date) {
+                $dateCorrectFormat = Carbon::create($concert->date)->format('d/m/Y');
+                $concert->date = $dateCorrectFormat;
+                return back()->with('concertByDate',$concert);
+            }
+        }
+        return back()->with('notFoundMessage','¡Lo sentimos! No hay conciertos para la fecha seleccionada');
+
 
 
     }

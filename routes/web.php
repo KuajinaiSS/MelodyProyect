@@ -37,6 +37,7 @@ Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
 // concert route
 Route::get('concerts',[ConcertController::class, 'index'])->name('concerts');
+Route::post('concert_by_Date',[ConcertController::class, 'searchByDate'])->name('concert.byDate');
 Route::get('concert_create',[ConcertController::class, 'create'])->name('concert.create');
 Route::post('concert_create',[ConcertController::class, 'store'])->name('concert');
 

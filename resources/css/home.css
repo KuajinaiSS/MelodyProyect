@@ -77,7 +77,7 @@
     border-radius: 40px;
 }
 
-.buttonBuy:hover {background-color: #01b179}
+.buttonBuy:hover {background-color: #00d692}
 
 .buttonBuy:active {
     background-color: #009e6c;
@@ -121,4 +121,79 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+}
+
+/* VISTA CONCIERTOS */
+.search{
+    display: flex;
+    justify-content: center;
+}
+
+.search input{
+    font-family: Helvetica World;
+    font-size: 20px;
+    border-radius: 30px;
+    border-width: 2px;
+    border-color: #232220;
+    border-style: solid;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+
+}
+
+
+.byDate{
+    width: 200px;
+    height: 45px;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.searchBtn{
+    background-color: #2194ff; /*#2194ff*/
+    width: 150px;
+    height: 45px;
+    padding-left: 10px;
+    padding-right: 40px;
+    background-image: url(../../public/img/searchImg.png);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: 100px;
+    color: white;
+}
+
+.searchBtn:hover{
+    background-color:#3ba0ff; /*#2194ff*/
+}
+
+.clearSearch{
+    color: black;
+    font-family: Helvetica World;
+    font-size: 20px;
+    border-radius: 30px;
+    border-width: 2px;
+    border-color: #232220;
+    border-style: solid;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    background-color: #d9d9d9;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.clearSearch:hover{
+    text-decoration: none;
+    background-color:#e0e0e0;
+}
+
+.notFoundMsg{
+    font-family: Helvetica World;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 100px;
 }

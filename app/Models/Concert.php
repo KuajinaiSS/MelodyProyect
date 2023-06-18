@@ -19,5 +19,10 @@ class Concert extends Model
         return self::all();
     }
 
+    public static function getConcertsDate(){
+        $actualDate = date("Y-m-d");
+        return Concert::where('date', '>=', $actualDate)->get();
+    }
+
 }
 
