@@ -1,6 +1,7 @@
 <?php
 use Carbon\Carbon;
 use App\Models\Concert;
+use App\Models\DetailOrder;
 
 
 function makeMessage(){
@@ -57,7 +58,7 @@ function verifyStock($id, $quantity)
 {
     $concert = Concert::find($id);
 
-    if ($quantity > $concert->stock) {
+    if ($quantity > $concert->availableStock) {
         return false;
     }
     return true;
@@ -67,18 +68,19 @@ function verifyStock($id, $quantity)
 function discountStock($id, $quantity)
 {
     $concert = Concert::find($id);
-
-    $concert->stock -= $quantity;
+    $concert->availableStock -= $quantity;
     $concert->save();
     return true;
 }
 
 function generateReservationNum()
 {
-    do {
-        $number = mt_rand(1000, 9999);
+    $details = DetailOrder::getDetailOrder;
+    $reservationNumber = 999;
+    foreach ($details as $detail){
+        $reservationNumber = $detail->reservation_number;
     }
-    while (substr($number, 0, 1) === '0');
 
-    return $number;
+    return $reservationNumber += 1;
+
 }

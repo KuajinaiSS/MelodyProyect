@@ -39,7 +39,7 @@ Inicio
             <p class="date">{{$concert->date}}</p>
             <p class="price">Valor: ${{$concert->price}} CLP</p>
             <p class="stock">Entradas Disponibles: {{$concert->stock}}</p>
-            @if(auth()->user()->rol === 0)
+            @if(auth()->user()->role === 0)
                 @if ($concert->stock > 0)
                     <a href="{{route('buy',['id' => $concert->id])}}">
                     <button class="buttonBuy">COMPRAR</button>

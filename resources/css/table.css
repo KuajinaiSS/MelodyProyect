@@ -55,7 +55,7 @@ td{
 
 
 
-.buttonDetail {
+.buttonDetail{
 
     display: inline-block;
     padding: 7px 15px;
@@ -79,6 +79,20 @@ td{
 .buttonDetail:active {
     background-color: #009e6c;
     transform: translateY(2px);
+}
+
+.buttonDetailOff{
+    display: inline-block;
+    padding: 7px 15px;
+    margin: 5px 20px;
+    font-size: 18px;  /*superior inferior - derecho izquierdo*/
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #232220;
+    border: none;
+    border-radius: 40px;
 }
 
 /*

@@ -19,7 +19,7 @@ Crear Concierto
     <script src="sweetalert2.all.min.js"></script>
     @vite('resources/css/form.css')
 </head>
-@if(auth()->user()->rol === 1)
+@if(auth()->user()->role === 1)
 <body>
     <img src="{{asset('img/marker.png')}}" class="marker" width="25" height="6">
     <div class="concertForms">
@@ -107,7 +107,7 @@ Crear Concierto
 
 
 @endif
-@if(auth()->user()->rol === 0)
+@if(auth()->user()->role === 0)
 <meta http-equiv="refresh" content = "0;{{route("viewHome")}}">
 @endif
 </html>

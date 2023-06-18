@@ -46,27 +46,32 @@
                     {{-- Cantidad de entradas vendidas --}}
                     <td>
                         <p>
-                            {{ $concert->stock }}
+                            {{ $concert->stock - $concert->availableStock }}
                         </p>
                     </td>
                     {{-- Cantidad de entradas disponibles --}}
                     <td>
                         <p>
-                            {{ $concert->stock }}
+                            {{ $concert->availableStock }}
                         </p>
                     </td>
                     {{-- Monto total vendido --}}
                     <td>
                         <p>
-                            ${{ $concert->price }}
+                            ${{ $concert->price * ($concert->stock - $concert->availableStock) }}
                         </p>
                     </td>
 
                     {{-- Detalle --}}
                     <td>
+                        @if ($concert->availableStock != $concert->stock)
                         <a href="{{ route('admin.sellsDetail', ['id'=> $concert->id]) }}">
                             <button class="buttonDetail">Ver Detalle</button>
                         </a>
+                        @else
+                            <button class="buttonDetailOff" deactive>Ver Detalle</button>
+                        @endif
+
                     </td>
             @endforeach
 

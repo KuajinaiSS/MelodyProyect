@@ -53,16 +53,27 @@
     gap: 100px;
     margin-top: 40px;
 }
+
 .containerCompraGen {
+
     justify-content: center;
     text-align: center;
-    width: 370px;
-    height: auto;
+    width: 500px;
+    height: 680px;
     border-radius: 15px;
     border: 1px solid #d9d9d9;
     margin: 20px auto;
 
 }
+
+
+.concertContainer{
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+}
+
 h1{
     margin-top: 30px;
     font-family: League Spartan;
@@ -73,16 +84,27 @@ h2{
     margin-top: 15px;
     font-family: League Spartan;
     text-align: left;
-    font-size: 15px;
+    font-size: 20px;
 
 }
-p2{
-    margin: left;
-    text-align: left;
-    font-size: 10px;
 
+.menu2{
+    font-family: Helvetica World;
+    margin-top: 10px;
+    border-radius: 20px;
 }
+
+.concertInfo{
+    font-family: Helvetica World;
+    font-size: 20px;
+}
+
+.ticketImg{
+    margin-left: 20px;
+}
+
 .containerCompra{
+    font-family: Helvetica World;
     justify-content: center;
     text-align: center;
     width: 250px;
@@ -92,22 +114,21 @@ p2{
     margin: 20px auto;
 
 }
-table{
-    /*
-    justify-content:;
-    text-align: center;*/
+
+.selection{
+    font-size: 15px;
+    margin-top: 10px;
 }
 
 .container .content {
-
     background-color: white;
     text-align: center;
     font-size: 25px;
     width: 400px;
     height: 400px;
-
 }
-.metodoPago{
+
+.payMethod{
     text-align: center;
     justify-content: center;
     border-radius: 15px;
@@ -116,14 +137,32 @@ table{
     height: 70px;
     width: 100px;
     background-color: transparent;
-
 }
-.metodoPago:focus{
+
+.payMethod1{
+    margin: auto;
+}
+
+.payMethod2{
+    margin: auto;
+}
+
+.payMethod:focus{
     background-color: transparent;
     border-color: #009e6c;
 }
-.metodoPago.buttonBuy:hover{
+.payMethod.buttonBuy:hover{
     border-color: #009e6c;
+}
+
+.totalText p{
+    display: inline-block;
+    font-size: 20px;
+}
+
+.totalPrice{
+    font-family: League Spartan;
+    text-decoration: none;
 }
 
 ul{
@@ -134,6 +173,7 @@ p{
     margin: auto;
     font-size: 10px;
 }
+
 
 
 .buttonBuy {
@@ -271,4 +311,24 @@ p{
     font-size: 20px;
     text-align: center;
     margin-top: 100px;
+}
+
+.return{
+    display: flex;
+    color: white;
+	text-decoration: none;
+    font-size: 25px;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.return:hover{
+    color: #eeeeee;
+}
+
+.errorMsg{
+    font-family: League Spartan;
+    font-size: 15px;
+    color: rgba(245, 38, 38, 0.842);
+    text-align: center;
 }

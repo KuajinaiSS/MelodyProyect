@@ -12,7 +12,8 @@ class Concert extends Model
         'concertName',
         'price',
         'stock',
-        'date'
+        'date',
+        'availableStock'
     ];
 
     public static function getConcerts(){

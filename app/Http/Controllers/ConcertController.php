@@ -26,6 +26,11 @@ class ConcertController extends Controller
 
     public function indexConcertDetails(){
         $concerts = Concert::getConcerts();
+        foreach($concerts as $concert){
+            $dateCorrectFormat = Carbon::create($concert->date)->format('d/m/Y');
+            $concert->date = $dateCorrectFormat;
+        }
+
         return view('admin.concertsDetails',[
             'concerts' => $concerts
         ]);
@@ -61,12 +66,6 @@ class ConcertController extends Controller
         return view('concert.create');
     }
 
-    public function getConcert($id){
-        $concert = Concert::findOrFail($id);
-        return view('buy',[
-            'concert' => $concert
-        ]);
-    }
 
     public function store(Request $request){
 
@@ -90,7 +89,8 @@ class ConcertController extends Controller
             'concertName' => $request->concertName,
             'price' => $request->price,
             'stock' => $request->stock,
-            'date' => $request->date
+            'date' => $request->date,
+            'availableStock' => $request->stock
         ]);
 
         return back()->with('confirmMessage','Concierto creado con éxito');

@@ -1,3 +1,6 @@
+
+@auth
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,33 +8,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{asset('img/MelodyLogo.png')}}">
-    <title>Inciar sesión - Melody</title>
+    <title>Comprar Entradas</title>
 
     @vite('resources/css/home.css')
+    @vite('resources/css/base.css')
 
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-</head>
 
 <body>
-    <img src="{{asset('img/marker.png')}}" class="marker2" width="25" height="6">
 
 
-    <div class="containerCompraGen">
+    <header class="header">
+        <div class="headerLogo">
+            <img src="{{asset('img/melodyLogo.png')}}" class="logoImg">
+        </div>
+
+        <a href="{{route('viewHome')}}" class="return">
+            Volver
+        </a>
+    </header>
+
+
+    <form id='form' action="{{route('concert.buy', ['id'=> $concert->id])}}" method="POST" novalidate class="containerCompraGen">
         <h1>¡Compra tus entradas!</h1>
-        <table>
+
+        <table class = "concertContainer">
             <td>
                 <h2>Nombre del Concierto:</h2>
-                <p2>{{$concert->concertName }}</p2>
+                <div class="concertInfo" style="text-align: left">{{$concert->concertName }}</div>
                 <h2>Fecha:</h2>
-                <p2>{{ $concert->date }}</p2>
+                <div class="concertInfo" style="text-align: left">{{ $concert->date }}</div>
                 <h2>Valor de entrada:</h2>
-                <p2>{{ $concert->price }}</p2>
+                <div class="concertInfo" style="text-align: left">${{ $concert->price }}</div>
                 <h2>Cantidad de entradas:</h2>
-                <select name="menu2">
+                <select id='quantity' name="menu2" class="menu2">
 
                     <option selected value="">--Seleccione las entradas--</option>
                     @for ($i = 1; $i <= $concert->stock; $i++)
@@ -39,42 +48,42 @@
 
                     @endfor
 
-                /select>
+                </select>
             </td>
             <td>
-                <img src="{{asset('img/tickethd.png')}}" class="pago" width="190" height="190" >
+                <img src="{{asset('img/tickethd.png')}}" class="ticketImg" width="190" height="190" >
             </td>
 
         </table>
 
-        <div class = "container"> </div>
         <div class="containerCompra">
             <table>
-                Seleccione su metodo de pago
+                <p class="selection">Seleccione su metodo de pago</p>
             </table>
-            <table align="center">
+            <table class="payMethod1">
                 <td>
-                    <button class="metodoPago">
+                    <button class="payMethod">
                 <img src="{{asset('img/efectivo.png')}}" class="pago" width="30" height="30">
                 <p>Efectivo</p>
                     </button>
                 </td>
                 <td>
-                    <button class="metodoPago">
+                    <button class="payMethod">
                 <img src="{{asset('img/transferencia.png')}}" class="pago" width="30" height="30">
                 <p>Transferencia</p>
                     </button>
                 </td>
             </table>
-            <table align="center">
+            <table class="payMethod2">
                 <td>
-                <button class="metodoPago">
+                <button class="payMethod">
                 <img src="{{asset('img/tarjetaCredito.png')}}" class="pago" width="30" height="30">
                 <p >Tarjeta de Credito</p>
                 </button>
                 </td>
+
                 <td>
-                <button class="metodoPago">
+                <button class="payMethod">
                 <img src="{{asset('img/tarjetaDebito.png')}}" class="pago" width="30" height="30">
                 <p >Tarjeta de Debito</p>
                 </button>
@@ -82,34 +91,52 @@
             </table>
         </div>
 
-            <h3 id="total">TOTAL: {{$concert.price}} </h3>
-            <input id="total-s" name="total" value="{{ $concert->price }}" hidden>
-            <input name="reservation_number" value="" hidden>
+        <div class="totalText">
+            <p class="totalPrice">TOTAL: $</p>
+            <p id="total" class="totalPrice"> 0 </p>
+        </div>
 
-            <a href="{{ route('pdf.descargar', ['id' => $voucher->id]) }}">
-            <button class="buttonBuy" >COMPRAR</button>
-            </a>
+        <input id="total-s" name="total" value="{{ $concert->price }}" hidden>
+        <input name="reservation_number" value="" hidden>
+
+
+        <button id = "buttonBuy" class="buttonBuy">COMPRAR</button>
+        @error('quantity')
+            <p class="errorMsg">{{ $message }}</p>
+        @enderror
+        @if (session('message'))
+            <p class="errorMsg">{{ session('message') }}</p>
+        @endif
+        @error('pay_method')
+        <p class="errorMsg">
+            {{ $message }}</p>
+        @enderror
+
+
+    </form>
 
 
 
-    </div>
-
+    <script>
+        const button = document.getElementById('buttonBuy');
+        const quantity = document.getElementById('quantity');
+        const total = document.getElementById('total');
+        const total_Submit = document.getElementById('total-s');
+        window.addEventListener('DOMContentLoaded', (e) => {
+            e.preventDefault();
+            button.disabled = true;
+        })
+        quantity.addEventListener('click', (e) => {
+            e.preventDefault();
+            button.disabled = false
+            console.log(quantity.value);
+            const sell = {{ $concert->price }} * quantity.value;
+            total.textContent = sell;
+            totalSubmit.value = sell;
+        })
+    </script>
 
 </body>
-@section( "Script")
-<script>
-    const cantidad = document.getElememtById('quantity');
-    const total = document.getElememtById('total');
-    const total_submit = document.getElememtById('total-s');
-
-
-    cantidad.addEventListener('click',(e) =>{
-        e.preventDefault();
-        console.log(cantidad.value);
-        const venta = {{$concert->price}} * cantidad.value;
-        total.textContent = venta;
-        totalSubmit.value = venta;
-    })
-</script>
 
 </html>
+@endauth

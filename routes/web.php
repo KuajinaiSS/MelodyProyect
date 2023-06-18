@@ -47,7 +47,8 @@ Route::get('concert_create',[ConcertController::class, 'create'])->name('concert
 Route::post('concert_create',[ConcertController::class, 'store'])->name('concert');
 
 // buy route
-Route::get('buy/{id}',[buyController::class, 'create'])->name('buy');
+Route::get('buy/{id}',[BuyController::class, 'create'])->name('buy');
+Route::post('buy/{id}',[BuyController::class, 'store'])->name('concert.buy');
 
 // admin routes
 Route::get('concertDetail',[ConcertController::class, 'indexConcertDetails'])->name('admin.concertsDetail');

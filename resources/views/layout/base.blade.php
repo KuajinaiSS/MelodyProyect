@@ -27,26 +27,24 @@
                     </a>
 
                 </li>
+
+                @if(auth()->user()->role === 1)
+
                 <li class="link">
-                    <a href="{{route('concerts')}}">
+                    <a href="{{route('admin.concertsDetail')}}">
                         Conciertos
                     </a>
                 </li>
 
-
-                <li class="link">
-                    <a href="{{route('admin.concertsDetail')}}">
-                        AUX
-                    </a>
-                </li>
-
-
-
-
-                @if(auth()->user()->rol === 1)
                 <li class="link">
                     <a href="{{route('concert.create')}}">
                         Crear Concierto
+                    </a>
+                </li>
+                @else
+                <li class="link">
+                    <a href="{{route('concerts')}}">
+                        Conciertos
                     </a>
                 </li>
                 @endif

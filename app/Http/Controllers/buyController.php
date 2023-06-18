@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Models\Concert;
-use App\Models\BuyDetail;
+use App\Models\DetailOrder;
+use Illuminate\Http\Request;
 
 class buyController extends Controller
 {
@@ -14,6 +15,9 @@ class buyController extends Controller
 
     public function create($id){
         $concert = Concert::find($id);
+        $dateCorrectFormat = Carbon::create($concert->date)->format('d/m/Y');
+        $concert->date = $dateCorrectFormat;
+
         return view('buy', [
             'concert' => $concert
         ]);
@@ -37,8 +41,8 @@ class buyController extends Controller
             return back()->with('message','No hay suficiente stock para este concierto');
         }
 
-        $buyDetail = BuyDetail::create([
-            'reservation_number' => '1234',
+        $buyDetail = DetailOrder::create([
+            'reservation_number' => $reservationNumber,
             'quantity' => $request->quantity,
             'total' => $request->total,
             'payment_method' => $request->pay_method,
@@ -46,14 +50,13 @@ class buyController extends Controller
             'concert_id' => $id
         ]);
 
+        dd($reservationNumber);
         discountStock($id,$request->quantity);
 
 
-        /* Cuando se agregue el pdf
-        return redirect()->route('generate.pdf', [
-            'id' => $buyDetail->id
-        ]);
-        */
+
+        return view('home');
+
     }
 
 
