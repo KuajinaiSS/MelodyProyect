@@ -35,10 +35,10 @@ function makeMessage(){
         'quantity.required' => 'Debe completar el campo "Cantidad de entradas"',
         'quantity.numeric' => 'La cantidad de entradas ingresada no es numérica o supera las entradas disponibles a comprar',
         'quantity.min' => 'La cantidad de entradas ingresada no es numérica o es igual a 0',
-        'pay_method.required' => 'Debe seleccionar un metodo de pago',
+        'payMethod.required' => 'Debe completar el campo "Método de pago',
         'reservation_number.min' => 'Error del sistema, inténtelo más tarde',
         'reservation_number.max' => 'Error del sistema, inténtelo más tarde',
-        'total.required' => 'Debe indicar el total de la compra'
+        'total.required' => 'Error del sistema, inténtelo más tarde'
     ];
 
     return $message;

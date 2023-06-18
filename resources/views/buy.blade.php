@@ -61,7 +61,7 @@
 
         <div class="containerCompra">
             <table>
-                <p class="selection">Seleccione su metodo de pago</p>
+                <p class="selection">Seleccione su método de pago</p>
             </table>
             <table class="payMethod1">
                 <td>
@@ -81,14 +81,14 @@
                 <td>
                 <button class="payMethod" id="3" value="3">
                 <img src="{{asset('img/tarjetaCredito.png')}}" class="pago" width="30" height="30">
-                <p >Tarjeta de Credito</p>
+                <p >Tarjeta de Crédito</p>
                 </button>
                 </td>
 
                 <td>
                 <button class="payMethod" id="4" value="4">
                 <img src="{{asset('img/tarjetaDebito.png')}}" class="pago" width="30" height="30">
-                <p >Tarjeta de Debito</p>
+                <p >Tarjeta de Débito</p>
                 </button>
                 </td>
             </table>
@@ -112,9 +112,16 @@
         @if (session('message'))
             <p class="errorMsg">{{ session('message') }}</p>
         @endif
-        @error('pay_method')
+        @error('payMethod')
             <p class="errorMsg">{{ $message }}</p>
         @enderror
+        @error('total')
+            <p class="errorMsg">{{ $message }}</p>
+        @enderror
+        @error('reservation_number')
+            <p class="errorMsg">{{ $message }}</p>
+        @enderror
+
 
 
     </form>
