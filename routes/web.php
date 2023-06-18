@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\buyController;
-use App\Http\Controllers\ThanksController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BuyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ThanksController;
 use App\Http\Controllers\ConcertController;
+use App\Http\Controllers\VoucherController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\MyConcertsController;
 use App\Http\Controllers\SellsDetailController;
@@ -49,7 +50,7 @@ Route::post('concert_create',[ConcertController::class, 'store'])->name('concert
 
 // buy route
 Route::get('buy/{id}',[BuyController::class, 'create'])->name('buy');
-Route::post('buy/{id}',[BuyController::class, 'store'])->name('concert.buy');
+Route::post('sold/{id}',[BuyController::class, 'store'])->name('concert.buy');
 
 // admin routes
 Route::get('concertDetail',[ConcertController::class, 'indexConcertDetails'])->name('admin.concertsDetail');

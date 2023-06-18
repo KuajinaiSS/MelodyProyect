@@ -85,6 +85,8 @@
 
 
 </body>
+@yield('alert')
+
 @endauth
 
 @guest

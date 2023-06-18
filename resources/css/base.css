@@ -20,7 +20,6 @@
 /* HEADER */
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -52,7 +51,6 @@ header {
 .logoImg {
     height: 50px;
     width: auto;
-
 }
 
 .header .nav-links li a:hover,
@@ -78,9 +76,7 @@ header {
 
 }
 
-a img{
-    scale: 0;
-}
+
 
 .userLoggedIn{
     margin-left: auto;
@@ -177,9 +173,7 @@ a img{
 
 }
 
-.alert{
-    position: relative;
-}
+
 
 .popupMessage{
     position: relative;
@@ -192,6 +186,7 @@ a img{
 }
 
 .button{
+
     font-family: League Spartan;
 }
 

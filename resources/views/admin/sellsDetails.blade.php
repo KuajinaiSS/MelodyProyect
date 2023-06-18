@@ -69,7 +69,23 @@
                     {{-- >Medio de pago LISTO--}}
                     <td>
                         <p>
-                            Tarjeta de débito
+                            @if ($data['detail_order']->payment_method === 1)
+                            <p>
+                                Efectivo
+                            </p>
+                            @elseif ($data['detail_order']->payment_method === 2)
+                            <p>
+                                Transferencia
+                            </p>
+                            @elseif ($data['detail_order']->payment_method === 3)
+                            <p>
+                                Tarjeta de Crédito
+                            </p>
+                            @elseif ($data['detail_order']->payment_method === 4)
+                            <p>
+                                Tarjeta de Débito
+                            </p>
+                            @endif
                         </p>
                     </td>
 

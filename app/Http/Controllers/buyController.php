@@ -7,7 +7,7 @@ use App\Models\Concert;
 use App\Models\DetailOrder;
 use Illuminate\Http\Request;
 
-class buyController extends Controller
+class BuyController extends Controller
 {
     public function index(){
         return view('buy');
@@ -30,11 +30,11 @@ class buyController extends Controller
 
         $messages = makeMessage();
         $this->validate($request,[
-            'quantity' => ['required','numeric','min::1'],
-            'payMethod' => ['required'],
+            'reservation_number' => ['min:4','max:4'],
+            'quantity' => ['required','numeric','min:1'],
+            'payMethod' => ['required','min:1','max:4'],
             'total' => ['required']
         ], $messages);
-
         $validStock = verifyStock($id, $request->quantity);
 
         if(!$validStock){
@@ -42,20 +42,19 @@ class buyController extends Controller
         }
 
         $buyDetail = DetailOrder::create([
-            'reservation_number' => $reservationNumber,
+            'reservation_number' => $request->reservation_number,
             'quantity' => $request->quantity,
             'total' => $request->total,
-            'payment_method' => $request->pay_method,
+            'payment_method' => $request->payMethod,
             'user_id' => auth()->user()->id,
             'concert_id' => $id
         ]);
 
-        dd($reservationNumber);
         discountStock($id,$request->quantity);
 
-
-
-        return view('home');
+        return redirect()->route('generate.pdf', [
+            'id' => $buyDetail->id
+        ]);
 
     }
 

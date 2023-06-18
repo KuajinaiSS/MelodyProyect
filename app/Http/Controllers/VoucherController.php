@@ -57,7 +57,7 @@ return $dompdf->stream();
             'date' => date("d-m-Y"),
         ];
 
-        $view_html = view('voucher.pdf', $data)->render();
+        $view_html = view('pdf', $data)->render();
 
         $domPDF->loadHtml($view_html);
 
@@ -79,7 +79,8 @@ return $dompdf->stream();
             'date' => date("Y-m-d")
         ]);
 
-        return view('client.order_success', [
+
+        return view('client.thanksMsg', [
             'detail_order' => $detail,
             'voucher' => $voucher
         ]);

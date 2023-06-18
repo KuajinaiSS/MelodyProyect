@@ -71,7 +71,7 @@
             <span>{{ $detail_order->reservation_number }}</span>
         </p>
         <p>Concierto:
-            <span>{{ $detail_order->concertDates->name }}</span>
+            <span>{{ $detail_order->concertDates->concertName }}</span>
         </p>
         <p>Fecha del concierto:
             <span>{{ $detail_order->concertDates->date }}</span>
@@ -95,8 +95,18 @@
     </div>
     <hr>
     <div class="total">
-        <p class="total-pay">Total pagado: {{ $detail_order->total }}</p>
-        <p class="method-pay">{{ $detail_order->payment_method }}</p>
+        <p class="total-pay">Total pagado: ${{ $detail_order->total }}</p>
+        <p class="method-pay">
+            @if ($data['detail_order']->payment_method === 1)
+                Efectivo
+            @elseif ($data['detail_order']->payment_method === 2)
+                Transferencia
+            @elseif ($data['detail_order']->payment_method === 3)
+                Tarjeta de Crédito
+            @elseif ($data['detail_order']->payment_method === 4)
+                Tarjeta de Débito
+            @endif
+        </p>
     </div>
 </body>
 

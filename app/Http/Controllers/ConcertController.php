@@ -121,6 +121,5 @@ class ConcertController extends Controller
         return back()->with('notFoundMessage','¡Lo sentimos! No hay conciertos para la fecha seleccionada');
 
 
-
     }
 }
