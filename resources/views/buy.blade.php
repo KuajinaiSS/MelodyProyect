@@ -86,7 +86,7 @@
             <input id="total-s" name="total" value="{{ $concert->price }}" hidden>
             <input name="reservation_number" value="" hidden>
 
-            <a href="{{ route('pdf.descargar', ['id' => $voucher->id]) }}">
+            <a href="{{ route('thanksMsg') }}">
             <button class="buttonBuy" >COMPRAR</button>
             </a>
 
