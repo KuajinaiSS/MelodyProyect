@@ -59,3 +59,8 @@ Route::get('myConcerts',[MyConcertsController::class, 'index'])->name('client.my
 // home routes
 Route::get('home',[HomeController::class, 'index'])->name('viewHome');
 
+// Voucher
+Route::get('/detail-order/{id}', [VoucherController::class, 'generatePDF'])->name('generate.pdf');
+Route::get('descargar-pdf/{id}', [VoucherController::class, 'downloadPDF'])->name('pdf.descargar');
+Route::get('/pdf', [VoucherController::class, 'pdf'])->name('pdf.example');
+

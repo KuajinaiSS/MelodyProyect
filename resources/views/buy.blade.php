@@ -82,11 +82,34 @@
             </table>
         </div>
 
-            <h3>TOTAL: $XX.XXX</h3>
+            <h3 id="total">TOTAL: {{$concert.price}} </h3>
+            <input id="total-s" name="total" value="{{ $concert->price }}" hidden>
+            <input name="reservation_number" value="" hidden>
+
+            <a href="{{ route('pdf.descargar', ['id' => $voucher->id]) }}">
             <button class="buttonBuy" >COMPRAR</button>
+            </a>
+
+
 
     </div>
 
 
 </body>
+@section( "Script")
+<script>
+    const cantidad = document.getElememtById('quantity');
+    const total = document.getElememtById('total');
+    const total_submit = document.getElememtById('total-s');
+
+
+    cantidad.addEventListener('click',(e) =>{
+        e.preventDefault();
+        console.log(cantidad.value);
+        const venta = {{$concert->price}} * cantidad.value;
+        total.textContent = venta;
+        totalSubmit.value = venta;
+    })
+</script>
+
 </html>
