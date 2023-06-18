@@ -97,13 +97,13 @@
     <div class="total">
         <p class="total-pay">Total pagado: ${{ $detail_order->total }}</p>
         <p class="method-pay">
-            @if ($data['detail_order']->payment_method === 1)
+            @if ($detail_order->payment_method === 1)
                 Efectivo
-            @elseif ($data['detail_order']->payment_method === 2)
+            @elseif ($detail_order->payment_method === 2)
                 Transferencia
-            @elseif ($data['detail_order']->payment_method === 3)
+            @elseif ($detail_order->payment_method === 3)
                 Tarjeta de Crédito
-            @elseif ($data['detail_order']->payment_method === 4)
+            @elseif ($detail_order->payment_method === 4)
                 Tarjeta de Débito
             @endif
         </p>

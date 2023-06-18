@@ -10,7 +10,7 @@
 
 
     @if ($allData->count() === 0)
-        <p style="text-align: center">No existen compras para este concierto</p>
+        <p class="errorMsg" style="text-align: center">No existen compras para este concierto</p>
     @endif
 
     @if($allData->count() > 0)
@@ -94,6 +94,15 @@
                         <p>
                             ${{ $data['detail_order']->total }}
                         </p>
+                    </td>
+
+                    {{-- pdf --}}
+                    <td>
+
+                        <a href="{{ route('pdf.descargar', ['id' =>  $data['voucher_id']]) }}">
+                            <button class="buttonDetail">Descargar PDF</button>
+                        </a>
+
                     </td>
             @endforeach
 

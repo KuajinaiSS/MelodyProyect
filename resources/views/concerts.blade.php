@@ -41,12 +41,11 @@ Conciertos
                 <h2 class="concertName">{{session('concertByDate')->concertName}}</h2>
                 <p class="date">{{session('concertByDate')->date}}</p>
                 <p class="price">Valor: ${{session('concertByDate')->price}} CLP</p>
-                <p class="stock">Entradas Disponibles: {{session('concertByDate')->stock}}</p>
+                <p class="stock">Entradas Disponibles: {{session('concertByDate')->availableStock}}</p>
                 @if(auth()->user()->role === 0)
-                    @if (session('concertByDate')->stock > 0)
+                    @if (session('concertByDate')->availableStock > 0)
                         <button class="buttonBuy">COMPRAR</button>
-                    @endif
-                    @if (session('concertByDate')->stock === 0)
+                    @elseif(session('concertByDate')->availableStock === 0)
                         <button class="buttonSpend" disabled>AGOTADO</button>
                     @endif
                 @endif
@@ -61,14 +60,13 @@ Conciertos
             <h2 class="concertName">{{$concert->concertName}}</h2>
             <p class="date">{{$concert->date}}</p>
             <p class="price">Valor: ${{$concert->price}} CLP</p>
-            <p class="stock">Entradas Disponibles: {{$concert->stock}}</p>
+            <p class="stock">Entradas Disponibles: {{$concert->availableStock}}</p>
             @if(auth()->user()->role === 0)
-                @if ($concert->stock > 0)
+                @if ($concert->availableStock > 0)
                     <a href="{{route('buy',['id' => $concert->id])}}">
                     <button class="buttonBuy">COMPRAR</button>
                     </a>
-                @endif
-                @if ($concert->stock === 0)
+                @elseif ($concert->availableStock === 0)
                     <button class="buttonSpend" disabled>AGOTADO</button>
                 @endif
             @endif

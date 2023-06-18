@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Concert;
+use App\Models\Voucher;
 use App\Models\DetailOrder;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -38,6 +39,7 @@ class ConcertController extends Controller
 
     public function indexSellsConcertDetails($id_concert){
         $details = DetailOrder::getDetailOrder();
+
         $concert = Concert::findOrFail($id_concert);
         $collection = collect();
 
@@ -45,9 +47,11 @@ class ConcertController extends Controller
         foreach($details as $detail){
             if($detail->concert_id == $id_concert){
                 $user = User::findOrFail($detail->user_id);
+                $voucher = Voucher::where('detail_order_id',$detail->id)->first();
                 $data = [
                     'user' => $user,
                     'detail_order' => $detail,
+                    'voucher_id' => $voucher->id
                 ];
                 $collection->push($data);
             }

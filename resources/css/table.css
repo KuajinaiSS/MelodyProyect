@@ -33,7 +33,7 @@ table{
     font-size: 18px;
     text-align: center;
 
-    border: 3px solid black;
+    border: 1px solid #dddddd;
     border-radius: 25px;
 
     margin-left: auto;
@@ -49,10 +49,13 @@ th, td {
 }
 
 td{
-    border: 1px solid black;
+    border: 1px solid #dddddd;
 }
 
-
+.errorMsg{
+    margin-top: 40px;
+    font-family: Helvetica World;
+}
 
 
 .buttonDetail{

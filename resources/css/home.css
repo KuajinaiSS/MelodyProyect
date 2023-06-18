@@ -62,7 +62,8 @@
     height: auto;
     border-radius: 15px;
     border: 1px solid #d9d9d9;
-    margin: 20px auto;
+    margin: -20px auto;
+
 
 }
 
@@ -335,3 +336,7 @@ p{
 }
 
 
+.footer{
+    margin-top: 20px;
+
+}

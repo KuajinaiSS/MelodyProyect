@@ -99,7 +99,7 @@
             <p id="total" class="totalPrice"> 0 </p>
         </div>
 
-        <input id="total-s" name="total" value="{{ $concert->price }}" hidden>
+        <input id="total-s" name="total" value="" hidden>
         <input name="reservation_number" value="" hidden>
         <input id="selectedPayMethod" name="payMethod" value="" hidden>
 
@@ -119,6 +119,10 @@
 
     </form>
 
+    <footer class="footer">
+        <h3 class="tradeMark">Melody™</h3>
+        <p class="copyrigth"> Todos los derechos reservados - 2023. </p>
+    </footer>
 
 
 
@@ -173,7 +177,7 @@
         console.log(quantity.value);
         const sell = {{ $concert->price }} * quantity.value;
         total.textContent = sell;
-        totalSubmit.value = sell;
+        total_Submit.value = sell;
     })
 </script>
 
