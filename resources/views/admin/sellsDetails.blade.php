@@ -52,10 +52,10 @@
                         </p>
                     </td>
 
-                    {{-- Fecha de la compra LISTO--}}
+                    {{-- Fecha de la compra --}}
                     <td>
                         <p>
-                            23/09/2034
+                            {{ $data['detail_order']->voucher }}
                         </p>
                     </td>
 

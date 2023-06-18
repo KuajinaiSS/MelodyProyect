@@ -62,7 +62,7 @@
                         </p>
                     </td>
 
-                    {{-- Detalle --}}
+                    {{-- Detalle LISTO--}}
                     <td>
                         <a href="{{ route('admin.sellsDetail', ['id'=> $concert->id]) }}">
                             <button class="buttonDetail">Ver Detalle</button>
