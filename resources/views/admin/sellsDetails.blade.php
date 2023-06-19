@@ -11,11 +11,12 @@
 @section('content')
 @auth
 @if(auth()->user()->role === 1)
-    <h1 class="titulo">{{ $concert->concertName }}</h1>
+    <h1 class="tittle">{{ $concert->concertName }}</h1>
+    <h2 class="concertDate">{{date('d/m/Y', strtotime( $concert->date ))  }}</h2>
 
 
     @if ($allData->count() === 0)
-        <p class="errorMsg" style="text-align: center">No existen compras para este concierto</p>
+        <p class="errorMsg" style="text-align: center">No hay entradas vendidas por desplegar</p>
     @endif
 
     @if($allData->count() > 0)
@@ -101,14 +102,14 @@
                         </p>
                     </td>
 
-                    {{-- pdf --}}
-                    <td>
+                    {{--                     <td>
 
                         <a href="{{ route('pdf.descargar', ['id' =>  $data['voucher_id']]) }}">
                             <button class="buttonDetail">Descargar PDF</button>
                         </a>
 
-                    </td>
+                    </td> --}}
+
             @endforeach
 
             <tfoot>

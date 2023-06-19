@@ -27,7 +27,7 @@ Inicio
 
     </div>
     @if($concerts->count() === 0)
-        <h3 class="noConcerts">No hay conciertos disponibles</h3>
+        <h3 class="noConcerts">No hay conciertos en sistema. Intenta más tarde</h3>
     @endif
 
     @if ($concerts->count() > 0)

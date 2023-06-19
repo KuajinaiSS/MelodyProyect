@@ -1,6 +1,6 @@
 
 @auth
-
+@if(auth()->user()->role === 0)
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -46,7 +46,7 @@
                 <select id='quantity' name="quantity" class="menu2">
 
                     <option selected value="">--Seleccione las entradas--</option>
-                    @for ($i = 1; $i <= $concert->stock; $i++)
+                    @for ($i = 1; $i <= $concert->availableStock; $i++)
                         <option value="{{ $i }}">{{ $i }}</option>
 
                     @endfor
@@ -99,7 +99,7 @@
             <p id="total" class="totalPrice"> 0 </p>
         </div>
 
-        <input id="total-s" name="total" value="" hidden>
+        <input id="total-s" name="total" value="0" hidden>
         <input name="reservation_number" value="" hidden>
         <input id="selectedPayMethod" name="payMethod" value="" hidden>
 
@@ -222,4 +222,13 @@
 </html>
 
 
+@elseif(auth()->user()->role === 1)
+<meta http-equiv="refresh" content = "0;{{route("viewHome")}}">
+@endif
+
 @endauth
+
+@guest
+<meta http-equiv="refresh" content = "0;{{route("viewHome")}}">
+@endguest
+

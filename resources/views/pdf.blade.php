@@ -62,7 +62,7 @@
     <div>
         <h3>Productora Melody</h3>
         <h3>Fecha:
-            <span>{{ date('d/m/Y', strtotime( $date ))  }}</span>
+            <span>{{ $date }}</span>
         </h3>
     </div>
     <div>
@@ -79,7 +79,7 @@
         <p>Cantidad de entradas:
             <span>{{ $detail_order->quantity }}</span>
         </p>
-        <p>Valor Entrada:
+        <p>Valor Entrada: $
             <span>{{ $detail_order->concertDates->price }}</span>
         </p>
     </div>

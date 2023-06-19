@@ -10,18 +10,18 @@ use Illuminate\Support\Facades\Storage;
 
 class VoucherController extends Controller{
     public function pdf(){
-// instantiate and use the dompdf class
-$dompdf = new Dompdf();
+        // instantiate and use the dompdf class
+        $dompdf = new Dompdf();
 
-$view_html = view('example_pdf');
-$dompdf->loadHtml($view_html);
+        $view_html = view('example_pdf');
+        $dompdf->loadHtml($view_html);
 
-// (Optional) Setup the paper size and orientation
-$dompdf->setPaper('A4', 'portrait');
+        // (Optional) Setup the paper size and orientation
+        $dompdf->setPaper('A4', 'portrait');
 
-$dompdf->render();
-// Output the generated PDF to Browser
-return $dompdf->stream();
+        $dompdf->render();
+        // Output the generated PDF to Browser
+        return $dompdf->stream();
     }
 
     public function downloadPDF($id)
@@ -54,8 +54,9 @@ return $dompdf->stream();
         $data = [
             'user' => $user,
             'detail_order' => $detail,
-            'date' => date("d-m-Y"),
+            'date' => date("d/m/Y"),
         ];
+
 
         $view_html = view('pdf', $data)->render();
 

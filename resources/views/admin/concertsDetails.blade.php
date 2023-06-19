@@ -13,6 +13,11 @@
 @if(auth()->user()->role === 1)
     <h1 class="titulo">Detalle Conciertos</h1>
 
+    @if ($concerts->count() === 0)
+        <p class="errorMsg" style="text-align: center">No hay conciertos por mostrar</p>
+    @endif
+
+    @if($concerts->count() > 0)
     <table>
         <thead>
             <tr>
@@ -86,6 +91,7 @@
 
         </tbody>
     </table>
+    @endif
     </div>
 
 @elseif(auth()->user()->role === 0)

@@ -6,7 +6,7 @@ Conciertos
 @section('content')
 
 @auth
-
+@if(auth()->user()->role === 0)
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +32,10 @@ Conciertos
         <a href="{{route('concerts')}}" class="clearSearch">Limpiar Filtros</a>
     </div>
 
-    @if (session('notFoundMessage'))
+    @if($concerts->count() === 0)
+    <h3 class="noConcerts">No hay conciertos en sistema. Intenta más tarde</h3>
+
+    @elseif (session('notFoundMessage'))
         <div class="notFoundMsg"><p>{{session('notFoundMessage')}}</p></div>
     @elseif(session('concertByDate'))
         <div class="container">
@@ -52,6 +55,8 @@ Conciertos
 
             </div>
         </div>
+
+
     @elseif ($concerts->count() > 0)
         <div class="container">
         @foreach ($concerts as $concert)
@@ -76,6 +81,10 @@ Conciertos
     @endif
 
 </html>
+@elseif(auth()->user()->role === 1)
+<meta http-equiv="refresh" content = "0;{{route("viewHome")}}">
+@endif
+
 @endauth
 
 @endsection
