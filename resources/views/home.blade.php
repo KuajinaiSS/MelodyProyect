@@ -40,12 +40,12 @@ Inicio
             <p class="price">Valor: ${{$concert->price}} CLP</p>
             <p class="stock">Entradas Disponibles: {{$concert->availableStock}}</p>
             @if(auth()->user()->role === 0)
-                @if ($concert->stock > 0)
+                @if ($concert->availableStock > 0)
                     <a href="{{route('buy',['id' => $concert->id])}}">
                     <button class="buttonBuy">COMPRAR</button>
                     </a>
                 @endif
-                @if ($concert->stock === 0)
+                @if ($concert->availableStock === 0)
                     <button class="buttonSpend" disabled>AGOTADO</button>
                 @endif
             @endif

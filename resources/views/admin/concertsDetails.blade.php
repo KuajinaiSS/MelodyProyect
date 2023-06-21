@@ -11,7 +11,7 @@
 @section('content')
 @auth
 @if(auth()->user()->role === 1)
-    <h1 class="titulo">Detalle Conciertos</h1>
+    <h1 class="tittle">Detalle Conciertos</h1>
 
     @if ($concerts->count() === 0)
         <p class="errorMsg" style="text-align: center">No hay conciertos por mostrar</p>
