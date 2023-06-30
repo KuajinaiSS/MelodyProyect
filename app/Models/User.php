@@ -53,6 +53,6 @@ class User extends Authenticatable
 
     public function concertsClient()
     {
-        return $this->hasMany(DetailOrder::class, 'user_id');
+        return $this->hasMany(DetailOrder::class, 'user_id')->order_by('date','desc');
     }
 }
