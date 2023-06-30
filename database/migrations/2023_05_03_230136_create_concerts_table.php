@@ -18,7 +18,6 @@ return new class extends Migration
             $table->integer('stock');
             $table->date('date');
             $table->integer('availableStock');
-            $table->timestamps();
         });
     }
 

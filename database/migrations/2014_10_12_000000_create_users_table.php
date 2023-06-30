@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('password');
             $table->integer('role')->default(0);
             $table->boolean('state')->default(1);
-            $table->timestamps();
         });
     }
 
