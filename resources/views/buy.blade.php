@@ -12,7 +12,7 @@
     <script src="sweetalert2.all.min.js"></script>
     <title>Comprar Entradas</title>
 
-    @vite('resources/css/home.css')
+    @vite('resources/css/buy.css')
     @vite('resources/css/base.css')
 
 
@@ -126,7 +126,7 @@
 
     </form>
 
-    <footer class="footer">
+    <footer class="pageFooter">
         <h3 class="tradeMark">Melody™</h3>
         <p class="copyrigth"> Todos los derechos reservados - 2023. </p>
     </footer>
@@ -183,7 +183,7 @@
         e.preventDefault();
         console.log(quantity.value);
         const sell = {{ $concert->price }} * quantity.value;
-        total.textContent = sell;
+        total.textContent = sell.toLocaleString(undefined, { useGrouping: true });
         total_Submit.value = sell;
     })
 </script>
