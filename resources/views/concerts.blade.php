@@ -8,17 +8,10 @@ Conciertos
 @auth
 @if(auth()->user()->role === 0)
 
-<!DOCTYPE html>
-<html lang="en">
+
 @vite('resources/css/home.css')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-</head>
 
-<body>
     <img src="{{asset('img/marker.png')}}" class="marker2" width="25" height="6">
     <div class="search">
         <form action="{{route('concert.byDate')}}" method="POST" novalidate>
@@ -40,10 +33,10 @@ Conciertos
     @elseif(session('concertByDate'))
         <div class="container">
             <div class="content">
-                <img src="{{ asset('img/ticket.png') }}" alt="Concierto" width="150" height="150" align="center">
+                <img src="{{ asset('img/ticket.png') }}" width="150" height="150" align="center">
                 <h2 class="concertName">{{session('concertByDate')->concertName}}</h2>
                 <p class="date">{{session('concertByDate')->date}}</p>
-                <p class="price">Valor: ${{session('concertByDate')->price}} CLP</p>
+                <p class="price">Valor: ${{number_format(session('concertByDate')->price,0,'.','.')}} CLP</p>
                 <p class="stock">Entradas Disponibles: {{session('concertByDate')->availableStock}}</p>
                 @if(auth()->user()->role === 0)
                     @if (session('concertByDate')->availableStock > 0)
@@ -55,16 +48,14 @@ Conciertos
 
             </div>
         </div>
-
-
     @elseif ($concerts->count() > 0)
         <div class="container">
         @foreach ($concerts as $concert)
         <div class="content">
-            <img src="{{ asset('img/ticket.png') }}" alt="Concierto" width="150" height="150" align="center">
+            <img src="{{ asset('img/ticket.png') }}" width="150" height="150" align="center">
             <h2 class="concertName">{{$concert->concertName}}</h2>
             <p class="date">{{$concert->date}}</p>
-            <p class="price">Valor: ${{$concert->price}} CLP</p>
+            <p class="price">Valor: ${{number_format($concert->price,0,'.','.')}} CLP</p>
             <p class="stock">Entradas Disponibles: {{$concert->availableStock}}</p>
             @if(auth()->user()->role === 0)
                 @if ($concert->availableStock > 0)
@@ -80,7 +71,6 @@ Conciertos
         @endforeach
     @endif
 
-</html>
 @elseif(auth()->user()->role === 1)
 <meta http-equiv="refresh" content = "0;{{route("viewHome")}}">
 @endif
