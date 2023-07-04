@@ -17,28 +17,19 @@
 }
 
 body{
-    font-family: Helvetica World;
-    background-color: white;
 
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica World;
+    height: 100vh;
+    background-color: white;
 }
 
-.forms{
+.forms, .concertForms{
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%,-50%);
-    width: 400px;
-    background: white;
-    border-radius: 15px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #d9d9d9;
-    margin-bottom: 30px;
-}
-
-.concertForms{
-    margin: auto;
-    height: auto;
     width: 400px;
     background: white;
     border-radius: 15px;
@@ -312,12 +303,16 @@ form .concertName{
     transform: translate(440px,-75px);
 }
 
-.pageFooter{
+.alert{
+    position: absolute;
+}
+
+.footer{
     position: fixed;
-    bottom: 0%;
 }
 
 .popupMessage{
+
     font-family: League Spartan;
     border-radius: 15px;
     color:#545454;

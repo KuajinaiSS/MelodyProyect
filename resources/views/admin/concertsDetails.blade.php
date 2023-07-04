@@ -3,18 +3,14 @@
     Detalle de Conciertos
 @endsection
 
-
+@vite('resources/css/table.css')
 
 
 
 
 @section('content')
 @auth
-@vite('resources/css/table.css')
 @if(auth()->user()->role === 1)
-
-
-    <img src="{{asset('img/marker.png')}}" class="marker" width="25" height="6">
     <h1 class="tittle">Detalle Conciertos</h1>
 
     @if ($concerts->count() === 0)
@@ -72,7 +68,7 @@
                     {{-- Monto total vendido --}}
                     <td>
                         <p>
-                            ${{number_format($concert->price * ($concert->stock - $concert->availableStock),0,'.','.') }}
+                            ${{ $concert->price * ($concert->stock - $concert->availableStock) }}
                         </p>
                     </td>
 

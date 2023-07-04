@@ -47,13 +47,78 @@
 }
 
 .container {
-    margin-left: auto;
-    margin-right: auto;
     justify-content: center;
     display: grid;
-    grid-template-columns: 400px 400px 400px;
-    gap: auto;
+    grid-template-columns: auto auto auto;
+    gap: 100px;
     margin-top: 40px;
+}
+
+.containerCompraGen {
+
+    justify-content: center;
+    text-align: center;
+    width: 500px;
+    height: auto;
+    border-radius: 15px;
+    border: 1px solid #d9d9d9;
+    margin: -20px auto;
+
+
+}
+
+
+.concertContainer{
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+}
+
+h1{
+    margin-top: 30px;
+    font-family: League Spartan;
+    text-align: center;
+    font-size: 30px;
+}
+h2{
+    margin-top: 15px;
+    font-family: League Spartan;
+    text-align: left;
+    font-size: 20px;
+
+}
+
+.menu2{
+    font-family: Helvetica World;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+.concertInfo{
+    font-family: Helvetica World;
+    font-size: 20px;
+}
+
+.ticketImg{
+    margin-left: 20px;
+}
+
+.containerCompra{
+    font-family: Helvetica World;
+    justify-content: center;
+    text-align: center;
+    width: 250px;
+    height: 210px;
+    border-radius: 15px;
+    border: 1px solid #d9d9d9;
+    margin: 20px auto;
+
+}
+
+.selection{
+    font-size: 15px;
+    margin-top: 10px;
 }
 
 .container .content {
@@ -64,8 +129,57 @@
     height: 400px;
 }
 
+.payMethod{
+    text-align: center;
+    justify-content: center;
+    border-radius: 15px;
+    border: 1px solid #d9d9d9;
+    margin: 5px;
+    height: 70px;
+    width: 100px;
+    background-color: transparent;
+}
+
+.payMethod1{
+    margin: auto;
+}
+
+.payMethod2{
+    margin: auto;
+}
+
+.payMethod:focus{
+    background-color: transparent;
+    border-color: #009e6c;
+}
+.payMethod.buttonBuy:hover{
+    border-color: #009e6c;
+}
+
+.totalText p{
+    display: inline-block;
+    font-size: 20px;
+}
+
+.totalPrice{
+    font-family: League Spartan;
+    text-decoration: none;
+}
+
+ul{
+    justify-content: center;
+    text-align: center;
+}
+p{
+    margin: auto;
+    font-size: 10px;
+}
+
+
+
 .buttonBuy {
-    margin-top: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     font-family: League Spartan;
     display: inline-block;
     padding: 15px 15px;
@@ -118,6 +232,12 @@
     font-weight: normal;
 }
 
+.expImg{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
 
 /* VISTA CONCIERTOS */
 .search{
@@ -141,7 +261,7 @@
 
 .byDate{
     width: 200px;
-    height: 40px;
+    height: 45px;
     padding-left: 20px;
     padding-right: 10px;
 }
@@ -194,6 +314,19 @@
     margin-top: 100px;
 }
 
+.return{
+    display: flex;
+    color: white;
+	text-decoration: none;
+    font-size: 25px;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.return:hover{
+    color: #eeeeee;
+}
+
 .errorMsg{
     font-family: League Spartan;
     font-size: 15px;
@@ -203,3 +336,7 @@
 }
 
 
+.footer{
+    margin-top: 20px;
+
+}

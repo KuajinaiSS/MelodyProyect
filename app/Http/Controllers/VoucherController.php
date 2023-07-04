@@ -67,7 +67,7 @@ class VoucherController extends Controller{
         $domPDF->render();
 
 
-        $filename =  $detail->reservation_number .'_comprobante.pdf';
+        $filename = 'user_' . Str::random(10) . '.pdf';
 
         // Guardar el PDF en la carpeta public
         $path = 'pdfs\\' . $filename;
