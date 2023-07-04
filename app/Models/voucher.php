@@ -9,9 +9,9 @@ class Voucher extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'pdfName',
+        'pdf_name',
         'path',
         'date',
-        'detailOrderId'
+        'detail_order_id'
     ];
 }

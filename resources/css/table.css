@@ -17,11 +17,17 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-.titulo {
+.tittle {
     font-family: League Spartan;
     text-align: center;
-    font-size: 30px;
+    font-size: 35px;
 
+}
+
+.concertDate{
+    font-family: Helvetica World;
+    text-align: center;
+    font-size: 20px;
 }
 
 .finalRow{
@@ -33,7 +39,7 @@ table{
     font-size: 18px;
     text-align: center;
 
-    border: 3px solid black;
+    border: 1px solid #dddddd;
     border-radius: 25px;
 
     margin-left: auto;
@@ -49,13 +55,16 @@ th, td {
 }
 
 td{
-    border: 1px solid black;
+    border: 1px solid #dddddd;
+}
+
+.errorMsg{
+    margin-top: 40px;
+    font-family: Helvetica World;
 }
 
 
-
-
-.buttonDetail {
+.buttonDetail{
 
     display: inline-block;
     padding: 7px 15px;
@@ -80,6 +89,39 @@ td{
     background-color: #009e6c;
     transform: translateY(2px);
 }
+
+.buttonDetailOff{
+    display: inline-block;
+    padding: 7px 15px;
+    margin: 5px 20px;
+    font-size: 18px;  /*superior inferior - derecho izquierdo*/
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #232220;
+    border: none;
+    border-radius: 40px;
+}
+
+.marker{
+    position: absolute;
+    transform: translate(240px,-75px);
+}
+
+.return{
+    display: flex;
+    color: white;
+	text-decoration: none;
+    font-size: 25px;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.return:hover{
+    color: #eeeeee;
+}
+
 
 /*
 tr:hover td {

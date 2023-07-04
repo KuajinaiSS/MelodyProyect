@@ -1,6 +1,7 @@
 <?php
 use Carbon\Carbon;
 use App\Models\Concert;
+use App\Models\DetailOrder;
 
 
 function makeMessage(){
@@ -30,10 +31,14 @@ function makeMessage(){
         'stock.between' => 'El valor ingresado no es numérico o es inferior a 100 y superior a 400',
         'date.required' => 'Debe completar el campo "Fecha"',
         'date.after' => 'La fecha debe ser mayor a '. date("d-m-Y"),
-        'date_search.required' => 'Ingrese una fecha válida.',
-        'quantity.required' => 'Debe indicar la cantidad de entradas.',
-        'quantity.min' => 'La cantidad de entradas debe ser mayor o igual a :min.',
-        'pay_method.required' => 'Debe seleccionar un metodo de pago.',
+        'date_search.required' => 'Ingrese una fecha válida',
+        'quantity.required' => 'Debe completar el campo "Cantidad de entradas"',
+        'quantity.numeric' => 'La cantidad de entradas ingresada no es numérica o supera las entradas disponibles a comprar',
+        'quantity.min' => 'La cantidad de entradas ingresada no es numérica o es igual a 0',
+        'payMethod.required' => 'Debe completar el campo "Método de pago"',
+        'reservation_number.min' => 'Error del sistema, inténtelo más tarde',
+        'reservation_number.max' => 'Error del sistema, inténtelo más tarde',
+
     ];
 
     return $message;
@@ -57,7 +62,7 @@ function verifyStock($id, $quantity)
 {
     $concert = Concert::find($id);
 
-    if ($quantity > $concert->stock) {
+    if ($quantity > $concert->availableStock) {
         return false;
     }
     return true;
@@ -67,18 +72,19 @@ function verifyStock($id, $quantity)
 function discountStock($id, $quantity)
 {
     $concert = Concert::find($id);
-
-    $concert->stock -= $quantity;
+    $concert->availableStock -= $quantity;
     $concert->save();
     return true;
 }
 
 function generateReservationNum()
 {
-    do {
-        $number = mt_rand(1000, 9999);
+    $details = DetailOrder::getDetailOrder();
+    $reservationNumber = 999;
+    foreach ($details as $detail){
+        $reservationNumber = $detail->reservation_number;
     }
-    while (substr($number, 0, 1) === '0');
 
-    return $number;
+    return $reservationNumber += 1;
+
 }

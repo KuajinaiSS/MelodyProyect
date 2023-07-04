@@ -12,11 +12,17 @@ class Concert extends Model
         'concertName',
         'price',
         'stock',
-        'date'
+        'date',
+        'availableStock'
     ];
 
     public static function getConcerts(){
         return self::all();
+    }
+
+    public static function getConcertsDate(){
+        $actualDate = date("Y-m-d");
+        return Concert::where('date', '>=', $actualDate)->get();
     }
 
 }

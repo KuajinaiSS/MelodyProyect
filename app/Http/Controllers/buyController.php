@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Models\Concert;
-use App\Models\BuyDetail;
+use App\Models\DetailOrder;
+use Illuminate\Http\Request;
 
-class buyController extends Controller
+class BuyController extends Controller
 {
     public function index(){
         return view('buy');
@@ -14,6 +15,9 @@ class buyController extends Controller
 
     public function create($id){
         $concert = Concert::find($id);
+        $dateCorrectFormat = Carbon::create($concert->date)->format('d/m/Y');
+        $concert->date = $dateCorrectFormat;
+
         return view('buy', [
             'concert' => $concert
         ]);
@@ -21,39 +25,36 @@ class buyController extends Controller
 
     public function store(Request $request, $id){
         $reservationNumber = generateReservationNum();
-
+        $concert = Concert::find($id);
         $request->request->add(['reservation_number' => $reservationNumber]);
-
-        $messages = makeMessage();
+        $message = makeMessage();
         $this->validate($request,[
-            'quantity' => ['required','numeric','min::1'],
-            'payMethod' => ['required'],
+            'reservation_number' => ['min:4','max:4'],
+            'quantity' => ['required','numeric','min:1'],
+            'payMethod' => ['required','min:1','max:4'],
             'total' => ['required']
-        ], $messages);
-
+        ], $message);
         $validStock = verifyStock($id, $request->quantity);
 
         if(!$validStock){
-            return back()->with('message','No hay suficiente stock para este concierto');
+            return back()->with('message','La cantidad de entradas ingresada no es numérica o supera las entradas disponibles a comprar');
         }
 
-        $buyDetail = BuyDetail::create([
-            'reservation_number' => '1234',
+        $buyDetail = DetailOrder::create([
+            'reservation_number' => $request->reservation_number,
             'quantity' => $request->quantity,
             'total' => $request->total,
-            'payment_method' => $request->pay_method,
+            'payment_method' => $request->payMethod,
             'user_id' => auth()->user()->id,
             'concert_id' => $id
         ]);
 
         discountStock($id,$request->quantity);
 
-
-        /* Cuando se agregue el pdf
         return redirect()->route('generate.pdf', [
             'id' => $buyDetail->id
         ]);
-        */
+
     }
 
 
