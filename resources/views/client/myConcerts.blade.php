@@ -25,18 +25,48 @@
 
 
         <tbody>
-            @for ($i = 0; $i < 10; $i++)
-                <tr>
-                    <td>Juan</td>
-                    <td>Silver</td>
-                    <td>Laptop</td>
-                    <td>$2999</td>
-                    <td>$2999</td>
-                    <td>
-                        <a href="{{ route('admin.sellsDetail') }}"><button class="buttonDetail">Ver Detalle</button> </a>
-                    </td>
-                </tr>
-            @endfor
+            @foreach ($user->concertsClient as $detailOrder)
+            <tr>
+                {{-- Nombre del Concierto --}}
+                <td>
+                    <p>
+                        {{ $detailOrder->concert->concertName }}
+                    </p>
+                </td>
+
+                {{-- Fecha del concierto --}}
+                <td>
+                    <p>
+                        {{ date('d/m/Y', strtotime($detailOrder->concertDates->date)) }}
+                    </p>
+                </td>
+
+                {{-- Cantidad de entradas --}}
+                <td>
+                    <p>
+                        {{ $detailOrder->concert->stock }}
+                    </p>
+                </td>
+
+                {{-- Cantidad de entradas vendidas --}}
+                <td>
+                    <p>
+                        {{ $detailOrder->quantity }}
+                    </p>
+                </td>
+
+                {{-- Cantidad de entradas dispoibles --}}
+                <td>
+                    <p>
+                        {{ $detailOrder->concert->availableStock }}
+                    </p>
+                </td>
+
+                <td>
+                    <a href="{{ route('admin.sellsDetail') }}"><button class="buttonDetail">Ver Detalle</button> </a>
+                </td>
+
+            </tr>
 
         <tfoot>
             <th class="finalRow"> </th>

@@ -37,6 +37,14 @@ class ConcertController extends Controller
         ]);
     }
 
+    public function indexMyConcerts(){
+
+        return view('client.myConcerts');
+    }
+
+
+
+
     public function indexSellsConcertDetails($id_concert){
         $details = DetailOrder::getDetailOrder();
 

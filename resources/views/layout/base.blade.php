@@ -23,7 +23,12 @@
                     <a href="{{route('viewHome')}}">
                         Inicio
                     </a>
+                </li>
 
+                <li class="link">
+                    <a href="{{route('client.myConcerts')}}">
+                        AUX
+                    </a>
                 </li>
 
                 @if(auth()->user()->role === 1)
@@ -51,6 +56,9 @@
                         Conciertos
                     </a>
                 </li>
+
+
+
                 @endif
             </ul>
         </nav>

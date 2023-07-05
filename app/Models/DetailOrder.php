@@ -26,15 +26,22 @@ class DetailOrder extends Model
         return DetailOrder::where('concert_id','==',$id_concert)->get();
     }
 
+
+
     public function concertDates()
     {
         return $this->belongsTo(Concert::class, 'concert_id');
     }
 
-
     public function voucher()
     {
         return $this->hasOne(Voucher::class, 'detail_order_id');
+    }
+
+
+    // experimental
+    public function Concert(){
+        return $this->hasOne(Concert::class, 'concert_id');
     }
 
 }
