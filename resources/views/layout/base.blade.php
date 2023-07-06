@@ -41,7 +41,7 @@
                 </li>
 
                 <li class="link">
-                    <a href="{{route('concert.create')}}">
+                    <a href="{{route('users')}}">
                         Usuarios
                     </a>
                 </li>
@@ -63,7 +63,9 @@
                 <form action="{{route('logout')}}" method="POST" class="verticalMenu" >
                     @csrf
                     <li><input type="submit" value="Cerrar Sesión" class="logout"></li>
+
                 </form>
+
             </li>
         </ul>
         <img src="{{asset('img/userLoggedIn.png')}}" class="loggedInImg">

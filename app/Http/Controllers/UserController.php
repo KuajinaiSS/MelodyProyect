@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Concert;
+use App\Models\DetailOrder;
+use App\Models\Voucher;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -11,54 +15,38 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.userInfo',[
+            'message' => null,
+            'user' => null,
+            'detailOrders' => null,
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+    public function getUser(Request $request){
+        $email = $request->byEmail;
+        $user = User::where('email',"=",$email)->first();
+        if(!$user){
+            return view('admin.userInfo',[
+                'message' => 'El correo electrónico no existe',
+                'user' => null,
+                'detailOrders' => null,
+            ]);
+        }
+        else{
+            $detailOrders = DetailOrder::where('user_id', "=", $user->id)->get();
+            foreach($detailOrders as $detailOrder){
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+                $voucher = Voucher::where('detail_order_id',"=",$detailOrder->id)->first();
+                $detailOrder['voucherId'] = $voucher->id;
+                $concert = Concert::findOrFail($detailOrder->concert_id);
+                $detailOrder['concert'] = $concert;
+            }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+            return view('admin.userInfo',[
+                'message' => null,
+                'user' => $user,
+                'detailOrders' => $detailOrders,
+            ]);
+        }
     }
 }
