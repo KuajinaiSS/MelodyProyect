@@ -27,6 +27,10 @@ class DetailOrder extends Model
     }
 
 
+    public static function getDetailsByUser($id_user){
+        return DetailOrder::where('user_id','==',$id_user)->get();
+    }
+
 
     public function concertDates()
     {
@@ -38,13 +42,4 @@ class DetailOrder extends Model
         return $this->hasOne(Voucher::class, 'detail_order_id');
     }
 
-
-    // experimental
-    public function Concert(){
-        return $this->hasOne(Concert::class, 'concert_id');
-    }
-
-    public static function getDetailsByConcert($id_concert){
-        return DetailOrder::where('concert_id','=',$id_concert)->get();
-    }
 }

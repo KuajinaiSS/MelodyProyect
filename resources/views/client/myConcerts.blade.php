@@ -14,60 +14,107 @@
 
         <thead>
             <tr>
+                <th>Número de reserva</th>
                 <th>Nombre del Concierto</th>
                 <th>Fecha del concierto</th>
+                <th>Fecha de compra</th>
                 <th>Cantidad de entradas</th>
-                <th>Cantidad de entradas vendidas</th>
-                <th>Cantidad de entradas dispoibles</th>
-                <th> </th>
+                <th>Total pagado</th>
+                <th>Medio de pago</th>
+                <th></th>
             </tr>
         </thead>
 
 
         <tbody>
-            @foreach ($user->concertsClient as $detailOrder)
+            @foreach ($detailsOrders as $detailOrder)
             <tr>
-                {{-- Nombre del Concierto --}}
+                {{-- Número de reserva --}}
                 <td>
                     <p>
-                        {{ $detailOrder }}
+                        {{ $detailOrder->reservation_number }}
+                    </p>
+
+                </td>
+
+
+                {{-- Nombre del concierto --}}
+                <td>
+                    <p>
+                        {{ $detailOrder->concertDates->concertName }}
                     </p>
                 </td>
+
+
 
                 {{-- Fecha del concierto --}}
                 <td>
                     <p>
-                        {{ date('d/m/Y', strtotime($detailOrder->concertDates->date)) }}
+                        {{ date('d/m/Y',strtotime($detailOrder->concertDates->date)) }}
                     </p>
                 </td>
 
-                {{-- Cantidad de entradas --}}
+
+
+                {{-- Fecha de compra --}}
                 <td>
                     <p>
-                        {{ $detailOrder->concert->stock }}
+                        {{ $detailOrder->voucher->detail_order_id }}
+                        {{-- {{ date('d/m/Y',strtotime($detailOrder->voucher->date)) }} --}}
                     </p>
                 </td>
 
-                {{-- Cantidad de entradas vendidas --}}
+
+
+                {{-- Cantidad de entradas compradas/disponibles/actuales(?) --}}
                 <td>
                     <p>
                         {{ $detailOrder->quantity }}
                     </p>
                 </td>
 
-                {{-- Cantidad de entradas dispoibles --}}
+
+
+                {{-- Total pagado --}}
                 <td>
                     <p>
-                        {{ $detailOrder->concert->availableStock }}
+                        ${{ $detailOrder->total }}
                     </p>
                 </td>
 
+
+
+                {{-- Medio de pago --}}
                 <td>
-                    <a href="{{ route('admin.sellsDetail') }}"><button class="buttonDetail">Ver Detalle</button> </a>
+                    <p>
+                        @if ($detailOrder->payment_method === 1)
+                            <p>
+                                Efectivo
+                            </p>
+                        @elseif ($detailOrder->payment_method === 2)
+                            <p>
+                                Transferencia
+                            </p>
+                        @elseif ($detailOrder->payment_method === 3)
+                            <p>
+                                Tarjeta de Crédito
+                            </p>
+                        @elseif ($detailOrder->payment_method === 4)
+                            <p>
+                                Tarjeta de Débito
+                            </p>
+                        @endif
+                    </p>
                 </td>
 
 
 
+                <td>
+                    <a href="{{ route('admin.sellsDetail') }}">
+                        <button class="buttonDetail">Ver Detalle</button>
+                    </a>
+
+                </td>
             </tr>
             @endforeach
 

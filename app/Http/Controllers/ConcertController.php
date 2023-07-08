@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 
 class ConcertController extends Controller
 {
+
     public function index(){
         $concerts = Concert::getConcertsDate();
 
@@ -39,15 +40,20 @@ class ConcertController extends Controller
 
     public function indexMyConcerts(){
 
-        return view('client.myConcerts', [
-            'user' => auth()->user()
-        ]);
+        // otorga usuario autenticado
+        $user = auth()->user();
+        $detailsOrders = $user->concertsClient;
+
+
+        return view('client.myConcerts',
+        compact('detailsOrders', 'user'));
+
     }
 
 
     public function indexSellsConcertDetails($id_concert){
-        $details = DetailOrder::getDetailOrder();
 
+        $details = DetailOrder::getDetailOrder();
         $concert = Concert::findOrFail($id_concert);
         $collection = collect();
 
@@ -76,7 +82,6 @@ class ConcertController extends Controller
 
         return view('concert.create');
     }
-
 
     public function store(Request $request){
 
