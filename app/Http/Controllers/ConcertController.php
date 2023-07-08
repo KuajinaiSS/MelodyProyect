@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Concert;
+use App\Models\Voucher;
 use App\Models\DetailOrder;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,7 +13,13 @@ use App\Http\Controllers\Controller;
 class ConcertController extends Controller
 {
     public function index(){
-        $concerts = Concert::getConcerts();
+        $concerts = Concert::getConcertsDate();
+
+        foreach($concerts as $concert){
+            $dateCorrectFormat = Carbon::create($concert->date)->format('d/m/Y');
+            $concert->date = $dateCorrectFormat;
+        }
+
         return view('concerts',[
             'concerts' => $concerts
         ]);
@@ -20,6 +27,11 @@ class ConcertController extends Controller
 
     public function indexConcertDetails(){
         $concerts = Concert::getConcerts();
+        foreach($concerts as $concert){
+            $dateCorrectFormat = Carbon::create($concert->date)->format('d/m/Y');
+            $concert->date = $dateCorrectFormat;
+        }
+
         return view('admin.concertsDetails',[
             'concerts' => $concerts
         ]);
@@ -27,6 +39,7 @@ class ConcertController extends Controller
 
     public function indexSellsConcertDetails($id_concert){
         $details = DetailOrder::getDetailOrder();
+
         $concert = Concert::findOrFail($id_concert);
         $collection = collect();
 
@@ -55,12 +68,6 @@ class ConcertController extends Controller
         return view('concert.create');
     }
 
-    public function getConcert($id){
-        $concert = Concert::findOrFail($id);
-        return view('buy',[
-            'concert' => $concert
-        ]);
-    }
 
     public function store(Request $request){
 
@@ -93,10 +100,36 @@ class ConcertController extends Controller
             'concertName' => $request->concertName,
             'price' => $request->price,
             'stock' => $request->stock,
-            'date' => $request->date
+            'date' => $request->date,
+            'availableStock' => $request->stock
         ]);
 
         return back()->with('confirmMessage','Concierto creado con exito');
+
+
+    }
+
+    public function searchByDate(Request $request){
+
+        //Create Error message
+        $message = makeMessage();
+
+        $this->validate($request,[
+            'byDate' => ['required']
+        ],$message);
+
+        $concerts = Concert::getConcertsDate();
+        $date = date($request->byDate);
+
+
+        foreach ($concerts as $concert) {
+            if ($concert->date == $date) {
+                $dateCorrectFormat = Carbon::create($concert->date)->format('d/m/Y');
+                $concert->date = $dateCorrectFormat;
+                return back()->with('concertByDate',$concert);
+            }
+        }
+        return back()->with('notFoundMessage','No hay conciertos disponibles para el día seleccionado, intenta con otra fecha o recarga la página');
 
 
     }

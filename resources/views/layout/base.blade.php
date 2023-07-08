@@ -6,8 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{asset('img/melodyLogo.png')}}">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="sweetalert2.all.min.js"></script>
     <title>@yield('tabTittle') - Melody</title>
     @vite('resources/css/base.css')
 </head>
@@ -26,26 +24,30 @@
                     </a>
 
                 </li>
+
+                @if(auth()->user()->role === 1)
+
                 <li class="link">
-                    <a href="{{route('concerts')}}">
+                    <a href="{{route('admin.concertsDetail')}}">
                         Conciertos
                     </a>
                 </li>
 
-
-                <li class="link">
-                    <a href="{{route('admin.concertsDetail')}}">
-                        AUX
-                    </a>
-                </li>
-
-
-
-
-                @if(auth()->user()->rol === 1)
                 <li class="link">
                     <a href="{{route('concert.create')}}">
                         Crear Concierto
+                    </a>
+                </li>
+
+                <li class="link">
+                    <a href="{{route('users')}}">
+                        Usuarios
+                    </a>
+                </li>
+                @else
+                <li class="link">
+                    <a href="{{route('concerts')}}">
+                        Conciertos
                     </a>
                 </li>
                 @endif
@@ -60,7 +62,9 @@
                 <form action="{{route('logout')}}" method="POST" class="verticalMenu" >
                     @csrf
                     <li><input type="submit" value="Cerrar Sesión" class="logout"></li>
+
                 </form>
+
             </li>
         </ul>
         <img src="{{asset('img/userLoggedIn.png')}}" class="loggedInImg">
@@ -79,13 +83,15 @@
     </main>
 
 
-    <footer class="footer">
+    <footer class="pageFooter">
         <h3 class="tradeMark">Melody™</h3>
         <p class="copyrigth"> Todos los derechos reservados - 2023. </p>
     </footer>
 
 
 </body>
+@yield('alert')
+
 @endauth
 
 @guest

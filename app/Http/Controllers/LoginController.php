@@ -22,7 +22,7 @@ class LoginController extends Controller
 
         // tryng to validate user
         if (!auth()->attempt($request->only('email', 'password'), $request->remember)) {
-            return back()->with('message', 'Usuario no registrado o contraseña incorrecta ');
+            return back()->with('message', 'Usuario no registrado o contraseña incorrecta')->setStatusCode(422);
         }
 
         return redirect()->route('viewHome');

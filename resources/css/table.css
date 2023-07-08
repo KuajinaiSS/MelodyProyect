@@ -1,3 +1,4 @@
+/* FUENTES */
 @font-face {
     font-family: 'Helvetica World';
     font-style: normal;
@@ -16,104 +17,59 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-.recomended{
-    margin-top: 30px;
+.tittle {
     font-family: League Spartan;
     text-align: center;
-    font-size: 30px;
+    font-size: 35px;
+
 }
 
-.concertName{
-    font-family: League Spartan;
-    text-align: center;
-    font-size: 25px;
-}
-
-.date{
+.concertDate{
     font-family: Helvetica World;
     text-align: center;
     font-size: 20px;
 }
 
-.price{
-    font-family: Helvetica World;
-    text-align: center;
-    font-size: 20px;
-}
-.stock{
-    font-family: Helvetica World;
-    text-align: center;
-    font-size: 20px;
+.finalRow{
+    padding: 18px;
 }
 
-.container {
+table{
+    font-family: Helvetica World;
+    font-size: 18px;
+    text-align: center;
+
+    border: 1px solid #dddddd;
+    border-radius: 25px;
+
     margin-left: auto;
     margin-right: auto;
-    justify-content: center;
-    display: grid;
-    grid-template-columns: 400px 400px 400px;
-    gap: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-spacing: 0px;
+}
+
+th, td {
+    padding: 10px;
+
+}
+
+td{
+    border: 1px solid #dddddd;
+}
+
+.errorMsg{
     margin-top: 40px;
-}
-.containerCompraGen {
-    justify-content: center;
-    text-align: center;
-    width: 370px;
-    height: auto;   
-    border-radius: 15px;
-    border: 1px solid #d9d9d9;
-    margin: 20px auto;
-   
-}
-h1{    
-    margin-top: 30px;
-    font-family: League Spartan;
-    text-align: center;
-    font-size: 30px;
-}
-h2{
-    margin-top: 15px;
-    font-family: League Spartan;
-    text-align: left;
-    font-size: 15px;
-
-}
-p2{
-    margin: left;
-    text-align: left;
-    font-size: 10px;
-    
-}
-.containerCompra{
-    justify-content: center;
-    text-align: center;
-    width: 250px;
-    height: 210px;
-    border-radius: 15px;
-    border: 1px solid #d9d9d9;
-    margin: 20px auto;
-
-}
-table{
-    /*
-    justify-content:;
-    text-align: center;*/
+    font-family: Helvetica World;
 }
 
-.container .content {
-    background-color: white;
-    text-align: center;
-    font-size: 25px;
-    width: 400px;
-    height: 400px;
-}
 
-.buttonBuy {
-    margin-top: 30px;
-    font-family: League Spartan;
+.buttonDetail{
+
     display: inline-block;
-    padding: 15px 15px;
-    font-size: 25px;
+    padding: 7px 15px;
+    margin: 5px 20px;
+    font-size: 18px;  /*superior inferior - derecho izquierdo*/
     cursor: pointer;
     text-align: center;
     text-decoration: none;
@@ -121,20 +77,24 @@ table{
     background-color: #00c787;
     border: none;
     border-radius: 40px;
+
 }
 
-.buttonBuy:hover {background-color: #00d692}
 
-.buttonBuy:active {
+.buttonDetail:hover {
+    background-color: #01b179
+}
+
+.buttonDetail:active {
     background-color: #009e6c;
-    transform: translateY(4px);
+    transform: translateY(2px);
 }
-.buttonSpend {
-    margin-top: 30px;
-    font-family: League Spartan;
+
+.buttonDetailOff{
     display: inline-block;
-    padding: 15px 25px;
-    font-size: 30px;
+    padding: 7px 15px;
+    margin: 5px 20px;
+    font-size: 18px;  /*superior inferior - derecho izquierdo*/
     cursor: pointer;
     text-align: center;
     text-decoration: none;
@@ -146,25 +106,42 @@ table{
 
 .marker{
     position: absolute;
-    transform: translate(105px,-75px);
+    transform: translate(240px,-75px);
 }
 
 .marker2{
     position: absolute;
-    transform: translate(240px,-75px);
+    transform: translate(639px,-75px);
 }
 
-.noConcerts{
-    margin-top: 50px;
-    text-align: center;
-    font-family: Helvetica World;
-    font-size: 30px;
-    font-weight: normal;
+.return{
+    display: flex;
+    color: white;
+	text-decoration: none;
+    font-size: 25px;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.return:hover{
+    color: #eeeeee;
 }
 
 
-/* VISTA CONCIERTOS */
+/*
+tr:hover td {
+	background-color: gray;
+}
+
+
+tr:nth-child(even){
+	background-color: #ddd;
+}
+*/
+
 .search{
+    margin-top: 40px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: center;
 }
@@ -183,11 +160,12 @@ table{
 }
 
 
-.byDate{
-    width: 200px;
-    height: 40px;
+.byEmail{
+    width: 400px;
+    height: 45px;
     padding-left: 20px;
     padding-right: 10px;
+
 }
 
 .searchBtn{
@@ -231,19 +209,15 @@ table{
     background-color:#e0e0e0;
 }
 
-.notFoundMsg{
-    font-family: Helvetica World;
-    font-size: 20px;
-    text-align: center;
-    margin-top: 100px;
-}
-
-.errorMsg{
+.userName{
     font-family: League Spartan;
-    font-size: 15px;
-    color: rgba(245, 38, 38, 0.842);
     text-align: center;
-    margin-bottom: 20px;
+    font-size: 35px;
 }
 
-
+.noData{
+    margin-top: 50px;
+    font-family: Helvetica World;
+    text-align: center;
+    font-size: 25px;
+}

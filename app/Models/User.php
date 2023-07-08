@@ -54,4 +54,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(DetailOrder::class, 'user_id');
     }
+
+    public function getUsers(){
+        return self::all();
+    }
 }
