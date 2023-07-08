@@ -23,7 +23,7 @@ class DetailOrder extends Model
     }
 
     public static function getDetailsByConcert($id_concert){
-        return DetailOrder::where('concert_id','==',$id_concert)->get();
+        return DetailOrder::where('concert_id','=',$id_concert)->get();
     }
 
 

@@ -68,6 +68,7 @@ class ConcertController extends Controller
                 $collection->push($data);
             }
 
+
         }
 
 
