@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="{{asset('img/melodyLogo.png')}}">
     <title>@yield('tabTittle') - Melody</title>
     @vite('resources/css/base.css')
+    @stack('stylesTailwind')
 </head>
 
 <body>

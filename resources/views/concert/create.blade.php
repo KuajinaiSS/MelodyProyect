@@ -73,7 +73,7 @@ Crear Concierto
                 showCancelButton: true,
                 confirmButtonColor: '#00c787',
                 cancelButtonColor: '#FF5C77',
-                confirmButtonText: 'ENVIAR',
+                confirmButtonText: 'ACEPTAR',
                 cancelButtonText: 'CANCELAR',
                 allowOutsideClick: false,
                 allowEscapeKey: false,

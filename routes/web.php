@@ -10,6 +10,10 @@ use App\Http\Controllers\ThanksController;
 use App\Http\Controllers\ConcertController;
 use App\Http\Controllers\VoucherController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\MyConcertsController;
+use App\Http\Controllers\SellsDetailController;
+use App\Http\Controllers\ConcertDetailController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +28,6 @@ use App\Http\Controllers\RegisterController;
 
 Route::get('/', function () {
     return redirect()->route('login');
-    //return view('buy');
 });
 
 
@@ -69,4 +72,3 @@ Route::get('thanksMsg',[ThanksController::class, 'index'])->name('thanksMsg');
 // UserInfo
 Route::get('users',[UserController::class, 'index'] )->name('users');
 Route::get('user-info',[UserController::class, 'getUser'] )->name('user.info');
-

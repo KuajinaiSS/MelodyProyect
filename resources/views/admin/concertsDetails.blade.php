@@ -4,10 +4,6 @@
 @endsection
 
 
-
-
-
-
 @section('content')
 @auth
 @vite('resources/css/table.css')
