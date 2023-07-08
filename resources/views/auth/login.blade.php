@@ -6,48 +6,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ asset('img/MelodyLogo.png') }}">
-    <title>Inciar sesión - Melody</title>
-
+    <title>Gráfico de Barras</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
     @vite('resources/css/form.css')
+    @vite('resources/css/table.css')
+    @vite('resources/css/base.css')
 </head>
 
 <body>
-    <div class="forms">
-        <div class="logo">
-            <img src="{{ asset('img/MelodyLogo.png') }}" class="img" width="45" height="45">
-            <h1 class="logoNombre">Melody</h1>
+    <header class="header">
+        <div class="headerLogo">
+            <img src="{{asset('img/melodyLogo.png')}}" class="logoImg">
         </div>
-        <p>¡Inicia sesión!</p>
-        <form action="{{ route('login') }}" method="POST" novalidate>
-            @csrf
-            @if (session('message'))
-                <div class="errorMsg">
-                    <p>{{ session('message') }}</p>
-                </div>
-            @endif
-            <div class="name">
-                <div><label>CORREO ELECTRÓNICO</label></div>
-                <input id="email" name="email" type="text">
-                @error('email')
-                    <div class="errorMsg">
-                        <p>{{ $message }}</p>
-                    </div>
-                @enderror
-            </div>
-            <div class="password">
-                <div><label>CONTRASEÑA</label></div>
-                <input id="password" name="password" type="password">
-                @error('password')
-                    <div class="errorMsg">
-                        <p>{{ $message }}</p>
-                    </div>
-                @enderror
-            </div>
-            <div class="register"><a href="{{ route('register') }}">¿No tienes cuenta? ¡Regístrate aquí!</a></div>
-            <input type="submit" value="INGRESAR" class="store">
-        </form>
+        <a href="{{route('admin.concertsDetail')}}" class="return">
+            Volver
+        </a>
+    </header>
+
+    <div class="forms">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-labels"></script>
+</head>
+            <canvas id="chart3"></canvas>
+            <script src="{{ asset('assets/js/graphic3.js') }}"></script>
+            <script src="{{ asset('assets/js/graphic2.js') }}"></script>
+
+        </head>
+
+
+
+
+
 
     </div>
+    <footer class="pageFooter">
+        <h3 class="tradeMark">Melody™</h3>
+        <p class="copyrigth"> Todos los derechos reservados - 2023. </p>
+    </footer>
+</body>
 </body>
 
 </html>
