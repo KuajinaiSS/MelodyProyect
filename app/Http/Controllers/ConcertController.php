@@ -39,10 +39,10 @@ class ConcertController extends Controller
 
     public function indexMyConcerts(){
 
-        return view('client.myConcerts');
+        return view('client.myConcerts', [
+            'user' => auth()->user()
+        ]);
     }
-
-
 
 
     public function indexSellsConcertDetails($id_concert){
@@ -65,6 +65,7 @@ class ConcertController extends Controller
             }
 
         }
+
 
         return view('admin.sellsDetails',[
             'allData' => $collection,

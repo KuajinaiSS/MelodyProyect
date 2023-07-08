@@ -30,7 +30,7 @@
                 {{-- Nombre del Concierto --}}
                 <td>
                     <p>
-                        {{ $detailOrder->concert->concertName }}
+                        {{ $detailOrder }}
                     </p>
                 </td>
 
@@ -66,13 +66,18 @@
                     <a href="{{ route('admin.sellsDetail') }}"><button class="buttonDetail">Ver Detalle</button> </a>
                 </td>
 
-            </tr>
 
-        <tfoot>
-            <th class="finalRow"> </th>
-        </tfoot>
+
+            </tr>
+            @endforeach
+
+            <tfoot>
+                <th class="finalRow"> </th>
+            </tfoot>
+
 
         </tbody>
 
     </table>
+
 @endsection

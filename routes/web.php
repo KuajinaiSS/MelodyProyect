@@ -58,7 +58,7 @@ Route::get('/sellsDetail/{id}',[ConcertController::class, 'indexSellsConcertDeta
 
 
 // clients routes
-Route::get('myConcerts',[ConcertController::class, 'login'])->name('client.myConcerts');
+Route::get('myConcerts',[ConcertController::class, 'indexMyConcerts'])->name('client.myConcerts');
 
 // home routes
 Route::get('home',[HomeController::class, 'index'])->name('viewHome');
