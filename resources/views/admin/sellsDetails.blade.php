@@ -1,21 +1,37 @@
-@extends('layout.base')
-@section('tabTittle')
-    Detalle de Ventas
-@endsection
-
-
-@vite('resources/css/table.css')
-
-
-
-@section('content')
 @auth
 @if(auth()->user()->role === 1)
-    <h1 class="titulo">{{ $concert->concertName }}</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{asset('img/MelodyLogo.png')}}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <title>Detalle de Ventas</title>
+
+    @vite('resources/css/table.css')
+    @vite('resources/css/base.css')
+
+</head>
+<body>
+    <header class="header">
+        <div class="headerLogo">
+            <img src="{{asset('img/melodyLogo.png')}}" class="logoImg">
+        </div>
+
+        <a href="{{route('admin.concertsDetail')}}" class="return">
+            Volver
+        </a>
+    </header>
+
+    <h1 class="tittle">{{ $concert->concertName }}</h1>
+    <h2 class="concertDate">{{date('d/m/Y', strtotime( $concert->date ))  }}</h2>
 
 
     @if ($allData->count() === 0)
-        <p class="errorMsg" style="text-align: center">No existen compras para este concierto</p>
+        <p class="errorMsg" style="text-align: center">No hay entradas vendidas por desplegar</p>
     @endif
 
     @if($allData->count() > 0)
@@ -60,7 +76,7 @@
                     {{-- Fecha de la compra LISTO--}}
                     <td>
                         <p>
-                            {{ date('d/m/Y', strtotime( $data['detail_order']->created_at ))  }}
+                            {{ date('d/m/Y H:i', strtotime( $data['detail_order']->created_at ))  }}
                         </p>
                     </td>
 
@@ -97,18 +113,18 @@
                     {{-- Total pagado LISTO --}}
                     <td>
                         <p>
-                            ${{ $data['detail_order']->total }}
+                            ${{ number_format($data['detail_order']->total, 0, '.', '.') }}
                         </p>
                     </td>
 
-                    {{-- pdf --}}
-                    <td>
+                    {{--                     <td>
 
                         <a href="{{ route('pdf.descargar', ['id' =>  $data['voucher_id']]) }}">
                             <button class="buttonDetail">Descargar PDF</button>
                         </a>
 
-                    </td>
+                    </td> --}}
+
             @endforeach
 
             <tfoot>
@@ -122,13 +138,20 @@
 
     </div>
 
+    <footer class="pageFooter">
+        <h3 class="tradeMark">Melody™</h3>
+        <p class="copyrigth"> Todos los derechos reservados - 2023. </p>
+    </footer>
+</body>
+
+
 
 @elseif(auth()->user()->role === 0)
 <meta http-equiv="refresh" content = "0;{{route("viewHome")}}">
 
 @endif
 @endauth
-@endsection
+
 
 
 

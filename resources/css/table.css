@@ -17,11 +17,17 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-.titulo {
+.tittle {
     font-family: League Spartan;
     text-align: center;
-    font-size: 30px;
+    font-size: 35px;
 
+}
+
+.concertDate{
+    font-family: Helvetica World;
+    text-align: center;
+    font-size: 20px;
 }
 
 .finalRow{
@@ -98,6 +104,30 @@ td{
     border-radius: 40px;
 }
 
+.marker{
+    position: absolute;
+    transform: translate(240px,-75px);
+}
+
+.marker2{
+    position: absolute;
+    transform: translate(639px,-75px);
+}
+
+.return{
+    display: flex;
+    color: white;
+	text-decoration: none;
+    font-size: 25px;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.return:hover{
+    color: #eeeeee;
+}
+
+
 /*
 tr:hover td {
 	background-color: gray;
@@ -108,3 +138,86 @@ tr:nth-child(even){
 	background-color: #ddd;
 }
 */
+
+.search{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.search input{
+    font-family: Helvetica World;
+    font-size: 20px;
+    border-radius: 30px;
+    border-width: 2px;
+    border-color: #232220;
+    border-style: solid;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+
+}
+
+
+.byEmail{
+    width: 400px;
+    height: 45px;
+    padding-left: 20px;
+    padding-right: 10px;
+
+}
+
+.searchBtn{
+    background-color: #2194ff; /*#2194ff*/
+    width: 150px;
+    height: 45px;
+    padding-left: 10px;
+    padding-right: 40px;
+    background-image: url(../../public/img/searchImg.png);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: 100px;
+    color: white;
+}
+
+.searchBtn:hover{
+    background-color:#3ba0ff; /*#2194ff*/
+}
+
+.clearSearch{
+    color: black;
+    font-family: Helvetica World;
+    font-size: 20px;
+    border-radius: 30px;
+    border-width: 2px;
+    border-color: #232220;
+    border-style: solid;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    background-color: #d9d9d9;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.clearSearch:hover{
+    text-decoration: none;
+    background-color:#e0e0e0;
+}
+
+.userName{
+    font-family: League Spartan;
+    text-align: center;
+    font-size: 35px;
+}
+
+.noData{
+    margin-top: 50px;
+    font-family: Helvetica World;
+    text-align: center;
+    font-size: 25px;
+}

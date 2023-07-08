@@ -1,6 +1,6 @@
 
 @auth
-
+@if(auth()->user()->role === 0)
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,7 +12,7 @@
     <script src="sweetalert2.all.min.js"></script>
     <title>Comprar Entradas</title>
 
-    @vite('resources/css/home.css')
+    @vite('resources/css/buy.css')
     @vite('resources/css/base.css')
 
 
@@ -46,7 +46,7 @@
                 <select id='quantity' name="quantity" class="menu2">
 
                     <option selected value="">--Seleccione las entradas--</option>
-                    @for ($i = 1; $i <= $concert->stock; $i++)
+                    @for ($i = 1; $i <= $concert->availableStock; $i++)
                         <option value="{{ $i }}">{{ $i }}</option>
 
                     @endfor
@@ -61,7 +61,7 @@
 
         <div class="containerCompra">
             <table>
-                <p class="selection">Seleccione su metodo de pago</p>
+                <p class="selection">Seleccione su método de pago</p>
             </table>
             <table class="payMethod1">
                 <td>
@@ -81,14 +81,14 @@
                 <td>
                 <button class="payMethod" id="3" value="3">
                 <img src="{{asset('img/tarjetaCredito.png')}}" class="pago" width="30" height="30">
-                <p >Tarjeta de Credito</p>
+                <p >Tarjeta de Crédito</p>
                 </button>
                 </td>
 
                 <td>
                 <button class="payMethod" id="4" value="4">
                 <img src="{{asset('img/tarjetaDebito.png')}}" class="pago" width="30" height="30">
-                <p >Tarjeta de Debito</p>
+                <p >Tarjeta de Débito</p>
                 </button>
                 </td>
             </table>
@@ -99,7 +99,7 @@
             <p id="total" class="totalPrice"> 0 </p>
         </div>
 
-        <input id="total-s" name="total" value="" hidden>
+        <input id="total-s" name="total" value="0" hidden>
         <input name="reservation_number" value="" hidden>
         <input id="selectedPayMethod" name="payMethod" value="" hidden>
 
@@ -112,14 +112,21 @@
         @if (session('message'))
             <p class="errorMsg">{{ session('message') }}</p>
         @endif
-        @error('pay_method')
+        @error('payMethod')
+            <p class="errorMsg">{{ $message }}</p>
+        @enderror
+        @error('total')
+            <p class="errorMsg">{{ $message }}</p>
+        @enderror
+        @error('reservation_number')
             <p class="errorMsg">{{ $message }}</p>
         @enderror
 
 
+
     </form>
 
-    <footer class="footer">
+    <footer class="pageFooter">
         <h3 class="tradeMark">Melody™</h3>
         <p class="copyrigth"> Todos los derechos reservados - 2023. </p>
     </footer>
@@ -176,7 +183,7 @@
         e.preventDefault();
         console.log(quantity.value);
         const sell = {{ $concert->price }} * quantity.value;
-        total.textContent = sell;
+        total.textContent = sell.toLocaleString(undefined, { useGrouping: true });
         total_Submit.value = sell;
     })
 </script>
@@ -215,4 +222,13 @@
 </html>
 
 
+@elseif(auth()->user()->role === 1)
+<meta http-equiv="refresh" content = "0;{{route("viewHome")}}">
+@endif
+
 @endauth
+
+@guest
+<meta http-equiv="refresh" content = "0;{{route("viewHome")}}">
+@endguest
+

@@ -47,11 +47,9 @@ class ConcertController extends Controller
         foreach($details as $detail){
             if($detail->concert_id == $id_concert){
                 $user = User::findOrFail($detail->user_id);
-                $voucher = Voucher::where('detail_order_id',$detail->id)->first();
                 $data = [
                     'user' => $user,
                     'detail_order' => $detail,
-                    'voucher_id' => $voucher->id
                 ];
                 $collection->push($data);
             }
@@ -122,7 +120,7 @@ class ConcertController extends Controller
                 return back()->with('concertByDate',$concert);
             }
         }
-        return back()->with('notFoundMessage','¡Lo sentimos! No hay conciertos para la fecha seleccionada');
+        return back()->with('notFoundMessage','No hay conciertos disponibles para el día seleccionado, intenta con otra fecha o recarga la página');
 
 
     }

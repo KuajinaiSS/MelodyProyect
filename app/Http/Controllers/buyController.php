@@ -27,14 +27,13 @@ class BuyController extends Controller
         $reservationNumber = generateReservationNum();
         $concert = Concert::find($id);
         $request->request->add(['reservation_number' => $reservationNumber]);
-
-        $messages = makeMessage();
+        $message = makeMessage();
         $this->validate($request,[
             'reservation_number' => ['min:4','max:4'],
             'quantity' => ['required','numeric','min:1'],
             'payMethod' => ['required','min:1','max:4'],
             'total' => ['required']
-        ], $messages);
+        ], $message);
         $validStock = verifyStock($id, $request->quantity);
 
         if(!$validStock){
