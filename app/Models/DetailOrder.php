@@ -44,4 +44,7 @@ class DetailOrder extends Model
         return $this->hasOne(Concert::class, 'concert_id');
     }
 
+    public static function getDetailsByConcert($id_concert){
+        return DetailOrder::where('concert_id','=',$id_concert)->get();
+    }
 }

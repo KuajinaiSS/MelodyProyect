@@ -55,11 +55,9 @@ class ConcertController extends Controller
         foreach($details as $detail){
             if($detail->concert_id == $id_concert){
                 $user = User::findOrFail($detail->user_id);
-                $voucher = Voucher::where('detail_order_id',$detail->id)->first();
                 $data = [
                     'user' => $user,
                     'detail_order' => $detail,
-                    'voucher_id' => $voucher->id
                 ];
                 $collection->push($data);
             }
