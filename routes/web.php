@@ -13,6 +13,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\MyConcertsController;
 use App\Http\Controllers\SellsDetailController;
 use App\Http\Controllers\ConcertDetailController;
+use App\Http\Controllers\CollectionController;
 
 
 /*
@@ -73,3 +74,8 @@ Route::get('thanksMsg',[ThanksController::class, 'index'])->name('thanksMsg');
 Route::get('users',[UserController::class, 'index'] )->name('users');
 Route::get('user-info',[UserController::class, 'getUser'] )->name('user.info');
 
+ // Collection
+Route::get('/collection', [CollectionController::class, 'index'])->name('collection.index');
+
+Route::get('/all-concert-sales', [CollectionController::class, 'allConcertsTotalSales']);
+Route::get('/all-detail-orders', [CollectionController::class, 'allDetailOrders']);

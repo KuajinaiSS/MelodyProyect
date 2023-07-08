@@ -1,5 +1,6 @@
 
 
+
 var data3 = {
     labels: ['Efectivo', 'Tarjeta de crédito', 'Transferencia', 'Tarjeta de debito'],
     datasets: [{
@@ -12,16 +13,24 @@ var data3 = {
 };
 var barOptions = {
     plugins: {
-        labels: {
-            render: function (args) {
-                return args.value + '%';
-            },
-            precision: 0,
-            fontSize: 12,
-            fontColor: '#000',
-            fontStyle: 'bold'
-        }
+        tooltip: {
+        enabled: false
+    },
+datalabels: {
+    formatter: (value, context) =>{
+    const datapoints = context.chart.data.datasets(0).data;
+    function totalSum(total, datapoint){
+    return total + datapoint;
+     }
+    const totalvalue = datapoint.reduce(totalSum, 0);
+    const percentageValue = (value / totalvalue * 100).toFixed(1);
+    const display = [`$${value}`,`${percentageValue}%`];
+    return display;
+     }
     }
+   },
+plugins: [ChartDataLabels]
+
 };
 
            // Crear el gráfico de pie

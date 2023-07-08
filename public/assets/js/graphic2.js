@@ -27,7 +27,7 @@ var barOptions = {
     }
 };
 
-var ctx2 = document.getElementById('chart2').getContext('2d');
+var ctx2 = document.getElementById('chart2').appendChild(ctx2);
 var chart2 = new Chart(ctx2, {
     type: 'bar',
     data: data2,

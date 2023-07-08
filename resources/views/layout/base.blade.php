@@ -39,7 +39,11 @@
                         Crear Concierto
                     </a>
                 </li>
-
+                <li class="link">
+                    <a href="{{route('admin.collection')}}">
+                        Crear Concierto
+                    </a>
+                </li>
                 <li class="link">
                     <a href="{{route('users')}}">
                         Usuarios
