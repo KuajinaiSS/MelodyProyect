@@ -120,17 +120,10 @@
 
             </form>
 
-            <<<<<<< HEAD <footer class="footer">
+            <footer class="pageFooter">
                 <h3 class="tradeMark">Melody™</h3>
                 <p class="copyrigth"> Todos los derechos reservados - 2023. </p>
-                </footer>
-                =======
-                <footer class="pageFooter">
-                    <h3 class="tradeMark">Melody™</h3>
-                    <p class="copyrigth"> Todos los derechos reservados - 2023. </p>
-                </footer>
-                >>>>>>> test
-
+            </footer>
 
 
         </body>
@@ -170,24 +163,7 @@
         </script>
 
 
-        <<<<<<< HEAD <script>
-            const button = document.getElementById('add-buttom');
-            const quantity = document.getElementById('quantity');
-            const total = document.getElementById('total');
-            const total_Submit = document.getElementById('total-s');
-            window.addEventListener('DOMContentLoaded', (e) => {
-                e.preventDefault();
-                button.disabled = true;
-            })
-            quantity.addEventListener('click', (e) => {
-                e.preventDefault();
-                console.log(quantity.value);
-                const sell = {{ $concert->price }} * quantity.value;
-                total.textContent = sell;
-                total_Submit.value = sell;
-            })
-        </script>
-        =======
+
         <script>
             const button = document.getElementById('add-buttom');
             const quantity = document.getElementById('quantity');
@@ -207,7 +183,6 @@
                 total_Submit.value = sell;
             })
         </script>
-        >>>>>>> test
 
         <script>
             const payMethod1 = document.getElementById('1');

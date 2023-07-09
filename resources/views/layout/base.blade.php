@@ -67,6 +67,16 @@
                                 <div class="tooltip-arrow" data-popper-arrow></div>
                             </div>
                         </li>
+                        <li class="link">
+                            <a data-tooltip-target="tooltip-mis-conciertos" href="{{ route('client.myConcerts') }}">
+                                Mis Conciertos
+                            </a>
+                            <div id="tooltip-mis-conciertos" role="tooltip"
+                                class=" max-w-xsabsolute z-10 invisible inline-block px-3 py-2 text-s font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                                Revisa tus conciertos
+                                <div class="tooltip-arrow" data-popper-arrow></div>
+                            </div>
+                        </li>
                     @endif
                 </ul>
             </nav>
