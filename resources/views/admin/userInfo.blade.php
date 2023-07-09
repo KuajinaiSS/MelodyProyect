@@ -78,7 +78,7 @@
                     {{-- Cantidad de entradas --}}
                     <td>
                         <p>
-                            {{$detailOrder->quantity}}
+                            {{ number_format($detailOrder->quantity, 0, '.', '.') }}
                         </p>
                     </td>
                     {{-- Total pagado --}}
@@ -133,7 +133,7 @@
     </div>
 
 @elseif(auth()->user()->role === 0)
-<meta http-equiv="refresh" content = "0;{{route("viewHome")}}">
+    <meta http-equiv="refresh" content = "0;{{route("viewHome")}}">
 @endif
 @endauth
 @endsection

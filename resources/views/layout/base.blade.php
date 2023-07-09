@@ -25,12 +25,6 @@
                     </a>
                 </li>
 
-                <li class="link">
-                    <a href="{{route('client.myConcerts')}}">
-                        AUX
-                    </a>
-                </li>
-
                 @if(auth()->user()->role === 1)
 
                 <li class="link">
@@ -54,6 +48,12 @@
                 <li class="link">
                     <a href="{{route('concerts')}}">
                         Conciertos
+                    </a>
+                </li>
+
+                <li class="link">
+                    <a href="{{route('client.myConcerts')}}">
+                        Mis Conciertos
                     </a>
                 </li>
                 @endif
