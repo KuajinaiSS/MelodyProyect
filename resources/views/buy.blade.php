@@ -3,17 +3,8 @@
         <!DOCTYPE html>
         <html lang="es">
 
-        <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="shortcut icon" href="{{ asset('img/MelodyLogo.png') }}">
-            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-            <script src="sweetalert2.all.min.js"></script>
-            <title>Comprar Entradas</title>
-
-            @vite('resources/css/home.css')
-            @vite('resources/css/base.css')
+        @vite('resources/css/buy.css')
+        @vite('resources/css/base.css')
 
 
         <body>
@@ -129,10 +120,16 @@
 
             </form>
 
-            <footer class="footer">
+            <<<<<<< HEAD <footer class="footer">
                 <h3 class="tradeMark">Melody™</h3>
                 <p class="copyrigth"> Todos los derechos reservados - 2023. </p>
-            </footer>
+                </footer>
+                =======
+                <footer class="pageFooter">
+                    <h3 class="tradeMark">Melody™</h3>
+                    <p class="copyrigth"> Todos los derechos reservados - 2023. </p>
+                </footer>
+                >>>>>>> test
 
 
 
@@ -173,7 +170,7 @@
         </script>
 
 
-        <script>
+        <<<<<<< HEAD <script>
             const button = document.getElementById('add-buttom');
             const quantity = document.getElementById('quantity');
             const total = document.getElementById('total');
@@ -190,6 +187,27 @@
                 total_Submit.value = sell;
             })
         </script>
+        =======
+        <script>
+            const button = document.getElementById('add-buttom');
+            const quantity = document.getElementById('quantity');
+            const total = document.getElementById('total');
+            const total_Submit = document.getElementById('total-s');
+            window.addEventListener('DOMContentLoaded', (e) => {
+                e.preventDefault();
+                button.disabled = true;
+            })
+            quantity.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log(quantity.value);
+                const sell = {{ $concert->price }} * quantity.value;
+                total.textContent = sell.toLocaleString(undefined, {
+                    useGrouping: true
+                });
+                total_Submit.value = sell;
+            })
+        </script>
+        >>>>>>> test
 
         <script>
             const payMethod1 = document.getElementById('1');

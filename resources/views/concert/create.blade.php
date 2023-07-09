@@ -7,18 +7,10 @@ Crear Concierto
 @section('content')
 
 @auth
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="sweetalert2.all.min.js"></script>
+@vite('resources/css/form.css')
 
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="sweetalert2.all.min.js"></script>
-    @vite('resources/css/form.css')
-</head>
 @if(auth()->user()->role === 1)
 <body>
     <img src="{{asset('img/marker.png')}}" class="marker" width="25" height="6">

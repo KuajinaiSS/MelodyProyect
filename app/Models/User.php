@@ -55,4 +55,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(DetailOrder::class, 'user_id')->order_by('date','desc');
     }
+
+    public function getUsers(){
+        return self::all();
+    }
 }

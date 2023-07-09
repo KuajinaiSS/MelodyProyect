@@ -23,15 +23,9 @@
             <nav class="nav-links">
                 <ul class="linkList">
                     <li class="link">
-                        <a data-tooltip-target="tooltip-default" href="{{ route('viewHome') }}">
+                        <a href="{{ route('viewHome') }}">
                             Inicio
                         </a>
-
-                        <div id="tooltip-default" role="tooltip"
-                            class=" max-w-xsabsolute z-10 invisible inline-block px-3 py-2 text-s font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
-                            🎵 Conciertos Recomendados
-                            <div class="tooltip-arrow" data-popper-arrow></div>
-                        </div>
 
                     </li>
 
@@ -82,6 +76,7 @@
                         @csrf
                 <li><input type="submit" value="Cerrar Sesión" class="logout"></li>
                 </form>
+
                 </li>
             </ul>
             <img src="{{ asset('img/userLoggedIn.png') }}" class="loggedInImg">
@@ -100,7 +95,7 @@
         </main>
 
 
-        <footer class="footer">
+        <footer class="pageFooter">
             <h3 class="tradeMark">Melody™</h3>
             <p class="copyrigth"> Todos los derechos reservados - 2023. </p>
         </footer>
