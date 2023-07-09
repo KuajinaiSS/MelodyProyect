@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('price');
             $table->integer('stock');
             $table->date('date');
-            $table->integer('availableStock');
+            $table->integer('availableStock')->default(0);
         });
     }
 
