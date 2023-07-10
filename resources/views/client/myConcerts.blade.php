@@ -77,7 +77,7 @@
                                 {{-- Cantidad de entradas compradas/disponibles/actuales(?) --}}
                                 <td>
                                     <p>
-                                        {{ $detailOrder->quantity }}
+                                        {{ number_format($detailOrder->quantity, 0, '.', '.') }}
                                     </p>
                                 </td>
 
@@ -86,7 +86,7 @@
                                 {{-- Total pagado --}}
                                 <td>
                                     <p>
-                                        ${{ $detailOrder->total }}
+                                        ${{ number_format($detailOrder->total, 0, '.', '.') }}
                                     </p>
                                 </td>
 
