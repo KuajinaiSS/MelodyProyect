@@ -5,6 +5,7 @@
 
         @vite('resources/css/buy.css')
         @vite('resources/css/base.css')
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
         <body>

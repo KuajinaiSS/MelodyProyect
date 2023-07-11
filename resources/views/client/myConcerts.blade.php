@@ -3,152 +3,143 @@
     Mis compras
 @endsection
 
-
+@vite('resources/css/table.css')
 
 @section('content')
     @auth
-        <<<<<<< HEAD @vite('resources/css/table.css') @if (auth()->user()->role === 0)
-            <img src="{{ asset('img/marker.png') }}" class="marker3" width="25" height="6">
-            =======
-            @vite('resources/css/table.css')
-            @if (auth()->user()->role === 0)
-                <img src="{{ asset('img/marker.png') }}" class="marker" width="25" height="6">
-                >>>>>>> KuajinaiSS
-                <h1 class="tittle">Mis Conciertos</h1>
+        @vite('resources/css/table.css')
+        @if (auth()->user()->role === 0)
+            <img src="{{ asset('img/marker.png') }}" class="marker" width="25" height="6">
+            <h1 class="tittle">Mis Conciertos</h1>
 
 
-                {{-- Si no a comprado ningun concierto --}}
-                @if ($detailsOrders->count() === 0)
-                    <p class="errorMsg" style="text-align: center">No hay conciertos por mostrar</p>
-                @endif
-
-                @if ($detailsOrders->count() > 0)
-                    <table>
-
-                        <thead>
-                            <tr>
-                                <th>Número de reserva</th>
-                                <th>Nombre del Concierto</th>
-                                <th>Fecha del concierto</th>
-                                <th>Fecha de compra</th>
-                                <th>Cantidad de entradas</th>
-                                <th>Total pagado</th>
-                                <th>Medio de pago</th>
-                                <th>Comprobante</th>
-                            </tr>
-                        </thead>
-
-
-                        <tbody>
-                            @foreach ($detailsOrders as $detailOrder)
-                                <tr>
-                                    {{-- Número de reserva --}}
-                                    <td>
-                                        <p>
-                                            {{ $detailOrder->reservation_number }}
-                                        </p>
-
-                                    </td>
-
-
-                                    {{-- Nombre del concierto --}}
-                                    <td>
-                                        <p>
-                                            {{ $detailOrder->concertDates->concertName }}
-                                        </p>
-                                    </td>
-
-
-
-                                    {{-- Fecha del concierto --}}
-                                    <td>
-                                        <p>
-                                            {{ date('d/m/Y', strtotime($detailOrder->concertDates->date)) }}
-                                        </p>
-                                    </td>
-
-
-
-                                    {{-- Fecha de compra --}}
-                                    <td>
-                                        <p>
-                                            <<<<<<< HEAD
-                                                {{ date('d/m/Y H:i', strtotime($detailOrder->voucher->created_at)) }}======={{ date('d/m/Y', strtotime($detailOrder->voucher->date)) }}>
-                                                >>>>>> KuajinaiSS
-                                        </p>
-                                    </td>
-
-
-
-                                    {{-- Cantidad de entradas compradas/disponibles/actuales(?) --}}
-                                    <td>
-                                        <p>
-                                            <<<<<<< HEAD
-                                                {{ number_format($detailOrder->quantity, 0, '.', '.') }}======={{ $detailOrder->quantity }}>
-                                                >>>>>> KuajinaiSS
-                                        </p>
-                                    </td>
-
-
-
-                                    {{-- Total pagado --}}
-                                    <td>
-                                        <p>
-                                            <<<<<<< HEAD
-                                                ${{ number_format($detailOrder->total, 0, '.', '.') }}=======${{ $detailOrder->total }}>
-                                                >>>>>> KuajinaiSS
-                                        </p>
-                                    </td>
-
-
-
-                                    {{-- Medio de pago --}}
-                                    <td>
-                                        <p>
-                                            @if ($detailOrder->payment_method === 1)
-                                                <p>
-                                                    Efectivo
-                                                </p>
-                                            @elseif ($detailOrder->payment_method === 2)
-                                                <p>
-                                                    Transferencia
-                                                </p>
-                                            @elseif ($detailOrder->payment_method === 3)
-                                                <p>
-                                                    Tarjeta de Crédito
-                                                </p>
-                                            @elseif ($detailOrder->payment_method === 4)
-                                                <p>
-                                                    Tarjeta de Débito
-                                                </p>
-                                            @endif
-                                        </p>
-                                    </td>
-
-
-
-                                    <td>
-                                        <a href="{{ route('pdf.descargar', ['id' => $detailOrder->voucher->id]) }}">
-                                            <button class="buttonDetail">
-                                                descargar
-                                            </button>
-                                        </a>
-
-                                    </td>
-                                </tr>
-                            @endforeach
-
-                        <tfoot>
-                            <th class="finalRow"> </th>
-                        </tfoot>
-
-
-                        </tbody>
-
-                    </table>
-                @endif
-            @elseif(auth()->user()->role === 0)
-                <meta http-equiv="refresh" content="0;{{ route('viewHome') }}">
+            {{-- Si no a comprado ningun concierto --}}
+            @if ($detailsOrders->count() === 0)
+                <p class="errorMsg" style="text-align: center">No hay conciertos por mostrar</p>
             @endif
-        @endauth
-    @endsection
+
+            @if ($detailsOrders->count() > 0)
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Número de reserva</th>
+                            <th>Nombre del Concierto</th>
+                            <th>Fecha del concierto</th>
+                            <th>Fecha de compra</th>
+                            <th>Cantidad de entradas</th>
+                            <th>Total pagado</th>
+                            <th>Medio de pago</th>
+                            <th>Comprobante</th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody>
+                        @foreach ($detailsOrders as $detailOrder)
+                            <tr>
+                                {{-- Número de reserva --}}
+                                <td>
+                                    <p>
+                                        {{ $detailOrder->reservation_number }}
+                                    </p>
+
+                                </td>
+
+
+                                {{-- Nombre del concierto --}}
+                                <td>
+                                    <p>
+                                        {{ $detailOrder->concertDates->concertName }}
+                                    </p>
+                                </td>
+
+
+
+                                {{-- Fecha del concierto --}}
+                                <td>
+                                    <p>
+                                        {{ date('d/m/Y', strtotime($detailOrder->concertDates->date)) }}
+                                    </p>
+                                </td>
+
+
+
+                                {{-- Fecha de compra --}}
+                                <td>
+                                    <p>
+                                        {{ $detailOrder->voucher ? date('d/m/Y', strtotime($detailOrder->voucher->date)) : 'No voucher date available' }}
+                                    </p>
+
+                                </td>
+
+
+
+                                {{-- Cantidad de entradas compradas/disponibles/actuales(?) --}}
+                                <td>
+                                    <p>
+                                        {{ number_format($detailOrder->quantity, 0, '.', '.') }}
+                                    </p>
+                                </td>
+
+
+
+                                {{-- Total pagado --}}
+                                <td>
+                                    <p>
+                                        ${{ number_format($detailOrder->total, 0, '.', '.') }}
+                                    </p>
+                                </td>
+
+
+
+                                {{-- Medio de pago --}}
+                                <td>
+                                    <p>
+                                        @if ($detailOrder->payment_method === 1)
+                                            <p>
+                                                Efectivo
+                                            </p>
+                                        @elseif ($detailOrder->payment_method === 2)
+                                            <p>
+                                                Transferencia
+                                            </p>
+                                        @elseif ($detailOrder->payment_method === 3)
+                                            <p>
+                                                Tarjeta de Crédito
+                                            </p>
+                                        @elseif ($detailOrder->payment_method === 4)
+                                            <p>
+                                                Tarjeta de Débito
+                                            </p>
+                                        @endif
+                                    </p>
+                                </td>
+
+
+
+                                <td>
+                                    <a href="{{ route('pdf.descargar', ['id' => $detailOrder->voucher->id]) }}">
+                                        <button class="buttonDetail">
+                                            descargar
+                                        </button>
+                                    </a>
+
+                                </td>
+                            </tr>
+                        @endforeach
+
+                    <tfoot>
+                        <th class="finalRow"> </th>
+                    </tfoot>
+
+
+                    </tbody>
+
+                </table>
+            @endif
+        @elseif(auth()->user()->role === 0)
+            <meta http-equiv="refresh" content="0;{{ route('viewHome') }}">
+        @endif
+    @endauth
+@endsection
