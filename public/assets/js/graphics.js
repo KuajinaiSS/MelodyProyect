@@ -1,5 +1,3 @@
-const { data } = require("autoprefixer");
-
 // Obtener referencias a los elementos del DOM
 let select = document.getElementById('chartType'); // Referencia al elemento select con el ID 'chartType'
 let chartContainer = document.getElementById('chartContainer'); // Referencia al contenedor del gráfico con el ID 'chartContainer'
@@ -32,7 +30,7 @@ function generateChart() {
 
 
                 // Extraer las etiquetas y los valores de los conciertos
-                const labels = concerts.map(concert => concert.name)
+                const labels = concerts.map(concert => concert.concertName)
                 const values = concerts.map(concert => {
                     if (concert.detail_order_sum_total) {
                         return parseInt(concert.detail_order_sum_total);
@@ -126,7 +124,7 @@ function generateChart() {
                 });
 
                 // Extraer las etiquetas y los valores de las sumas totales por método de pago
-
+                const labels = Object.keys(paymentTotals);
                 const values = Object.values(paymentTotals);
 
                 // Crear el contexto del gráfico
@@ -163,68 +161,100 @@ function generateChart() {
                 console.error('Error al obtener el listado de conciertos:', error);
             });
     }else if (selectedValue === 'pie-payment') {
+        // spinner.hidden = false;
+        // Realizamos una solicitud fetch para obtener los datos realacionados a los detalles de orden
+        fetch('/all-detail-orders')
+            .then(response => response.json())
+            .then(data => {
 
+            const detail_orders = data;
 
-        chart = new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: ["Efectivo", "Transferencia", "Débito", "Crédito"],
+            const paymentTotals = {
+                'Efectivo': 0,
+                'Transferencia': 0,
+                'Débito': 0,
+                'Crédito': 0,
+            };
+
+            // ...
+
+            detail_orders.forEach(detail => {
+                let paymentMethod = detail.payment_method;
+                const total = detail.total;
+
+                switch (paymentMethod) {
+                case 1:
+                    paymentMethod = 'Efectivo'
+                    break;
+                case 2:
+                    paymentMethod = 'Transferencia'
+                    break;
+                case 3:
+                    paymentMethod = 'Débito'
+                    break;
+                case 4:
+                    paymentMethod = 'Crédito'
+                    break;
+                }
+
+                paymentTotals[paymentMethod] += total;
+            });
+
+            const labels = Object.keys(paymentTotals);
+            const values = Object.values(paymentTotals);
+
+            // Crea el contexto del gráfico
+            // const ctx = document.getElementById('myChart2');
+
+            // Crea el gráfico de torta (pie)
+            chart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                labels: labels,
                 datasets: [{
                     label: 'Monto Total Vendido',
                     data: values,
                     backgroundColor: [
-                        'rgba(0,202,220)',
-                        'rgba(0,199,135)',
-                        'rgba(1,122,235)',
-                        'rgba(38,7,121)',
+                    'rgba(38,7,121)',
+                    'rgba(1,122,235)',
+                    'rgba(0,199,135)',
+                    'rgba(54,216,233)',
                     ],
                     borderWidth: 1
                 }]
-            },
-            options: {
+                },
+                options: {
                 plugins: {
                     tooltip: {
-                        enabled: true
+                    enabled: true
                     },
-
                     datalabels: {
-                        // Esta función la utilizamos para cambiar los valores que se muestran en las etiquetas de datos del gráfico.
-                        formatter: (value, ctx) => {
-                            // CTX: Es el contexto del gráfico en el que se está generando la etiqueta de datos, en este caso un gráfico Pie.
-                            // Value viene a ser el valor del dato en el que se encuentra iterando el grafico de chartJS
-                            // console.log(value);
-                            console.log(ctx.chart.data.datasets[0].data);
-                            // Nos permite acceder a los valores numéricos de los datos asociados al primer conjunto de datos
-                            const datapoints = ctx.chart.data.datasets[0].data;
-                            function sumaTotal(total, datapoint) {
-                                return total + datapoint
-                            }
-                            // Se calcula el 100% obteniendo el valor de todos los datos.
-                            // El método recuce permite sumar todos los valores de la matriz datapoints y calcular el valor total.
-                            const porcentajeTotal = datapoints.reduce(sumaTotal, 0);
-
-                            // Calculamos el porcentaje del valor actual dividiendo el valor por el total y luego multiplicándolo por 100.
-                            // .toFixed(1) redondea el resultado a un decimal.
-                            const valorPorcentaje = (value / porcentajeTotal * 100).toFixed(1);
-                            // return valorPorcentaje;
-
-                            // Creamos un array con dos elementos que contiene el valor original del dato precedido por el '$' y el valor del porcentaje seguido de '%`
-                            const despliegue = [`$${value}`, `${valorPorcentaje}%`]
-                            return despliegue;
+                    formatter: (value, ctx) => {
+                        const datapoints = ctx.chart.data.datasets[0].data;
+                        function sumaTotal(total, datapoint) {
+                        return total + datapoint;
+                        }
+                        const porcentajeTotal = datapoints.reduce(sumaTotal, 0);
+                        const valorPorcentaje = (value / porcentajeTotal * 100).toFixed(1);
+                        const despliegue = [`$${value}`, `${valorPorcentaje}%`];
+                        return despliegue;
                         }
                     }
                 },
                 animation: {
-                    duration: 0,// Establece la duración de la animación en 0 (sin animación)
+                    duration: 0,
                 }
-            },
-            // Especificamos el plugin ChartDataLabels a utilizar
-            plugins: [ChartDataLabels]
-        });
+                },
+                plugins: [ChartDataLabels]
+            });
 
-        chartHTML.hidden = false;
+            chartHTML.hidden = false;
+            })
+            .catch(error => {
+            console.error('Error al obtener los detalles de orden:', error);
+            });
+        }
     }
-}
 
 // Evento de cambio en el <select>
 select.addEventListener('change',generateChart);
