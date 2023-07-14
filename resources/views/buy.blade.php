@@ -41,7 +41,7 @@
                 <h2>Fecha:</h2>
                 <div class="concertInfo" style="text-align: left">{{ $concert->date }}</div>
                 <h2>Valor de entrada:</h2>
-                <div class="concertInfo" style="text-align: left">${{ $concert->price }}</div>
+                <div class="concertInfo" style="text-align: left">${{ number_format($concert->price, 0, '.', '.') }}</div>
                 <h2>Cantidad de entradas:</h2>
                 <select id='quantity' name="quantity" class="menu2">
 
