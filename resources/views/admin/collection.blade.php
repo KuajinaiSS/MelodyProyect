@@ -3,7 +3,7 @@
 @section('title')
     Recaudación
 @endsection
-
+@vite('resources/css/graphics.css')
 @push('chart')
     <script src="https://cdn.jsdelivr.net/npm/chart.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0 "></script>
@@ -17,7 +17,7 @@
         <option value="pie-payment">Ejemplo Gráfico Pie</option>
     </select>
 
-    <div id="chartContainer">
+    <div id="chartContainer" class="chartContainer">
         <div id="chart"  hidden>
             <canvas id="myChart"></canvas>
         </div>
