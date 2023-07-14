@@ -39,8 +39,8 @@
                     </a>
                 </li>
                 <li class="link">
-                    <a href="{{route('admin.collection')}}">
-                        Crear Concierto
+                    <a href="{{route('collection.index')}}">
+                        Recaudaciones
                     </a>
                 </li>
                 <li class="link">

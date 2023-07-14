@@ -80,5 +80,5 @@ function generateReservationNum()
         $reservationNumber = $detail->reservation_number;
     }
 
-    return $nombre;
+    return $reservationNumber +=1;
 }
