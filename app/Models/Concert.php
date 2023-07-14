@@ -24,6 +24,10 @@ class Concert extends Model
         $actualDate = date("Y-m-d");
         return Concert::where('date', '>=', $actualDate)->get();
     }
+    public function detailOrder()
+    {
+        return $this->hasMany(DetailOrder::class, 'concert_id');
+    }
 
 }
 

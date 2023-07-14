@@ -9,6 +9,7 @@
     <title>@yield('tabTittle') - Melody</title>
     @vite('resources/css/base.css')
     @stack('stylesTailwind')
+    @stack('chart')
 </head>
 
 <body>
@@ -101,7 +102,7 @@
 
 </body>
 @yield('alert')
-
+@yield('script')
 @endauth
 
 @guest

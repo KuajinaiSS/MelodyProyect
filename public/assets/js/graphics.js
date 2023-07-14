@@ -33,10 +33,10 @@ function generateChart() {
                 console.log(concerts);
 
                 // Extraer las etiquetas y los valores de los conciertos
-                const labels = concerts.map(Concert => Concert.name);
-                const values = concerts.map(Concert => {
-                    if (Concert.detail_order_sum_total) {
-                        return parseInt(Concert.detail_order_sum_total);
+                const labels = concerts.map(concert => concert.name);
+                const values = concerts.map(concert => {
+                    if (concert.detail_order_sum_total) {
+                        return parseInt(concert.detail_order_sum_total);
                     }
                     return 0;
                 });
