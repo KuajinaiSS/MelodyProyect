@@ -15,7 +15,7 @@
 
             {{-- Si no a comprado ningun concierto --}}
             @if ($detailsOrders->count() === 0)
-                <p class="errorMsg" style="text-align: center">No hay conciertos por mostrar</p>
+                <p class="errorMsg" style="text-align: center">No hay entradas adquiridas por desplegar</p>
             @endif
 
             @if ($detailsOrders->count() > 0)

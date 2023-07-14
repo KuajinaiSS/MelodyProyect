@@ -29,7 +29,7 @@
         <div class="info">
             <p class="downloadLabel">Obtén tu comprobante aquí:</p>
             <a href="{{ route('pdf.descargar', ['id' => $voucher->id]) }}">
-                <button style="margin:0px" type="submit"  class="download"> DESCARGAR </button>
+                <button style="margin:0px" type="submit"  class="download"> Comprobante </button>
             </a>
         </div>
 
