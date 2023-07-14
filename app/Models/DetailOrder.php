@@ -17,6 +17,21 @@ class DetailOrder extends Model
         'concert_id'
     ];
 
+
+    public static function getDetailOrder(){
+        return self::all();
+    }
+
+    public static function getDetailsByConcert($id_concert){
+        return DetailOrder::where('concert_id','=',$id_concert)->get();
+    }
+
+
+    public static function getDetailsByUser($id_user){
+        return DetailOrder::where('user_id','==',$id_user)->get();
+    }
+
+
     public function concertDates()
     {
         return $this->belongsTo(Concert::class, 'concert_id');
@@ -27,11 +42,4 @@ class DetailOrder extends Model
         return $this->hasOne(Voucher::class, 'detail_order_id');
     }
 
-    public static function getDetailOrder(){
-        return self::all();
-    }
-
-    public static function getDetailsByConcert($id_concert){
-        return DetailOrder::where('concert_id','=',$id_concert)->get();
-    }
 }

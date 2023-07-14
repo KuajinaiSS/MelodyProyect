@@ -73,7 +73,7 @@
                         </p>
                     </td>
 
-                    {{-- Fecha de la compra LISTO--}}
+                    {{-- Fecha de la compra --}}
                     <td>
                         <p>
                             {{ date('d/m/Y H:i', strtotime( $data['detail_order']->created_at ))  }}

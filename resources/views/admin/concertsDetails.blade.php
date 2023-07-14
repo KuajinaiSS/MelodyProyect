@@ -72,7 +72,7 @@
                         </p>
                     </td>
 
-                    {{-- Detalle --}}
+                    {{-- Detalle LISTO--}}
                     <td>
                         @if ($concert->availableStock != $concert->stock)
                         <a href="{{ route('admin.sellsDetail', ['id'=> $concert->id]) }}">
