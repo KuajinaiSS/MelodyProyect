@@ -1,24 +1,23 @@
+const { data } = require("autoprefixer");
+
 // Obtener referencias a los elementos del DOM
 let select = document.getElementById('chartType'); // Referencia al elemento select con el ID 'chartType'
 let chartContainer = document.getElementById('chartContainer'); // Referencia al contenedor del gráfico con el ID 'chartContainer'
 let ctx = document.getElementById('myChart'); // Referencia al elemento canvas con el ID 'myChart'
 let chartHTML = document.getElementById('chart'); // Referencia al elemento con el ID 'chart'
-let spinner = document.getElementById('spinner'); // Referencia al elemento con el ID 'spinner'
 
 let chart = null; // Variable para almacenar la instancia del gráfico
 
 // Función para generar el gráfico según la selección del <select>
 function generateChart() {
-    console.log('entra');
     // Obtener el valor seleccionado del <select>
     let selectedValue = select.value;
     console.log(selectedValue);
-
     // Eliminar el gráfico existente si lo hay
-    console.log(chart);
+    // console.log(chart);
     if (chart) {
-        chart.destroy(); // Destruye la instancia del gráfico anterior
-        chartHTML.hidden = true; // Oculta el elemento del gráfico anterior
+        chart.destroy();
+        chartHTML.hidden = true;
     }
 
     // Generar el nuevo gráfico según el valor seleccionado
@@ -28,12 +27,12 @@ function generateChart() {
             .then(response => response.json())
             .then(data => {
                 // Procesar los datos obtenidos
-
+                console.log(data);
                 const concerts = data;
-                console.log(concerts);
+
 
                 // Extraer las etiquetas y los valores de los conciertos
-                const labels = concerts.map(concert => concert.name);
+                const labels = concerts.map(concert => concert.name)
                 const values = concerts.map(concert => {
                     if (concert.detail_order_sum_total) {
                         return parseInt(concert.detail_order_sum_total);
@@ -41,16 +40,13 @@ function generateChart() {
                     return 0;
                 });
 
-                // Crear el contexto del gráfico
-                // const ctx = document.getElementById('myChart');
 
-                // Crear el gráfico de barras
                 chart = new Chart(ctx, {
                     type: 'bar',
                     data: {
                         labels: labels,
                         datasets: [{
-                            label: null,
+                            label:'Monto Total Vendido',
                             data: values,
                             backgroundColor: [
                                 'rgba(0	202	220)',
@@ -105,9 +101,9 @@ function generateChart() {
                 };
 
                 // Calcular la suma total por cada método de pago
-                detail_orders.forEach(detail => {
-                    let paymentMethod = detail.payment_method;
-                    const total = detail.total;
+                detail_orders.forEach(buy => {
+                    let paymentMethod = buy.payment_method;
+                    const total = buy.total;
 
                     switch (paymentMethod) {
                         case 1:
@@ -130,7 +126,7 @@ function generateChart() {
                 });
 
                 // Extraer las etiquetas y los valores de las sumas totales por método de pago
-                const labels = Object.keys(paymentTotals);
+
                 const values = Object.values(paymentTotals);
 
                 // Crear el contexto del gráfico
@@ -166,77 +162,72 @@ function generateChart() {
             .catch(error => {
                 console.error('Error al obtener el listado de conciertos:', error);
             });
-    }else if (selectedValue === 'pie-payment'){
-        fetch('/all-concert-sales')
-            .then(response => response.json())
-            .then(data => {
-                // Procesar los datos obtenidos
+    }else if (selectedValue === 'pie-payment') {
 
-                const concerts = data;
-                console.log(concerts);
 
-                // Extraer las etiquetas y los valores de los conciertos
-                const labels = concerts.map(concert => concert.name);
-                const values = concerts.map(concert => {
-                    if (concert.detail_order_sum_total) {
-                        return parseInt(concert.detail_order_sum_total);
-                    }
-                    return 0;
-                });
-
-                // Crear el contexto del gráfico
-                // const ctx = document.getElementById('myChart');
-
-                // Crear el gráfico de barras
-                chart = new Chart(ctx, {
-                    type: 'pie',
-                    data: {
-                        labels: labels,
-                        datasets: [{
-                            label: null,
-                            data: values,
-                            backgroundColor: [
-                                'rgba(0,202,220)',
-                                'rgba(	1	122	235)',
-                                'rgba(0,199,135)',
-                                'rgba(38,7,121)'
-                            ],
-                            borderWidth: 1
-                        }]
+        chart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ["Efectivo", "Transferencia", "Débito", "Crédito"],
+                datasets: [{
+                    label: 'Monto Total Vendido',
+                    data: values,
+                    backgroundColor: [
+                        'rgba(0,202,220)',
+                        'rgba(0,199,135)',
+                        'rgba(1,122,235)',
+                        'rgba(38,7,121)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                plugins: {
+                    tooltip: {
+                        enabled: true
                     },
-                    options: {
-                        plugins: {
-                            legend: {
-                                display: false
+
+                    datalabels: {
+                        // Esta función la utilizamos para cambiar los valores que se muestran en las etiquetas de datos del gráfico.
+                        formatter: (value, ctx) => {
+                            // CTX: Es el contexto del gráfico en el que se está generando la etiqueta de datos, en este caso un gráfico Pie.
+                            // Value viene a ser el valor del dato en el que se encuentra iterando el grafico de chartJS
+                            // console.log(value);
+                            console.log(ctx.chart.data.datasets[0].data);
+                            // Nos permite acceder a los valores numéricos de los datos asociados al primer conjunto de datos
+                            const datapoints = ctx.chart.data.datasets[0].data;
+                            function sumaTotal(total, datapoint) {
+                                return total + datapoint
                             }
-                        },
-                        responsive: true,
-                        scales: {
-                            x: {
-                                ticks: {
-                                    autoSkip: false,
-                                    maxRotation: 0,
-                                    minRotation: 0
-                                }
-                            },
-                            y: {
-                                beginAtZero: true
-                            }
+                            // Se calcula el 100% obteniendo el valor de todos los datos.
+                            // El método recuce permite sumar todos los valores de la matriz datapoints y calcular el valor total.
+                            const porcentajeTotal = datapoints.reduce(sumaTotal, 0);
+
+                            // Calculamos el porcentaje del valor actual dividiendo el valor por el total y luego multiplicándolo por 100.
+                            // .toFixed(1) redondea el resultado a un decimal.
+                            const valorPorcentaje = (value / porcentajeTotal * 100).toFixed(1);
+                            // return valorPorcentaje;
+
+                            // Creamos un array con dos elementos que contiene el valor original del dato precedido por el '$' y el valor del porcentaje seguido de '%`
+                            const despliegue = [`$${value}`, `${valorPorcentaje}%`]
+                            return despliegue;
                         }
                     }
-                });
+                },
+                animation: {
+                    duration: 0,// Establece la duración de la animación en 0 (sin animación)
+                }
+            },
+            // Especificamos el plugin ChartDataLabels a utilizar
+            plugins: [ChartDataLabels]
+        });
 
-                chartHTML.hidden = false; // Mostrar el elemento del gráfico
-            })
-            .catch(error => {
-                console.error('Error al obtener el listado de conciertos:', error);
-            });
+        chartHTML.hidden = false;
     }
 }
 
-
 // Evento de cambio en el <select>
-select.addEventListener('change', generateChart);
+select.addEventListener('change',generateChart);
 
 // Generar el gráfico inicialmente
 generateChart();

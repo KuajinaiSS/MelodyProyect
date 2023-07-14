@@ -33,3 +33,10 @@ var chart2 = new Chart(ctx2, {
     data: data2,
     options: barOptions
 });
+
+
+'rgba(251, 77, 66, 0.25)',
+                        'rgba(4, 101, 255, 0.25)',
+                        'rgba(255, 209, 3, 0.25)',
+                        'rgba(255, 1, 190,0.25)',
+                        'rgba(0, 212, 161, 0.25)'

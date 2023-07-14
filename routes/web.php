@@ -75,7 +75,6 @@ Route::get('users',[UserController::class, 'index'] )->name('users');
 Route::get('user-info',[UserController::class, 'getUser'] )->name('user.info');
 
  // Collection
-Route::get('/collection', [CollectionController::class, 'index'])->name('collection.index');
-
+Route::get('/collection', [CollectionController::class, 'index'])->name('admin.collection');
 Route::get('/all-concert-sales', [CollectionController::class, 'allConcertsTotalSales']);
 Route::get('/all-detail-orders', [CollectionController::class, 'allDetailOrders']);

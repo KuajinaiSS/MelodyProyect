@@ -1,40 +1,30 @@
-<!DOCTYPE html>
-<html lang="es">
+@extends('layout.base')
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="{{ asset('img/MelodyLogo.png') }}">
-    <title>Recaudacion</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    @vite('resources/css/form.css')
-    @vite('resources/css/base.css')
-    @vite('resources/css/buy.css')
-    <script src="{{ asset('assets/js/graphics.js') }}"></script>
+@section('title')
+    Recaudación
+@endsection
 
-</head>
+@push('chart')
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0 "></script>
+@endpush
 
-<body>
-    <header class="header">
-        <div class="headerLogo">
-            <img src="{{asset('img/melodyLogo.png')}}" class="logoImg">
+@section('content')
+    <label for="chartType">Seleccione un tipo de gráfico</label>
+    <select id="chartType">
+        <option value="bar-concerts">Total Vendido Por Concierto</option>
+        <option value="bar-payment">Total Vendido Por Método de Pago</option>
+        <option value="pie-payment">Ejemplo Gráfico Pie</option>
+    </select>
+
+    <div id="chartContainer">
+        <div id="chart"  hidden>
+            <canvas id="myChart"></canvas>
         </div>
-        <a href="{{route('admin.concertsDetail')}}" class="return">
-            Volver
-        </a>
-    </header>
-<label for="chartType"> Seleccione un tipo de grafico </label>
-<select id="chartType"  class="menu3" onchange="loadChart()">
-    <option value="bar-concerts">Total vendido por Concierto</option>
-    <option value="bar-payment">Total vendido por método de pago</option>
-    <option value="pie-payment">Total vendido por Porcentaje</option>
-</select>
-<br><br>
-<div id="chartContainer">
-    <div id="chart">
-        <canvas id="myChart"></canvas>
     </div>
-</div>
+@endsection
 
 
+@section('script')
+    <script src="{{ asset('assets/js/graphics.js') }}"></script>
+@endsection
