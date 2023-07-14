@@ -33,7 +33,7 @@ Conciertos
     @elseif(session('concertByDate'))
         <div class="container">
             <div class="content">
-                <img src="{{ asset('img/ticket.png') }}" width="150" height="150" align="center">
+                <img src="{{ asset('img/ticket.png') }}" width="150" height="150" >
                 <h2 class="concertName">{{session('concertByDate')->concertName}}</h2>
                 <p class="date">{{session('concertByDate')->date}}</p>
                 <p class="price">Valor: ${{number_format(session('concertByDate')->price,0,'.','.')}} CLP</p>

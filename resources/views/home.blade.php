@@ -19,7 +19,7 @@ Inicio
         <div class="container">
             @foreach ($concerts as $concert)
             <div class="content">
-                <img src="{{ asset('img/ticket.png') }}" width="150" height="150" align="center">
+                <img src="{{ asset('img/ticket.png') }}" width="150" height="150">
                 <h2 class="concertName">{{$concert->concertName}}</h2>
                 <p class="date">{{$concert->date}}</p>
                 <p class="price">Valor: ${{number_format($concert->price,0,'.','.')}} CLP</p>

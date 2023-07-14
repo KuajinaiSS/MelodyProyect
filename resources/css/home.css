@@ -58,6 +58,7 @@
 
 .container .content {
     background-color: white;
+    justify-content: center;
     text-align: center;
     font-size: 25px;
     width: 400px;
