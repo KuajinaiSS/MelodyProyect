@@ -9,6 +9,7 @@
     <title>@yield('tabTittle') - Melody</title>
     @vite('resources/css/base.css')
     @stack('stylesTailwind')
+    @stack('chart')
 </head>
 
 <body>
@@ -38,7 +39,11 @@
                         Crear Concierto
                     </a>
                 </li>
-
+                <li class="link">
+                    <a href="{{route('admin.collection')}}">
+                        Recaudaciones
+                    </a>
+                </li>
                 <li class="link">
                     <a href="{{route('users')}}">
                         Usuarios
@@ -97,7 +102,7 @@
 
 </body>
 @yield('alert')
-
+@yield('script')
 @endauth
 
 @guest
