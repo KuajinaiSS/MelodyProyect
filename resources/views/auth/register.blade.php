@@ -10,7 +10,7 @@
     <script src="sweetalert2.all.min.js"></script>
     <title>Crear cuenta - Melody</title>
 
-    @vite('resources/css/form.css')
+    @vite(['resources/css/form.css', 'resources/js/app.js'])
 </head>
 
 <body>
@@ -24,7 +24,15 @@
             @csrf
             <div class="name">
                 <div><label>NOMBRE</label></div>
-                <input id="name" name="name" type="text" width="400px">
+
+                <input data-tooltip-target="tooltip-nom" data-tooltip-placement="left" id="name" name="name"
+                    type="text" width="400px">
+                <div id="tooltip-nom" role="tooltip"
+                    class="max-w-xs font-sans absolute z-10 invisible inline-block px-3 py-4 text-sm font-medium  transition-opacity duration-300 bg-[#a5decd] rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 text-black">
+                    El nombre debe tener al menos 3 caracteres y solo se permiten letras. ✍️✉️👤
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>
+
                 @error('name')
                     <div class="errorMsg">
                         <p>{{ $message }}</p>
@@ -33,7 +41,14 @@
             </div>
             <div class="email">
                 <div><label>CORREO ELECTRÓNICO</label></div>
-                <input id="email" name="email" type="text">
+                <input data-tooltip-target="tooltip-email" data-tooltip-placement="left" id="email" name="email"
+                    type="text">
+                <div id="tooltip-email" role="tooltip"
+                    class="max-w-xs font-sans absolute z-10 invisible inline-block px-3 py-4 text-sm font-medium  transition-opacity duration-300 bg-[#a5decd] rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 text-black">
+                    El correo electrónico debe ser único. 📧🔒🔑
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>
+
                 @error('email')
                     <div class="errorMsg">
                         <p>{{ $message }}</p>
@@ -42,7 +57,14 @@
             </div>
             <div class="password">
                 <div><label>CONTRASEÑA</label></div>
-                <input id="password" name="password" type="password">
+                <input data-tooltip-target="tooltip-pass" data-tooltip-placement="left" id="password" name="password"
+                    type="password">
+                <div id="tooltip-pass" role="tooltip"
+                    class="max-w-xs font-sans absolute z-10 invisible inline-block px-3 py-4 text-sm font-medium  transition-opacity duration-300 bg-[#a5decd] rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 text-black">
+                    La contraseña debe ser alfanumérica (letras y números) y contener al menos 8 caracteres 🔐🔢🔤
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>
+
                 @error('password')
                     <div class="errorMsg">
                         <p>{{ $message }}</p>

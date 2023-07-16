@@ -1,4 +1,5 @@
 /* FUENTES */
+@tailwind utilities; /*agregado iter3- tooltips*/
 @font-face {
     font-family: 'Helvetica World';
     font-style: normal;
