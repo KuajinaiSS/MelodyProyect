@@ -86,7 +86,10 @@
                             </a>
                         </div>
                         @else
+                        <div class="tooltipDer">
+                            <span class="tooltiptext">Este concierto no ha vendido entradas ☹️</span>
                             <button class="buttonDetailOff" deactive>Ver Detalle</button>
+                        </div>
                         @endif
 
                     </td>
