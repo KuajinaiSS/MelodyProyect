@@ -10,7 +10,7 @@
     <script src="sweetalert2.all.min.js"></script>
     <title>Crear cuenta - Melody</title>
 
-    @vite(['resources/css/form.css', 'resources/js/app.js'])
+    @vite(['resources/css/form.css','resources/css/tooltip.css'])
 </head>
 
 <body>
@@ -24,15 +24,14 @@
             @csrf
             <div class="name">
                 <div><label>NOMBRE</label></div>
-
-                <input data-tooltip-target="tooltip-nom" data-tooltip-placement="left" id="name" name="name"
+                <div class="tooltipIzq">
+                    <span class="tooltiptext"> Recuerda que el nombre debe tener como mínimo 3 caracteres, los cuales deben ser solo letras
+                        <br>
+                        (づ ᴗ _ᴗ)づ♡
+                     </span>
+                <input id="name" name="name"
                     type="text" width="400px">
-                <div id="tooltip-nom" role="tooltip"
-                    class="max-w-xs font-sans absolute z-10 invisible inline-block px-3 py-4 text-sm font-medium  transition-opacity duration-300 bg-[#a5decd] rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 text-black">
-                    El nombre debe tener al menos 3 caracteres y solo se permiten letras. ✍️✉️👤
-                    <div class="tooltip-arrow" data-popper-arrow></div>
                 </div>
-
                 @error('name')
                     <div class="errorMsg">
                         <p>{{ $message }}</p>
@@ -41,14 +40,14 @@
             </div>
             <div class="email">
                 <div><label>CORREO ELECTRÓNICO</label></div>
-                <input data-tooltip-target="tooltip-email" data-tooltip-placement="left" id="email" name="email"
+                <div class="tooltipIzq">
+                    <span class="tooltiptext"> Recuerda que el correo electrónico debe ser único y debe estar en su correcto formato
+                        <br>
+                        ⸜(｡˃ ᵕ ˂ )⸝♡
+                     </span>
+                <input id="email" name="email"
                     type="text">
-                <div id="tooltip-email" role="tooltip"
-                    class="max-w-xs font-sans absolute z-10 invisible inline-block px-3 py-4 text-sm font-medium  transition-opacity duration-300 bg-[#a5decd] rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 text-black">
-                    El correo electrónico debe ser único. 📧🔒🔑
-                    <div class="tooltip-arrow" data-popper-arrow></div>
                 </div>
-
                 @error('email')
                     <div class="errorMsg">
                         <p>{{ $message }}</p>
@@ -57,14 +56,14 @@
             </div>
             <div class="password">
                 <div><label>CONTRASEÑA</label></div>
-                <input data-tooltip-target="tooltip-pass" data-tooltip-placement="left" id="password" name="password"
+                <div class="tooltipIzq">
+                    <span class="tooltiptext"> Recuerda que la contraseña debe contener solo letras y al menos un numero, además debe tener como mínimo 8 caracteres
+                        <br>
+                        (˶ᵔ ᵕ ᵔ˶ )
+                     </span>
+                <input id="password" name="password"
                     type="password">
-                <div id="tooltip-pass" role="tooltip"
-                    class="max-w-xs font-sans absolute z-10 invisible inline-block px-3 py-4 text-sm font-medium  transition-opacity duration-300 bg-[#a5decd] rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 text-black">
-                    La contraseña debe ser alfanumérica (letras y números) y contener al menos 8 caracteres 🔐🔢🔤
-                    <div class="tooltip-arrow" data-popper-arrow></div>
                 </div>
-
                 @error('password')
                     <div class="errorMsg">
                         <p>{{ $message }}</p>
@@ -72,7 +71,10 @@
                 @enderror
             </div>
             <div class="register"><a href="{{ route('login') }}">¿Ya tienes cuenta? ¡Inicia sesión aquí!</a></div>
+            <div class="tooltip" style="width: 400px">
+                <span class="tooltiptext" style="margin-top: -50px"> ¡Presiona el botón para registrar tu cuenta! </span>
             <input id="button" type="button" value="REGISTRAR" class="store">
+            </div>
         </form>
 
     </div>

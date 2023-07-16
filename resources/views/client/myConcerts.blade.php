@@ -3,14 +3,14 @@
     Mis compras
 @endsection
 
-@vite('resources/css/table.css')
+
 
 @section('content')
     @auth
         @vite('resources/css/table.css')
         @if (auth()->user()->role === 0)
-            <img src="{{ asset('img/marker.png') }}" class="marker" width="25" height="6">
-            <h1 class="tittle">Mis Conciertos</h1>
+            <img src="{{ asset('img/marker.png') }}" class="marker3" width="25" height="6">
+            <h1 class="title">Mis Conciertos</h1>
 
 
             {{-- Si no a comprado ningun concierto --}}
@@ -119,11 +119,14 @@
 
 
                                 <td>
+                                    <div class="tooltipDer">
+                                        <span class="tooltiptext"> ¡Presiona el botón para descargar el comprobante de tu compra!🧾</span>
                                     <a href="{{ route('pdf.descargar', ['id' => $detailOrder->voucher->id]) }}">
                                         <button class="buttonDetail">
-                                            descargar
+                                            Comprobante
                                         </button>
                                     </a>
+                                    </div>
 
                                 </td>
                             </tr>

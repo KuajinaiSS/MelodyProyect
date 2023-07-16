@@ -3,8 +3,7 @@
         <!DOCTYPE html>
         <html lang="es">
 
-        @vite('resources/css/buy.css')
-        @vite('resources/css/base.css')
+        @vite(['resources/css/buy.css','resources/css/base.css','resources/css/tooltip.css'])
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
@@ -99,8 +98,10 @@
                 <input name="reservation_number" value="" hidden>
                 <input id="selectedPayMethod" name="payMethod" value="" hidden>
 
-
+                <div class="tooltip">
+                    <span class="tooltiptext" style="margin-top: -20px"> ¡Presiona el botón para confirmar tu compra! </span>
                 <input type="button" id="buttonBuy" class="buttonBuy" value="COMPRAR">
+                </div>
 
                 @error('quantity')
                     <p class="errorMsg">{{ $message }}</p>

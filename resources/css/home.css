@@ -55,6 +55,7 @@
     gap: auto;
     margin-top: 40px;
 }
+
 @media(min-width:768px )
 {
     .container{

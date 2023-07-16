@@ -16,7 +16,6 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
             <title>Inicio</title>
-
         </head>
 
         <body>
@@ -35,25 +34,25 @@
                     @foreach ($concerts as $concert)
                         <div class="content">
                             <img src="{{ asset('img/ticket.png') }}" alt="Concierto" width="150"
-                                height="150" align="center">
+                                height="150">
                             <h2 class="concertName">{{ $concert->concertName }}</h2>
                             <p class="date">{{ $concert->date }}</p>
-                            <p class="price">Valor: ${{ $concert->price }} CLP</p>
+                            <p class="price">Valor: ${{ number_format($concert->price, 0, '.', '.') }} CLP</p>
                             <p class="stock">Entradas Disponibles: {{ $concert->availableStock }}</p>
                             @if (auth()->user()->role === 0)
                                 @if ($concert->availableStock > 0)
-                                    <a data-tooltip-target="tooltip-comprar" data-tooltip-placement="bottom"
-                                        href="{{ route('buy', ['id' => $concert->id]) }}">
+                                <div class="tooltip">
+                                    <span class="tooltiptext" style="font-size: 18px"> Compra entradas para este concierto 🎧 </span>
+                                    <a href="{{ route('buy', ['id' => $concert->id]) }}">
                                         <button class="buttonBuy">COMPRAR</button>
                                     </a>
-                                    <div id="tooltip-comprar" role="tooltip"
-                                        class="max-w-xs font-sans absolute z-10 invisible inline-block px-3 py-4 text-sm font-medium text-white transition-opacity duration-300 bg-[#036c6f] rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
-                                        <span id="emoji-inicio">🎤</span> Compra tus Entradas <span id="emoji-final">🎸</span>
-                                        <div class="tooltip-arrow" data-popper-arrow></div>
-                                    </div>
+                                </div>
                                 @endif
                                 @if ($concert->availableStock === 0)
+                                <div class="tooltip">
+                                    <span class="tooltiptext" style="font-size: 18px"> Entradas agotadas 😔</span>
                                     <button class="buttonSpend" disabled>AGOTADO</button>
+                                </div>
                                 @endif
                             @endif
 
@@ -62,31 +61,7 @@
             @endif
 
             </div>
-            <script>
-                const emojisInicio = ['🎤', '🎸', '🎹', '🥁', '🎶']; // Lista predefinida de emojis para el inicio
-                const emojisFinal = ['💰', '🎉', '🎊', '🎁', '🔥']; // Lista predefinida de emojis para el final
-                const emojiInicio = document.getElementById('emoji-inicio');
-                const emojiFinal = document.getElementById('emoji-final');
 
-                let currentIndexInicio = 0;
-                let currentIndexFinal = 0;
-
-                setInterval(() => {
-                    emojiInicio.textContent = emojisInicio[currentIndexInicio];
-                    emojiFinal.textContent = emojisFinal[currentIndexFinal];
-
-                    currentIndexInicio++;
-                    currentIndexFinal++;
-
-                    if (currentIndexInicio >= emojisInicio.length) {
-                        currentIndexInicio = 0;
-                    }
-
-                    if (currentIndexFinal >= emojisFinal.length) {
-                        currentIndexFinal = 0;
-                    }
-                }, 1000); // Cambia los emojis cada 1 segundo (ajusta el tiempo según tus necesidades)
-            </script>
 
         </html>
     @endauth

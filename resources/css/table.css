@@ -1,5 +1,5 @@
 /* FUENTES */
-@tailwind utilities;
+
 @font-face {
     font-family: 'Helvetica World';
     font-style: normal;
@@ -18,10 +18,10 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-.tittle {
+.title {
     font-family: League Spartan;
     text-align: center;
-    font-size: 35px;
+    font-size: 30px;
 
 }
 
@@ -112,7 +112,7 @@ td{
 
 .marker2{
     position: absolute;
-    transform: translate(639px,-75px);
+    transform: translate(855px,-75px);
 }
 
 .marker3{
@@ -161,7 +161,7 @@ tr:nth-child(even){
     border-style: solid;
     margin-left: 30px;
     margin-right: 30px;
-    margin-bottom: 20px;
+
 
 }
 
@@ -192,6 +192,7 @@ tr:nth-child(even){
 }
 
 .clearSearch{
+    display: block;
     color: black;
     font-family: Helvetica World;
     font-size: 20px;
@@ -201,13 +202,13 @@ tr:nth-child(even){
     border-style: solid;
     margin-left: 30px;
     margin-right: 30px;
-    margin-bottom: 20px;
     text-decoration: none;
     background-color: #d9d9d9;
     padding-top: 9px;
     padding-bottom: 9px;
     padding-left: 12px;
     padding-right: 12px;
+    width: 130px;
 }
 
 .clearSearch:hover{
@@ -218,12 +219,12 @@ tr:nth-child(even){
 .userName{
     font-family: League Spartan;
     text-align: center;
-    font-size: 35px;
+    font-size: 30px;
 }
 
 .noData{
     margin-top: 50px;
     font-family: Helvetica World;
     text-align: center;
-    font-size: 25px;
+    font-size: 20px;
 }

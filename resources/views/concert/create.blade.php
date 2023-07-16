@@ -24,28 +24,32 @@
                             </div>
                         @endif
                         <div class="concertName">
-                            <div><label>NOMBRE DEL CONCIERTO</label></div>
-                            <input data-tooltip-target="tooltip-nombre" data-tooltip-placement="left" id="concertName"
-                                name="concertName" type="text">
-                            <div id="tooltip-nombre" role="tooltip"
-                                class="max-w-xs font-sans absolute z-10 invisible inline-block px-3 py-4 text-sm font-medium text-white transition-opacity duration-300 bg-[#a5decd] rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 text-black">
-                                El nombre del concierto debe contener, como mínimo, 5 caracteres. ⚠️🖊️
-                                <div class="tooltip-arrow" data-popper-arrow></div>
+
+                            <label>NOMBRE DEL CONCIERTO</label>
+
+                            <div class="tooltipIzq">
+                                <span class="tooltiptext"> Recuerda que el nombre del concierto debe tener como mínimo 5 caracteres
+                                    <br>
+                                    (˶ᵔ ᵕ ᵔ˶ )
+                                </span>
+                                <input id="concertName" name="concertName" type="text">
                             </div>
                             @error('concertName')
                                 <div class="errorMsg">
                                     <p>{{ $message }}</p>
                                 </div>
                             @enderror
+
                         </div>
                         <div class="price">
-                            <div><label>PRECIO</label></div>
-                            <input data-tooltip-target="tooltip-precio" data-tooltip-placement="left" id="price"
-                                name="price" type="text">
-                            <div id="tooltip-precio" role="tooltip"
-                                class="max-w-xs font-sans absolute z-10 invisible inline-block px-3 py-4 text-sm font-medium text-white transition-opacity duration-300 bg-[#a5decd] rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 text-black">
-                                El valor de la entrada debe ser igual o superior a $20.000 pesos. 💲💰
-                                <div class="tooltip-arrow" data-popper-arrow></div>
+                            <label>PRECIO</label>
+
+                            <div class="tooltipIzq">
+                                <span class="tooltiptext"> Recuerda que el precio del concierto debe ser mayor a $20.000 CLP
+                                    <br>
+                                    (づ ᴗ _ᴗ)づ♡
+                                </span>
+                                <input id="price" name="price" type="text">
                             </div>
                             @error('price')
                                 <div class="errorMsg">
@@ -54,13 +58,13 @@
                             @enderror
                         </div>
                         <div class="stock">
-                            <div><label>STOCK</label></div>
-                            <input data-tooltip-target="tooltip-stock" data-tooltip-placement="left" id="stock"
-                                name="stock" type="text">
-                            <div id="tooltip-stock" role="tooltip"
-                                class="max-w-xs font-sans absolute z-10 invisible inline-block px-3 py-4 text-sm font-medium text-white transition-opacity duration-300 bg-[#a5decd] rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 text-black">
-                                La cantidad de entradas debe ser un número entre 100 y 400. 🔢🎟️
-                                <div class="tooltip-arrow" data-popper-arrow></div>
+                            <label>STOCK</label>
+                            <div class="tooltipIzq">
+                                <span class="tooltiptext"> Recuerda que el stock del concierto debe ser igual o superior a 100 y no superior a 400
+                                <br>
+                                ʚ(｡˃ ᵕ ˂ )ɞ
+                                </span>
+                                <input id="stock" name="stock" type="text">
                             </div>
                             @error('stock')
                                 <div class="errorMsg">
@@ -69,15 +73,14 @@
                             @enderror
                         </div>
                         <div class="date">
-                            <div><label>FECHA</label></div>
-                            <input data-tooltip-target="tooltip-fecha" data-tooltip-placement="left" id="date"
-                                name="date" type="date" onkeydown="return false">
-                            <div id="tooltip-fecha" role="tooltip"
-                                class="max-w-xs font-sans absolute z-10 invisible inline-block px-3 py-4 text-sm font-medium text-white transition-opacity duration-300 bg-[#a5decd] rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 text-black">
-                                La fecha del concierto no puede ser igual al día de hoy. ❌📅
-                                <div class="tooltip-arrow" data-popper-arrow></div>
+                            <label>FECHA</label>
+                            <div class="tooltipIzq">
+                                <span class="tooltiptext"> Recuerda que la fecha del concierto debe ser desde el día de mañana en adelante
+                                    <br>
+                                    ⸜(｡˃ ᵕ ˂ )⸝♡
+                                 </span>
+                                <input id="date" name="date" type="date" onkeydown="return false">
                             </div>
-
                             @error('date')
                                 <div class="errorMsg">
                                     <p>{{ $message }}</p>
@@ -89,7 +92,10 @@
                                 </div>
                             @endif
                         </div>
-                        <input id="button" type="button" value="CREAR CONCIERTO" class="store">
+                        <div class="tooltip" style="width: 400px">
+                            <span class="tooltiptext" style="margin-top: -50px"> ¡Presiona el botón para crear el concierto! </span>
+                            <input id="button" type="button" value="CREAR CONCIERTO" class="store">
+                        </div>
                     </form>
 
                 </div>

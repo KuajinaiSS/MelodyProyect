@@ -10,22 +10,31 @@
 
 @section('content')
 @auth
-@vite('resources/css/table.css')
+@vite(['resources/css/table.css','resources/css/tooltip.css'])
 @if(auth()->user()->role === 1)
 
     <img src="{{asset('img/marker.png')}}" class="marker2" width="25" height="6">
     @if ($detailOrders == null && $user == null)
-        <h1 class="tittle">¡Busca un Usuario!</h1>
+        <h1 class="title">¡Busca un Usuario!</h1>
     @elseif($detailOrders != null && $user != null)
         <h1 class="userName">{{$user->name}}</h1>
     @endif
 
     <div class="search">
         <form action="{{route('user.info')}}" method="GET" novalidate>
-            <input class= "byEmail" id="byEmail" name="byEmail" type="search" placeholder="Ingresa un correo electrónico">
-            <input type="submit" value="Buscar" class="searchBtn">
+            <div class="tooltip">
+                <span class="tooltiptext" style="width: 300px"> Busca un usuario ingresando su correo electrónico 🔍 </span>
+                <input class= "byEmail" id="byEmail" name="byEmail" type="search" placeholder="Ingresa un correo electrónico">
+            </div>
+            <div class="tooltip">
+                <span class="tooltiptext"> ¡Presiona el botón para buscar! </span>
+                <input type="submit" value="Buscar" class="searchBtn">
+            </div>
         </form>
+        <div class="tooltip">
+            <span class="tooltiptext"> Limpia la busqueda para ingresar una nueva 🧹 </span>
         <a href="{{route('users')}}" class="clearSearch">Limpiar Filtros</a>
+        </div>
     </div>
     @if ($user == null)
         @if ($message != null)

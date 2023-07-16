@@ -55,8 +55,9 @@ function generateChart() {
                     },
                     options: {
                         plugins: {
-                            legend: {
+                           legend: {
                                 display: false
+
                             }
                         },
                         responsive: true,
@@ -139,8 +140,10 @@ function generateChart() {
                             label: 'Monto Total Vendido',
                             data: values,
                             backgroundColor: [
-                                'rgba(0	202	220)',
-                                'rgba(1	122	235)',
+                                'rgba(38,7,121)',
+                                'rgba(1,122,235)',
+                                'rgba(0,199,135)',
+                                'rgba(54,216,233)',
                             ],
                             borderWidth: 1
                         }]
@@ -220,7 +223,7 @@ function generateChart() {
                     'rgba(0,199,135)',
                     'rgba(54,216,233)',
                     ],
-                    borderWidth: 1
+                    borderWidth: 0
                 }]
                 },
                 options: {
@@ -236,10 +239,18 @@ function generateChart() {
                         }
                         const porcentajeTotal = datapoints.reduce(sumaTotal, 0);
                         const valorPorcentaje = (value / porcentajeTotal * 100).toFixed(1);
-                        const despliegue = [`$${value}`, `${valorPorcentaje}%`];
+                        const despliegue = [`$${value.toLocaleString(undefined, {
+                            useGrouping: true
+                        })}`, `${valorPorcentaje}%`];
                         return despliegue;
                         }
+                    ,
+                    color: 'white',
+                    font: {
+                        size: 20,
                     }
+                    }
+
                 },
                 animation: {
                     duration: 0,

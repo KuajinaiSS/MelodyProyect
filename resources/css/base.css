@@ -1,5 +1,5 @@
 /* FUENTES */
-@tailwind utilities; /*agregado iter3- tooltips*/
+
 @font-face {
     font-family: 'Helvetica World';
     font-style: normal;
@@ -51,7 +51,11 @@ header {
 
 .logoImg {
     height: 50px;
-    width: auto;
+    width: 50px;
+}
+.play{
+    background: none;
+    border: none;
 }
 
 .header .nav-links li a:hover,
@@ -171,6 +175,8 @@ header {
     text-align: left;
 
 }
+
+
 
 
 

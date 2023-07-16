@@ -7,82 +7,92 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="{{ asset('img/melodyLogo.png') }}">
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="sweetalert2.all.min.js"></script>
         <title>@yield('tabTittle') - Melody</title>
-        @vite(['resources/js/app.js', 'resources/css/base.css'])
-        @stack('stylesTailwind')
+        @vite(['resources/css/base.css','resources/css/tooltip.css'])
         @stack('chart')
     </head>
 
     <body>
         <header class="header">
             <div class="headerLogo">
-                <img src="{{ asset('img/melodyLogo.png') }}" class="logoImg">
+                <button id="play" class="play" onclick="reproducirAudio()"><img src="{{ asset('img/melodyLogo.png') }}" class="logoImg" id="imgClick"></button>
+                <audio src="{{asset("mp3/intro.mp3")}}" id="audio" hidden></audio>
+
             </div>
 
             <nav class="nav-links">
                 <ul class="linkList">
                     <li class="link">
-                        <a data-tooltip-target="tooltip-inicio" href="{{ route('viewHome') }}">
-                            Inicio
-                        </a>
-                        <div id="tooltip-inicio" role="tooltip"
-                            class=" max-w-xsabsolute z-10 invisible inline-block px-3 py-2 text-s font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
-                            🎧 Conciertos Recomendados
-                            <div class="tooltip-arrow" data-popper-arrow></div>
+
+                        <div class="tooltip">
+                            <span class="tooltiptext" style="width: 210px"> Conciertos recomendados 🎧 </span>
+                            <a href="{{ route('viewHome') }}">
+                                Inicio
+                            </a>
                         </div>
                     </li>
 
+
+
                     @if (auth()->user()->role === 1)
                         <li class="link">
-                            <a data-tooltip-target="tooltip-conciertos" href="{{ route('admin.concertsDetail') }}">
+                            <div class="tooltip">
+                            <span class="tooltiptext"> Tabla de todos los conciertos 📒 </span>
+                            <a href="{{ route('admin.concertsDetail') }}">
                                 Conciertos
                             </a>
-                            <div id="tooltip-conciertos" role="tooltip"
-                                class=" max-w-xsabsolute z-10 invisible inline-block px-3 py-2 text-s font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
-                                Tabla de todos los conciertos vendidos
-                                <div class="tooltip-arrow" data-popper-arrow></div>
                             </div>
-
                         </li>
 
                         <li class="link">
-                            <a data-tooltip-target="tooltip-crear-concierto" href="{{ route('concert.create') }}">
+                            <div class="tooltip">
+                            <span class="tooltiptext"> ¡Acá puedes agregar conciertos! 🎤</span>
+                            <a href="{{ route('concert.create') }}">
                                 Crear Concierto
                             </a>
-                            <div id="tooltip-crear-concierto" role="tooltip" <li class="link">
+                            </div>
+                        </li>
+
+                        <li class="link">
+                            <div class="tooltip">
+                                <span class="tooltiptext"> Las recaudaciones de los conciertos 💰</span>
                                 <a href="{{ route('admin.collection') }}">
                                     Recaudaciones
                                 </a>
+                            </div>
                         </li>
-                        </div>
-                        <div id="tooltip-crear-concierto" role="tooltip"
-                            class="absolute z-10 invisible inline-block px-3 py-2 text-s font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
-                            Aca podemos agregar conciertos! wow
-                            <div class="tooltip-arrow" data-popper-arrow></div>
-                        </div>
+
+                        <li class="link">
+
+                            <div class="tooltip">
+                                <span class="tooltiptext"> ¡Acá puedes buscar un usuario! 🔍 </span>
+                                <a href="{{ route('user.info') }}">
+                                    Usuarios
+                                </a>
+                            </div>
+
                         </li>
+
+
                     @else
                         <li class="link">
-                            <a data-tooltip-target="tooltip-conciertos" href="{{ route('concerts') }}">
+                            <div class="tooltip">
+                                <span class="tooltiptext"> ¡Acá puedes buscar todos los conciertos! 🔍 </span>
+                            <a href="{{ route('concerts') }}">
                                 Conciertos
                             </a>
-                            <div id="tooltip-conciertos" role="tooltip"
-                                class=" max-w-xsabsolute z-10 invisible inline-block px-3 py-2 text-s font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
-                                ✔️ Compra tus boletos aqui
-                                <div class="tooltip-arrow" data-popper-arrow></div>
                             </div>
+
+
                         </li>
                         <li class="link">
-                            <a data-tooltip-target="tooltip-mis-conciertos" href="{{ route('client.myConcerts') }}">
+                            <div class="tooltip">
+                                <span class="tooltiptext"> Revisa las entradas que has comprado 🎟️</span>
+                            <a href="{{ route('client.myConcerts') }}">
                                 Mis Conciertos
                             </a>
-                            <div id="tooltip-mis-conciertos" role="tooltip"
-                                class=" max-w-xsabsolute z-10 invisible inline-block px-3 py-2 text-s font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
-                                Revisa tus conciertos
-                                <div class="tooltip-arrow" data-popper-arrow></div>
                             </div>
+
                         </li>
                     @endif
                 </ul>
@@ -123,6 +133,16 @@
 
 
     </body>
+
+    <script>
+        var audio = document.getElementById("audio");
+
+        function reproducirAudio() {
+          audio.play();
+        }
+
+      </script>
+
     @yield('alert')
     @yield('script')
 @endauth

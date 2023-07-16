@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ asset('img/MelodyLogo.png') }}">
     <title>Gracias por su compra - Melody</title>
-    @vite('resources/css/base.css')
-    @vite('resources/css/thanks.css')
+    @vite(['resources/css/base.css','resources/css/thanks.css','resources/css/tooltip.css'])
+
 
 </head>
 
@@ -28,9 +28,12 @@
 
         <div class="info">
             <p class="downloadLabel">Obtén tu comprobante aquí:</p>
+            <div class="tooltip">
+                <span class="tooltiptext"> ¡Presiona el botón para descargar el comprobante de tu compra!🧾 </span>
             <a href="{{ route('pdf.descargar', ['id' => $voucher->id]) }}">
                 <button style="margin:0px" type="submit"  class="download"> Comprobante </button>
             </a>
+            </div>
         </div>
 
     </div>
