@@ -36,10 +36,8 @@
         <a href="{{route('users')}}" class="clearSearch">Limpiar Filtros</a>
         </div>
     </div>
-    @if ($user == null)
-        @if ($message != null)
+    @if ($user == null && $message != null)
             <div class="noData">{{$message}}</div>
-        @endif
     @elseif ($detailOrders != null && $detailOrders->count() === 0 && $user != null)
         <div class="noData">El cliente {{$user->name}} no ha adquirido entradas</div>
     @elseif($detailOrders != null && $detailOrders->count() > 0)
@@ -121,10 +119,12 @@
                     {{-- Descarga Pdf --}}
                     <td>
                         <p>
-
-                            <a href="{{ route('pdf.descargar', ['id' => $detailOrder->voucherId ])}}">
-                                <button class="buttonDetail">Comprobante</button>
-                            </a>
+                            <div class="tooltipDer">
+                                <span class="tooltiptext"> ¡Presiona el botón para descargar el comprobante de esta compra!🧾</span>
+                                <a href="{{ route('pdf.descargar', ['id' => $detailOrder->voucherId ])}}">
+                                    <button class="buttonDetail">Comprobante</button>
+                                </a>
+                            </div>
 
                         </p>
                     </td>

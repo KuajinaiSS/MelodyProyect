@@ -2,7 +2,8 @@
 let select = document.getElementById('chartType'); // Referencia al elemento select con el ID 'chartType'
 let chartContainer = document.getElementById('chartContainer'); // Referencia al contenedor del gráfico con el ID 'chartContainer'
 let ctx = document.getElementById('myChart'); // Referencia al elemento canvas con el ID 'myChart'
-let chartHTML = document.getElementById('chart'); // Referencia al elemento con el ID 'chart'
+let chartHTML = document.getElementById('chart');
+const errorMsg = document.getElementById('errorMsg'); // Referencia al elemento con el ID 'chart'
 
 let chart = null; // Variable para almacenar la instancia del gráfico
 
@@ -28,6 +29,11 @@ function generateChart() {
                 console.log(data);
                 const concerts = data;
 
+                if (concerts.length === 0) {
+                    // Mostrar mensaje de que no existen entradas vendidas
+                    errorMsg.textContent = 'No hay venta de entradas para ningún concierto o no existen conciertos'
+                    return;
+                }
 
                 // Extraer las etiquetas y los valores de los conciertos
                 const labels = concerts.map(concert => concert.concertName)
@@ -38,10 +44,11 @@ function generateChart() {
                     return 0;
                 });
 
-
+                const totalVendido = values.reduce((total, value) => total + value, 0);
                 chart = new Chart(ctx, {
                     type: 'bar',
                     data: {
+
                         labels: labels,
                         datasets: [{
                             label:'Monto Total Vendido',
@@ -54,10 +61,21 @@ function generateChart() {
                         }]
                     },
                     options: {
+
                         plugins: {
                            legend: {
                                 display: false
 
+                            },
+                            title: {
+                                display: true,
+                                text: 'Total Vendido: $' + totalVendido.toLocaleString(undefined, {
+                                    useGrouping: true
+                                }),
+                                font: {
+                                    size: 18,
+                                    weight: 'bold'
+                                }
                             }
                         },
                         responsive: true,
@@ -77,6 +95,8 @@ function generateChart() {
                 });
 
                 chartHTML.hidden = false; // Mostrar el elemento del gráfico
+
+
             })
             .catch(error => {
                 console.error('Error al obtener el listado de conciertos:', error);
@@ -130,7 +150,7 @@ function generateChart() {
 
                 // Crear el contexto del gráfico
                 // const ctx = document.getElementById('myChart2');
-
+                const totalVendido = values.reduce((total, value) => total + value, 0);
                 // Crear el gráfico de barras
                 chart = new Chart(ctx, {
                     type: 'bar',
@@ -152,6 +172,16 @@ function generateChart() {
                         plugins: {
                             legend: {
                                 display: false
+                            },
+                            title: {
+                                display: true,
+                                text: 'Total Vendido: $' + totalVendido.toLocaleString(undefined, {
+                                    useGrouping: true
+                                }),
+                                font: {
+                                    size: 18,
+                                    weight: 'bold'
+                                }
                             }
                         }
                     }

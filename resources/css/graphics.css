@@ -31,3 +31,9 @@
     transform: translate(678px,-75px);
 }
 
+.errorMsg{
+    font-family: Helvetica World;
+    font-size: 20px;
+    text-align: center;
+}
+

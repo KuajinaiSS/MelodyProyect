@@ -42,8 +42,10 @@ class ConcertController extends Controller
 
         // otorga usuario autenticado
         $user = auth()->user();
-        $detailsOrders = $user->concertsClient;
-
+        $detailsOrders = null;
+        if($user != null){
+            $detailsOrders = $user->concertsClient;
+        }
 
         return view('client.myConcerts',
         compact('detailsOrders', 'user'));

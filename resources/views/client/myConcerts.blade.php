@@ -68,7 +68,7 @@
                                 {{-- Fecha de compra --}}
                                 <td>
                                     <p>
-                                        {{ $detailOrder->voucher ? date('d/m/Y', strtotime($detailOrder->voucher->date)) : 'No voucher date available' }}
+                                        {{ $detailOrder->voucher ? date('d/m/Y H:i', strtotime($detailOrder->created_at)) : 'No voucher date available' }}
                                     </p>
 
                                 </td>
@@ -141,7 +141,7 @@
 
                 </table>
             @endif
-        @elseif(auth()->user()->role === 0)
+        @elseif(auth()->user()->role === 1)
             <meta http-equiv="refresh" content="0;{{ route('viewHome') }}">
         @endif
     @endauth

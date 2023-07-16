@@ -66,7 +66,7 @@
 
                             <div class="tooltip">
                                 <span class="tooltiptext"> ¡Acá puedes buscar un usuario! 🔍 </span>
-                                <a href="{{ route('user.info') }}">
+                                <a href="{{ route('users') }}">
                                     Usuarios
                                 </a>
                             </div>
