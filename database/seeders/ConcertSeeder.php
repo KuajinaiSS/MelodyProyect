@@ -14,63 +14,73 @@ class ConcertSeeder extends Seeder
     {
         $concerts = [
             [
-                'concertName' => 'Concierto 1',
-                'price' => 10,
-                'stock' => 100,
-                'date' => '2023-06-15'
+                'concertName' => 'Chayanne',
+                'price' => 40000,
+                'stock' => 400,
+                'availableStock' => 400,
+                'date' => '2023-09-15'
             ],
             [
-                'concertName' => 'Concierto 2',
-                'price' => 15,
-                'stock' => 50,
-                'date' => '2023-06-20'
+                'concertName' => 'Shakira',
+                'price' => 50000,
+                'stock' => 300,
+                'availableStock' => 300,
+                'date' => '2023-08-20'
             ],
             [
-                'concertName' => 'Concierto 3',
-                'price' => 20,
+                'concertName' => 'Daddy Yankee',
+                'price' => 20000,
                 'stock' => 80,
-                'date' => '2023-06-25'
-            ],
-            [
-                'concertName' => 'Concierto 4',
-                'price' => 12,
-                'stock' => 70,
-                'date' => '2023-06-30'
-            ],
-            [
-                'concertName' => 'Concierto 5',
-                'price' => 18,
-                'stock' => 120,
-                'date' => '2023-07-05'
-            ],
-            [
-                'concertName' => 'Concierto 6',
-                'price' => 25,
-                'stock' => 90,
-                'date' => '2023-07-10'
-            ],
-            [
-                'concertName' => 'Concierto 7',
-                'price' => 8,
-                'stock' => 60,
-                'date' => '2023-07-15'
-            ],
-            [
-                'concertName' => 'Concierto 8',
-                'price' => 30,
-                'stock' => 150,
-                'date' => '2023-07-20'
-            ],
-            [
-                'concertName' => 'Concierto 9',
-                'price' => 14,
-                'stock' => 110,
+                'availableStock' => 80,
                 'date' => '2023-07-25'
             ],
             [
-                'concertName' => 'Concierto 10',
-                'price' => 22,
+                'concertName' => 'Vitoko Cumple',
+                'price' => 20000,
+                'stock' => 70,
+                'availableStock' => 70,
+                'date' => '2023-07-18'
+            ],
+            [
+                'concertName' => 'Diego Cumple',
+                'price' => 18000,
+                'stock' => 120,
+                'availableStock' => 120,
+                'date' => '2023-11-02'
+            ],
+            [
+                'concertName' => 'Italo Cumple',
+                'price' => 25000,
+                'stock' => 90,
+                'availableStock' => 90,
+                'date' => '2023-06-10'
+            ],
+            [
+                'concertName' => 'Elton John',
+                'price' => 80000,
+                'stock' => 60,
+                'availableStock' => 60,
+                'date' => '2023-06-02'
+            ],
+            [
+                'concertName' => 'Bad Bunny',
+                'price' => 30000,
+                'stock' => 150,
+                'availableStock' => 150,
+                'date' => '2023-07-20'
+            ],
+            [
+                'concertName' => 'Billie Eilish',
+                'price' => 15000,
+                'stock' => 110,
+                'availableStock' => 110,
+                'date' => '2023-07-25'
+            ],
+            [
+                'concertName' => 'Lil Nas X',
+                'price' => 22000,
                 'stock' => 200,
+                'availableStock' => 200,
                 'date' => '2023-07-30'
             ],
         ];

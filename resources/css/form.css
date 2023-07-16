@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: 'Helvetica World';
     font-style: normal;
@@ -83,6 +84,10 @@ body{
     font-size: 25px;
 }
 
+.forms{
+    justify-content: center;
+}
+
 
 form .name{
     padding: 0 40px;
@@ -106,7 +111,7 @@ form .name{
     border-width: 1px;
     border-style: solid;
     border-color:#d9d9d9;
-    width: 100%;
+    width: 322px;
     height: 30px;
 }
 
@@ -131,7 +136,7 @@ form .email{
     border-width: 1px;
     border-style: solid;
     border-color: #d9d9d9;
-    width: 100%;
+    width: 322px;
     height: 30px;
 }
 
@@ -155,7 +160,7 @@ form .password{
     border-width: 1px;
     border-style: solid;
     border-color: #d9d9d9;
-    width: 100%;
+    width: 322px;
     height: 30px;
 }
 
@@ -214,7 +219,7 @@ form .price{
     border-width: 1px;
     border-style: solid;
     border-color: #d9d9d9;
-    width: 100%;
+    width: 322px;
     height: 30px;
 }
 
@@ -238,7 +243,7 @@ form .stock{
     border-width: 1px;
     border-style: solid;
     border-color: #d9d9d9;
-    width: 100%;
+    width: 322px;
     height: 30px;
 }
 
@@ -263,7 +268,7 @@ form .date{
     border-width: 1px;
     border-style: solid;
     border-color: #d9d9d9;
-    width: 100%;
+    width: 322px;
     height: 30px;
 }
 
@@ -289,7 +294,7 @@ form .concertName{
     border-width: 1px;
     border-style: solid;
     border-color:#d9d9d9;
-    width: 100%;
+    width: 322px;
     height: 30px;
 }
 

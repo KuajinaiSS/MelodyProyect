@@ -13,6 +13,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\MyConcertsController;
 use App\Http\Controllers\SellsDetailController;
 use App\Http\Controllers\ConcertDetailController;
+use App\Http\Controllers\CollectionController;
 
 
 /*
@@ -53,10 +54,14 @@ Route::post('concert-create',[ConcertController::class, 'store'])->name('concert
 Route::get('buy/{id}',[BuyController::class, 'create'])->name('buy');
 Route::post('sold/{id}',[BuyController::class, 'store'])->name('concert.buy');
 
+
 // admin routes
 Route::get('concertsDetail',[ConcertController::class, 'indexConcertDetails'])->name('admin.concertsDetail');
 Route::get('/sellsDetail/{id}',[ConcertController::class, 'indexSellsConcertDetails'])->name('admin.sellsDetail');
 
+
+// clients routes
+Route::get('myConcerts',[ConcertController::class, 'indexMyConcerts'])->name('client.myConcerts');
 
 // home routes
 Route::get('home',[HomeController::class, 'index'])->name('viewHome');
@@ -73,3 +78,7 @@ Route::get('thanksMsg',[ThanksController::class, 'index'])->name('thanksMsg');
 Route::get('users',[UserController::class, 'index'] )->name('users');
 Route::get('user-info',[UserController::class, 'getUser'] )->name('user.info');
 
+ // Collection
+Route::get('/collection', [CollectionController::class, 'index'])->name('admin.collection');
+Route::get('/all-concert-sales', [CollectionController::class, 'allConcertsTotalSales']);
+Route::get('/all-detail-orders', [CollectionController::class, 'allDetailOrders']);

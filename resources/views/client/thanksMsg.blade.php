@@ -6,37 +6,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ asset('img/MelodyLogo.png') }}">
-
     <title>Gracias por su compra - Melody</title>
+    @vite(['resources/css/base.css','resources/css/thanks.css','resources/css/tooltip.css'])
 
-    @vite('resources/css/form.css')
+
 </head>
 
 <body>
-    <div class="forms">
-        <div class="logo">
-            <img src="{{ asset('img/MelodyLogo.png') }}" class="img" width="45" height="45">
-            <h1 class="logoNombre">Melody</h1>
+    <header class="header">
+        <div class="headerLogo">
+            <img src="{{asset('img/melodyLogo.png')}}" class="logoImg">
         </div>
-        <p>¡Muchas gracias por su compra!</p>
 
-        <div>
+        <a href="{{route('viewHome')}}" class="return">
+            Volver
+        </a>
+    </header>
 
-            <p style="font-size: 20px">Tu compra se ha completado con éxito.</p>
-            <br>
-            <p >Obtener Boleta</p>
+    <div class="content">
+        <h1 class="title">¡Tu compra se ha realizado con éxito!</h1>
+
+        <div class="info">
+            <p class="downloadLabel">Obtén tu comprobante aquí:</p>
+            <div class="tooltip">
+                <span class="tooltiptext"> ¡Presiona el botón para descargar el comprobante de tu compra!🧾 </span>
             <a href="{{ route('pdf.descargar', ['id' => $voucher->id]) }}">
-                <button style="margin:0px" type="submit" value="DESCARGAR" class="store">Descargar </button>
+                <button style="margin:0px" type="submit"  class="download"> Comprobante </button>
             </a>
-            <br>
-            <p>
-                <a href="{{ route('viewHome') }}">Volver a la pagina de inicio</a>
-            </p>
-
+            </div>
         </div>
-
 
     </div>
+
+    <footer class="pageFooter">
+        <h3 class="tradeMark">Melody™</h3>
+        <p class="copyrigth"> Todos los derechos reservados - 2023. </p>
+    </footer>
 </body>
+
+
+
 
 </html>

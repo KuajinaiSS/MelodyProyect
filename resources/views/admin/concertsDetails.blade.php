@@ -10,12 +10,12 @@
 
 @section('content')
 @auth
-@vite('resources/css/table.css')
+@vite(['resources/css/table.css', 'resources/css/tooltip.css'])
 @if(auth()->user()->role === 1)
 
 
     <img src="{{asset('img/marker.png')}}" class="marker" width="25" height="6">
-    <h1 class="tittle">Detalle Conciertos</h1>
+    <h1 class="title">Detalle Conciertos</h1>
 
     @if ($concerts->count() === 0)
         <p class="errorMsg" style="text-align: center">No hay conciertos por mostrar</p>
@@ -76,12 +76,15 @@
                         </p>
                     </td>
 
-                    {{-- Detalle --}}
+                    {{-- Detalle LISTO--}}
                     <td>
                         @if ($concert->availableStock != $concert->stock)
-                        <a href="{{ route('admin.sellsDetail', ['id'=> $concert->id]) }}">
-                            <button class="buttonDetail">Ver Detalle</button>
-                        </a>
+                        <div class="tooltipDer">
+                            <span class="tooltiptext">Información y detalles de venta del concierto 💸</span>
+                            <a href="{{ route('admin.sellsDetail', ['id'=> $concert->id]) }}">
+                                <button class="buttonDetail">Ver Detalle</button>
+                            </a>
+                        </div>
                         @else
                             <button class="buttonDetailOff" deactive>Ver Detalle</button>
                         @endif

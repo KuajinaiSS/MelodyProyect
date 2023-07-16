@@ -26,7 +26,7 @@
         </a>
     </header>
 
-    <h1 class="tittle">{{ $concert->concertName }}</h1>
+    <h1 class="title">{{ $concert->concertName }}</h1>
     <h2 class="concertDate">{{date('d/m/Y', strtotime( $concert->date ))  }}</h2>
 
 
@@ -73,7 +73,7 @@
                         </p>
                     </td>
 
-                    {{-- Fecha de la compra LISTO--}}
+                    {{-- Fecha de la compra --}}
                     <td>
                         <p>
                             {{ date('d/m/Y H:i', strtotime( $data['detail_order']->created_at ))  }}
@@ -116,14 +116,6 @@
                             ${{ number_format($data['detail_order']->total, 0, '.', '.') }}
                         </p>
                     </td>
-
-                    {{--                     <td>
-
-                        <a href="{{ route('pdf.descargar', ['id' =>  $data['voucher_id']]) }}">
-                            <button class="buttonDetail">Descargar PDF</button>
-                        </a>
-
-                    </td> --}}
 
             @endforeach
 

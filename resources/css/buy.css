@@ -56,6 +56,18 @@ h2{
     margin-top: 10px;
     border-radius: 20px;
 }
+.menu3{
+    font-family: Helvetica World;
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 30px;
+    width: 190px;
+    overflow: hidden;
+    
+}
+.menu3::after{
+    background-color: blue;
+}
 
 .concertInfo{
     font-family: Helvetica World;

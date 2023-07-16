@@ -10,12 +10,12 @@
 
 @section('content')
 @auth
-@vite('resources/css/table.css')
+@vite(['resources/css/table.css','resources/css/tooltip.css'])
 @if(auth()->user()->role === 1)
 
     <img src="{{asset('img/marker.png')}}" class="marker2" width="25" height="6">
     @if ($detailOrders == null && $user == null)
-        <h1 class="tittle">¡Busca un Usuario!</h1>
+        <h1 class="title">¡Busca un Usuario!</h1>
     @elseif($detailOrders != null && $user != null)
         <h1 class="userName">{{$user->name}}</h1>
     @endif
@@ -25,11 +25,19 @@
             <input class= "byEmail" id="byEmail" name="byEmail" type="search" placeholder="Ingresa un correo electrónico">
             <input type="submit" value="Buscar" class="searchBtn">
         </form>
+            <div class="tooltip">
+                <span class="tooltiptext"> ¡Presiona el botón para buscar! </span>
+                <input type="submit" value="Buscar" class="searchBtn">
+            </div>
+        </form>
+        <div class="tooltip">
+            <span class="tooltiptext"> Limpia la busqueda para ingresar una nueva 🧹 </span>
         <a href="{{route('users')}}" class="clearSearch">Limpiar Filtros</a>
+        </div>
+
     </div>
     @if ($user == null)
         @if ($message != null)
-            <div class="noData">{{$message}}</div>
         @endif
     @elseif ($detailOrders != null && $detailOrders->count() === 0 && $user != null)
         <div class="noData">El cliente {{$user->name}} no ha adquirido entradas</div>
@@ -78,7 +86,7 @@
                     {{-- Cantidad de entradas --}}
                     <td>
                         <p>
-                            {{$detailOrder->quantity}}
+                            {{ number_format($detailOrder->quantity, 0, '.', '.') }}
                         </p>
                     </td>
                     {{-- Total pagado --}}
@@ -133,7 +141,7 @@
     </div>
 
 @elseif(auth()->user()->role === 0)
-<meta http-equiv="refresh" content = "0;{{route("viewHome")}}">
+    <meta http-equiv="refresh" content = "0;{{route("viewHome")}}">
 @endif
 @endauth
 @endsection

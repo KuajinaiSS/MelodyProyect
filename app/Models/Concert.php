@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Concert extends Model
 {
     use HasFactory;
+    public $timestamps = false;
     protected $fillable=[
         'concertName',
         'price',
@@ -23,6 +24,11 @@ class Concert extends Model
     public static function getConcertsDate(){
         $actualDate = date("Y-m-d");
         return Concert::where('date', '>=', $actualDate)->get();
+    }
+
+    public function detailOrder()
+    {
+        return $this->hasMany(DetailOrder::class, 'concert_id');
     }
 
 }
