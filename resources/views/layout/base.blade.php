@@ -29,7 +29,7 @@
                         </a>
                         <div id="tooltip-inicio" role="tooltip"
                             class=" max-w-xsabsolute z-10 invisible inline-block px-3 py-2 text-s font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
-                            🎧 Conciertos Recomendados 🎧
+                            🎧 Conciertos Recomendados
                             <div class="tooltip-arrow" data-popper-arrow></div>
                         </div>
                     </li>
@@ -56,9 +56,11 @@
                                     Recaudaciones
                                 </a>
                         </li>
-                        class="absolute z-10 invisible inline-block px-3 py-2 text-s font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
-                        📝 Aca podemos agregar conciertos! wow
-                        <div class="tooltip-arrow" data-popper-arrow></div>
+                        </div>
+                        <div id="tooltip-crear-concierto" role="tooltip"
+                            class="absolute z-10 invisible inline-block px-3 py-2 text-s font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                            Aca podemos agregar conciertos! wow
+                            <div class="tooltip-arrow" data-popper-arrow></div>
                         </div>
                         </li>
                     @else
@@ -68,7 +70,7 @@
                             </a>
                             <div id="tooltip-conciertos" role="tooltip"
                                 class=" max-w-xsabsolute z-10 invisible inline-block px-3 py-2 text-s font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
-                                ✔️ Compra tus boletos aquí
+                                ✔️ Compra tus boletos aqui
                                 <div class="tooltip-arrow" data-popper-arrow></div>
                             </div>
                         </li>
@@ -113,62 +115,9 @@
 
         </main>
 
-        <script>
-            var audio = new Audio('/songs/egg2.mp3');
-            var isPlaying = false;
-            var pausedTime = 0;
-            var savedPausedTime = 0;
-            saveSavedPausedTime()
-
-            function playSong() {
-                if (!isPlaying) {
-                    audio.currentTime = savedPausedTime; // Establece la posición de reproducción previa
-                    audio.play();
-                    isPlaying = true;
-                }
-            }
-
-            function pauseSong() {
-                saveSavedPausedTime()
-                if (isPlaying) {
-                    savedPausedTime = audio.currentTime; // Almacena la posición de reproducción actual
-                    audio.pause();
-                    isPlaying = false;
-                }
-            }
-
-            setInterval(function() {
-                loadSavedPausedTime();
-                if (isPlaying) {
-                    document.getElementById('currentTime').textContent = 'Current Time: ' + savedPausedTime.toFixed(
-                        2) + ' seconds';
-                }
-            }, 100);
-
-            // Guardar el valor de savedPausedTime en el localStorage
-            function saveSavedPausedTime() {
-                localStorage.setItem("savedPausedTime", savedPausedTime);
-            }
-
-            // Cargar el valor de savedPausedTime desde el localStorage
-            function loadSavedPausedTime() {
-                loadSavedPausedTime();
-                savedPausedTime = localStorage.getItem("savedPausedTime");
-
-            }
-        </script>
-
 
         <footer class="pageFooter">
-            <p id="currentTime">Current Time: 0 seconds</p>
-
-            <h3 onmouseenter="playSong()" onmouseleave="pauseSong()" data-tooltip-target="tooltip-egg" class="tradeMark">
-                Melody™
-            </h3>
-            <div id="tooltip-egg" role="tooltip"
-                class="max-w-xs absolute z-10 invisible inline-block px-3 py-2 text-s font-medium text-white transition-opacity duration-300 bg-[#036c6f] rounded-lg shadow-sm opacity-0 tooltip">
-                <div class="tooltip-arrow" data-popper-arrow></div>
-            </div>
+            <h3 class="tradeMark">Melody™</h3>
             <p class="copyrigth"> Todos los derechos reservados - 2023. </p>
         </footer>
 
@@ -181,7 +130,5 @@
 @guest
     <meta http-equiv="refresh" content="0;{{ route('login') }}">
 @endguest
-
-
 
 </html>
