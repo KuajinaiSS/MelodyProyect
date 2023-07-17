@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('concerts', function (Blueprint $table) {
             $table->id();
-            $table->string('concertName');
+            $table->string('concert_name');
             $table->integer('price');
             $table->integer('stock');
             $table->date('date');
-            $table->integer('availableStock')->default(0);
+            $table->integer('available_stock')->default(0);
         });
     }
 

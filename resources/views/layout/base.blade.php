@@ -13,6 +13,27 @@
         @vite(['resources/js/app.js', 'resources/css/base.css'])
         @stack('stylesTailwind')
         @stack('chart')
+        <style>
+            .emoji {
+                position: absolute;
+                font-size: 30px;
+                animation: float 1s ease-in-out infinite;
+            }
+
+            @keyframes float {
+                0% {
+                    transform: translate3d(0, 0, 0);
+                }
+
+                50% {
+                    transform: translate3d(0, -20px, 0);
+                }
+
+                100% {
+                    transform: translate3d(0, 0, 0);
+                }
+            }
+        </style>
     </head>
 
     <body>
@@ -51,15 +72,21 @@
                             <a data-tooltip-target="tooltip-crear-concierto" href="{{ route('concert.create') }}">
                                 Crear Concierto
                             </a>
-                            <div id="tooltip-crear-concierto" role="tooltip" <li class="link">
-                                <a href="{{ route('admin.collection') }}">
-                                    Recaudaciones
-                                </a>
+
                         </li>
-                        class="absolute z-10 invisible inline-block px-3 py-2 text-s font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
-                        📝 Aca podemos agregar conciertos! wow
-                        <div class="tooltip-arrow" data-popper-arrow></div>
-                        </div>
+                        <li>
+                            <a href="{{ route('admin.collection') }}">
+                                Recaudaciones
+                            </a>
+                        </li>
+                        <li>
+                            {{-- class="absolute z-10 invisible inline-block px-3 py-2 text-s font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                        📝 Aca podemos agregar conciertos! wow --}}
+                            <div id="tooltip-conciertos" role="tooltip"
+                                class=" max-w-xsabsolute z-10 invisible inline-block px-3 py-2 text-s font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                                Tabla de todos los conciertos vendidos
+                                <div class="tooltip-arrow" data-popper-arrow></div>
+                            </div>
                         </li>
                     @else
                         <li class="link">
@@ -116,60 +143,48 @@
         <script>
             var audio = new Audio('/songs/egg2.mp3');
             var isPlaying = false;
-            var pausedTime = 0;
-            var savedPausedTime = 0;
-            saveSavedPausedTime()
+            var maxTime = 4; // Tiempo máximo de reproducción en segundos
+            var intervalId;
+            var emojis = ["🎉", "🎊", "🌟", "🎈"];
 
             function playSong() {
                 if (!isPlaying) {
-                    audio.currentTime = savedPausedTime; // Establece la posición de reproducción previa
                     audio.play();
                     isPlaying = true;
+                    emojiExplosion();
+
                 }
             }
 
-            function pauseSong() {
-                saveSavedPausedTime()
-                if (isPlaying) {
-                    savedPausedTime = audio.currentTime; // Almacena la posición de reproducción actual
-                    audio.pause();
-                    isPlaying = false;
+            function emojiExplosion() {
+                for (let i = 0; i < 20; i++) {
+                    setTimeout(() => {
+                        let emoji = document.createElement('div');
+                        emoji.classList.add('emoji');
+                        emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                        emoji.style.left = Math.random() * window.innerWidth + 'px';
+                        emoji.style.top = Math.random() * window.innerHeight + 'px';
+                        document.body.appendChild(emoji);
+
+                        setTimeout(() => {
+                            emoji.remove();
+                            isPlaying = false;
+                        }, 2000);
+                    }, i * 100);
                 }
-            }
-
-            setInterval(function() {
-                loadSavedPausedTime();
-                if (isPlaying) {
-                    document.getElementById('currentTime').textContent = 'Current Time: ' + savedPausedTime.toFixed(
-                        2) + ' seconds';
-                }
-            }, 100);
-
-            // Guardar el valor de savedPausedTime en el localStorage
-            function saveSavedPausedTime() {
-                localStorage.setItem("savedPausedTime", savedPausedTime);
-            }
-
-            // Cargar el valor de savedPausedTime desde el localStorage
-            function loadSavedPausedTime() {
-                loadSavedPausedTime();
-                savedPausedTime = localStorage.getItem("savedPausedTime");
-
             }
         </script>
 
-
         <footer class="pageFooter">
-            <p id="currentTime">Current Time: 0 seconds</p>
-
-            <h3 onmouseenter="playSong()" onmouseleave="pauseSong()" data-tooltip-target="tooltip-egg" class="tradeMark">
+            {{-- <p id="currentTime">Current Time: 0 seconds</p> --}}
+            <h3 onmouseenter="playSong()" data-tooltip-target="tooltip-egg" class="tradeMark" style="margin-right: 90%">
                 Melody™
             </h3>
             <div id="tooltip-egg" role="tooltip"
                 class="max-w-xs absolute z-10 invisible inline-block px-3 py-2 text-s font-medium text-white transition-opacity duration-300 bg-[#036c6f] rounded-lg shadow-sm opacity-0 tooltip">
                 <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
-            <p class="copyrigth"> Todos los derechos reservados - 2023. </p>
+            <p class="copyright text-white"> Todos los derechos reservados - 2023. </p>
         </footer>
 
 

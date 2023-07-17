@@ -21,7 +21,7 @@
                         📅 Filtra por fecha 📅
                         <div class="tooltip-arrow" data-popper-arrow></div>
                     </div>
-                    @error('concertName')
+                    @error('concert_name')
                         <div class="errorMsg">
                             <p>{{ $message }}</p>
                         </div>
@@ -41,14 +41,14 @@
                 <div class="container">
                     <div class="content">
                         <img src="{{ asset('img/ticket.png') }}" width="150" height="150" >
-                        <h2 class="concertName">{{ session('concertByDate')->concertName }}</h2>
+                        <h2 class="concert_name">{{ session('concertByDate')->concert_name }}</h2>
                         <p class="date">{{ session('concertByDate')->date }}</p>
                         <p class="price">Valor: ${{ number_format(session('concertByDate')->price, 0, '.', '.') }} CLP</p>
-                        <p class="stock">Entradas Disponibles: {{ session('concertByDate')->availableStock }}</p>
+                        <p class="stock">Entradas Disponibles: {{ session('concertByDate')->available_stock }}</p>
                         @if (auth()->user()->role === 0)
-                            @if (session('concertByDate')->availableStock > 0)
+                            @if (session('concertByDate')->available_stock > 0)
                                 <button class="buttonBuy">COMPRAR</button>
-                            @elseif(session('concertByDate')->availableStock === 0)
+                            @elseif(session('concertByDate')->available_stockk === 0)
                                 <button class="buttonSpend" disabled>AGOTADO</button>
                             @endif
                         @endif
@@ -60,12 +60,12 @@
                     @foreach ($concerts as $concert)
                         <div class="content">
                             <img src="{{ asset('img/ticket.png') }}" width="150" height="150" align="center">
-                            <h2 class="concertName">{{ $concert->concertName }}</h2>
+                            <h2 class="concert_name">{{ $concert->concert_name }}</h2>
                             <p class="date">{{ $concert->date }}</p>
                             <p class="price">Valor: ${{ number_format($concert->price, 0, '.', '.') }} CLP</p>
-                            <p class="stock">Entradas Disponibles: {{ $concert->availableStock }}</p>
+                            <p class="stock">Entradas Disponibles: {{ $concert->available_stock }}</p>
                             @if (auth()->user()->role === 0)
-                                @if ($concert->availableStock > 0)
+                                @if ($concert->available_stockkkk > 0)
                                     <a data-tooltip-target="tooltip-comprar" data-tooltip-placement="bottom"
                                         href="{{ route('buy', ['id' => $concert->id]) }}">
                                         <button class="buttonBuy">COMPRAR</button>
@@ -75,7 +75,7 @@
                                         <span id="emoji-inicio">🎤</span> Compra tus Entradas <span id="emoji-final">🎸</span>
                                         <div class="tooltip-arrow" data-popper-arrow></div>
                                     </div>
-                                @elseif ($concert->availableStock === 0)
+                                @elseif ($concert->available_stock === 0)
                                     <button class="buttonSpend" disabled>AGOTADO</button>
                                 @endif
                             @endif

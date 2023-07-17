@@ -19,9 +19,9 @@ function makeMessage(){
         'password.min' => 'La contraseña posee menos de 8 caracteres',
         'password.regex' => 'La contraseña ingresada no es alfanumérica',
         'password.max' => 'La contraseña ingresado no es válido',
-        'concertName.required' => 'Debe completar el campo "Nombre del concierto"',
-        'concertName.min' => 'El campo "Nombre del concierto" no puede ser inferior a 5 caracteres',
-        'concertName.max'=> 'El nombre ingresado no es valido',
+        'concert_name.required' => 'Debe completar el campo "Nombre del concierto"',
+        'concert_name.min' => 'El campo "Nombre del concierto" no puede ser inferior a 5 caracteres',
+        'concert_name.max'=> 'El nombre ingresado no es valido',
         'price.required' => 'Debe completar el campo "Precio"',
         'price.numeric' => 'El valor ingresado no es numérico',
         'price.min' => 'El valor de la entrada no puede ser inferior a $20.000 pesos',
@@ -62,7 +62,7 @@ function verifyStock($id, $quantity)
 {
     $concert = Concert::find($id);
 
-    if ($quantity > $concert->availableStock) {
+    if ($quantity > $concert->available_stock) {
         return false;
     }
     return true;
@@ -72,7 +72,7 @@ function verifyStock($id, $quantity)
 function discountStock($id, $quantity)
 {
     $concert = Concert::find($id);
-    $concert->availableStock -= $quantity;
+    $concert->available_stock -= $quantity;
     $concert->save();
     return true;
 }

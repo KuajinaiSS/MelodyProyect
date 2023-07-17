@@ -50,7 +50,7 @@
                                 {{-- Nombre del concierto --}}
                                 <td>
                                     <p>
-                                        {{ $detailOrder->concertDates->concertName }}
+                                        {{ $detailOrder->concertDates->concert_name }}
                                     </p>
                                 </td>
 

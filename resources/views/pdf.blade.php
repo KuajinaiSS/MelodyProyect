@@ -68,10 +68,10 @@
             <span>{{ $detail_order->reservation_number }}</span>
         </p>
         <p>Concierto:
-            <span>{{ $detail_order->concertDates->concertName }}</span>
+            <span>{{ $detail_order->concertDates->concert_name }}</span>
         </p>
         <p>Fecha del concierto:
-            <span>{{ date('d/m/Y', strtotime( $detail_order->concertDates->date ))  }}</span>
+            <span>{{ date('d/m/Y', strtotime($detail_order->concertDates->date)) }}</span>
         </p>
         <p>Cantidad de entradas:
             <span>{{ $detail_order->quantity }}</span>

@@ -12,7 +12,7 @@ class SuccessConcertTest extends TestCase
      */
     public function testSuccessRegister(){
         $data = [
-            'concertName' => 'Concierto lol',
+            'concert_name' => 'Concierto lol',
             'price' => '50000',
             'stock' => '300',
             'date' => '2023-10-25'

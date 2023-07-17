@@ -23,16 +23,16 @@
                                 <p>{{ session('confirmMessage') }}</p>
                             </div>
                         @endif
-                        <div class="concertName">
+                        <div class="concert_name">
                             <div><label>NOMBRE DEL CONCIERTO</label></div>
-                            <input data-tooltip-target="tooltip-nombre" data-tooltip-placement="left" id="concertName"
-                                name="concertName" type="text">
+                            <input data-tooltip-target="tooltip-nombre" data-tooltip-placement="left" id="concert_name"
+                                name="concert_name" type="text">
                             <div id="tooltip-nombre" role="tooltip"
                                 class="max-w-xs font-sans absolute z-10 invisible inline-block px-3 py-4 text-sm font-medium text-white transition-opacity duration-300 bg-[#a5decd] rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 text-black">
                                 El nombre del concierto debe contener, como mínimo, 5 caracteres. ⚠️🖊️
                                 <div class="tooltip-arrow" data-popper-arrow></div>
                             </div>
-                            @error('concertName')
+                            @error('concert_name')
                                 <div class="errorMsg">
                                     <p>{{ $message }}</p>
                                 </div>
