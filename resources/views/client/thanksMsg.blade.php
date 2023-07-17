@@ -1,3 +1,5 @@
+@auth
+@if (auth()->user()->role === 0)
 <!DOCTYPE html>
 <html lang="es">
 
@@ -43,8 +45,14 @@
         <p class="copyrigth"> Todos los derechos reservados - 2023. </p>
     </footer>
 </body>
-
-
-
-
 </html>
+
+@elseif(auth()->user()->role === 0)
+<meta http-equiv="refresh" content = "0;{{route("viewHome")}}">
+
+@endif
+@endauth
+
+@guest
+    <meta http-equiv="refresh" content="0;{{ route('viewHome') }}">
+@endguest

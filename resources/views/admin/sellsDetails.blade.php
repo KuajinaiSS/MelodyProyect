@@ -136,13 +136,16 @@
     </footer>
 </body>
 
-
+</html>
 
 @elseif(auth()->user()->role === 0)
 <meta http-equiv="refresh" content = "0;{{route("viewHome")}}">
 
 @endif
 @endauth
+@guest
+    <meta http-equiv="refresh" content="0;{{ route('viewHome') }}">
+@endguest
 
 
 

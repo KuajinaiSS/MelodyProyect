@@ -1,11 +1,19 @@
 @auth
     @if (auth()->user()->role === 0)
-        <!DOCTYPE html>
-        <html lang="es">
+    <!DOCTYPE html>
+    <html lang="es">
 
-        @vite(['resources/css/buy.css','resources/css/base.css','resources/css/tooltip.css'])
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="{{ asset('img/MelodyLogo.png') }}">
+        <title>Comprar entradas - Melody</title>
+        @vite(['resources/css/base.css','resources/css/buy.css','resources/css/tooltip.css'])
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="sweetalert2.all.min.js"></script>
 
+    </head>
 
         <body>
 
