@@ -10,11 +10,11 @@ class Concert extends Model
     use HasFactory;
     public $timestamps = false;
     protected $fillable=[
-        'concertName',
+        'concert_name',
         'price',
         'stock',
         'date',
-        'availableStock'
+        'available_stock'
     ];
 
     public static function getConcerts(){

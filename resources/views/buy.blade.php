@@ -29,7 +29,7 @@
                 <table class="concertContainer">
                     <td>
                         <h2>Nombre del Concierto:</h2>
-                        <div class="concertInfo" style="text-align: left">{{ $concert->concertName }}</div>
+                        <div class="concertInfo" style="text-align: left">{{ $concert->concert_name }}</div>
                         <h2>Fecha:</h2>
                         <div class="concertInfo" style="text-align: left">{{ $concert->date }}</div>
                         <h2>Valor de entrada:</h2>
@@ -39,7 +39,7 @@
                         <select id='quantity' name="quantity" class="menu2">
 
                             <option selected value="">--Seleccione las entradas--</option>
-                            @for ($i = 1; $i <= $concert->availableStock; $i++)
+                            @for ($i = 1; $i <= $concert->available_stock; $i++)
                                 <option value="{{ $i }}">{{ $i }}</option>
                             @endfor
 

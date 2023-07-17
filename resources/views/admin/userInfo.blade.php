@@ -67,7 +67,7 @@
                     {{-- Nombre del Concierto --}}
                     <td>
                         <p>
-                            {{$detailOrder['concert']->concertName}}
+                            {{$detailOrder['concert']->concert_name}}
                         </p>
                     </td>
                     {{-- Fecha del concierto --}}

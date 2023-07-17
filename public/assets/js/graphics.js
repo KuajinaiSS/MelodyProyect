@@ -36,7 +36,7 @@ function generateChart() {
                 }
 
                 // Extraer las etiquetas y los valores de los conciertos
-                const labels = concerts.map(concert => concert.concertName)
+                const labels = concerts.map(concert => concert.concert_name)
                 const values = concerts.map(concert => {
                     if (concert.detail_order_sum_total) {
                         return parseInt(concert.detail_order_sum_total);
@@ -51,13 +51,13 @@ function generateChart() {
 
                         labels: labels,
                         datasets: [{
-                            label:'Monto Total Vendido',
+                            label:'Ventas',
                             data: values,
                             backgroundColor: [
                                 'rgba(0	202	220)',
                                 'rgba(1	122	235)',
                             ],
-                            borderWidth: 1
+                            borderWidth: 1,
                         }]
                     },
                     options: {
@@ -90,7 +90,7 @@ function generateChart() {
                             y: {
                                 beginAtZero: true
                             }
-                        }
+                        },
                     }
                 });
 
@@ -210,7 +210,6 @@ function generateChart() {
             };
 
             // ...
-
             detail_orders.forEach(detail => {
                 let paymentMethod = detail.payment_method;
                 const total = detail.total;
@@ -279,8 +278,7 @@ function generateChart() {
                     font: {
                         size: 20,
                     }
-                    }
-
+                    },
                 },
                 animation: {
                     duration: 0,

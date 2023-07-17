@@ -25,7 +25,7 @@
     <div id="chartContainer" class="chartContainer">
         <div id='errorMsg' class="errorMsg"></div>
         <div id="chart" hidden>
-            <canvas id="myChart"></canvas>
+            <canvas id="myChart" width="600" class="myChart" ></canvas>
         </div>
     </div>
 

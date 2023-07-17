@@ -37,7 +37,7 @@
                     @if (auth()->user()->role === 1)
                         <li class="link">
                             <div class="tooltip">
-                            <span class="tooltiptext"> Tabla de todos los conciertos 📒 </span>
+                            <span class="tooltiptext" style="width: 230px"> Tabla de todos los conciertos 📒 </span>
                             <a href="{{ route('admin.concertsDetail') }}">
                                 Conciertos
                             </a>

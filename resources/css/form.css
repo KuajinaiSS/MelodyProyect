@@ -272,13 +272,13 @@ form .date{
     height: 30px;
 }
 
-form .concertName{
+form .concert_name{
     padding: 0 40px;
     width: auto;
     margin: 10px 0;
 }
 
-.concertName label{
+.concert_name label{
     margin: 0 13px;
     font-size: 14px;
     font-weight: bold;
@@ -286,7 +286,7 @@ form .concertName{
 
 
 
-.concertName input{
+.concert_name input{
     margin: 5px 0;
     left: 50%;
     text-indent: 10px;

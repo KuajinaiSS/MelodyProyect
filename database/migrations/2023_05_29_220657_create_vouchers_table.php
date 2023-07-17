@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('path');
             $table->foreignId('detail_order_id')->constrained('detail_orders');
             $table->date('date');
+            $table->timestamps();
         });
     }
 

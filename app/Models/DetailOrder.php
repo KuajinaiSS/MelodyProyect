@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class DetailOrder extends Model
 {
     use HasFactory;
-    public $timestamps = false;
+
     protected $fillable = [
         'reservation_number',
         'quantity',

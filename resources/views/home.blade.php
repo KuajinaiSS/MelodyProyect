@@ -35,12 +35,12 @@
                         <div class="content">
                             <img src="{{ asset('img/ticket.png') }}" alt="Concierto" width="150"
                                 height="150">
-                            <h2 class="concertName">{{ $concert->concertName }}</h2>
+                            <h2 class="concert_name">{{ $concert->concert_name }}</h2>
                             <p class="date">{{ $concert->date }}</p>
                             <p class="price">Valor: ${{ number_format($concert->price, 0, '.', '.') }} CLP</p>
-                            <p class="stock">Entradas Disponibles: {{ $concert->availableStock }}</p>
+                            <p class="stock">Entradas Disponibles: {{ $concert->available_stock }}</p>
                             @if (auth()->user()->role === 0)
-                                @if ($concert->availableStock > 0)
+                                @if ($concert->available_stock > 0)
                                 <div class="tooltip">
                                     <span class="tooltiptext" style="font-size: 18px"> Compra entradas para este concierto 🎧 </span>
                                     <a href="{{ route('buy', ['id' => $concert->id]) }}">
@@ -48,7 +48,7 @@
                                     </a>
                                 </div>
                                 @endif
-                                @if ($concert->availableStock === 0)
+                                @if ($concert->available_stock === 0)
                                 <div class="tooltip">
                                     <span class="tooltiptext" style="font-size: 18px"> Entradas agotadas 😔</span>
                                     <button class="buttonSpend" disabled>AGOTADO</button>

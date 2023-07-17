@@ -23,7 +23,7 @@
                                 <p>{{ session('confirmMessage') }}</p>
                             </div>
                         @endif
-                        <div class="concertName">
+                        <div class="concert_name">
 
                             <label>NOMBRE DEL CONCIERTO</label>
 
@@ -32,9 +32,9 @@
                                     <br>
                                     (˶ᵔ ᵕ ᵔ˶ )
                                 </span>
-                                <input id="concertName" name="concertName" type="text">
+                                <input id="concert_name" name="concert_name" type="text">
                             </div>
-                            @error('concertName')
+                            @error('concert_name')
                                 <div class="errorMsg">
                                     <p>{{ $message }}</p>
                                 </div>

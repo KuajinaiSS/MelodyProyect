@@ -26,7 +26,7 @@
         </a>
     </header>
 
-    <h1 class="title">{{ $concert->concertName }}</h1>
+    <h1 class="title">{{ $concert->concert_name }}</h1>
     <h2 class="concertDate">{{date('d/m/Y', strtotime( $concert->date ))  }}</h2>
 
 

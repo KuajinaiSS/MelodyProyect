@@ -41,7 +41,7 @@
                     {{-- Nombre del Concierto LISTO --}}
                     <td>
                         <p>
-                            {{$concert->concertName }}
+                            {{$concert->concert_name }}
 
                         </p>
                     </td>
@@ -60,25 +60,25 @@
                     {{-- Cantidad de entradas vendidas --}}
                     <td>
                         <p>
-                            {{ $concert->stock - $concert->availableStock }}
+                            {{ $concert->stock - $concert->available_stock }}
                         </p>
                     </td>
                     {{-- Cantidad de entradas disponibles --}}
                     <td>
                         <p>
-                            {{ $concert->availableStock }}
+                            {{ $concert->available_stock }}
                         </p>
                     </td>
                     {{-- Monto total vendido --}}
                     <td>
                         <p>
-                            ${{number_format($concert->price * ($concert->stock - $concert->availableStock),0,'.','.') }}
+                            ${{number_format(($concert->price * ($concert->stock - $concert->available_stock)),0,'.','.') }}
                         </p>
                     </td>
 
                     {{-- Detalle LISTO--}}
                     <td>
-                        @if ($concert->availableStock != $concert->stock)
+                        @if ($concert->available_stock != $concert->stock)
                         <div class="tooltipDer">
                             <span class="tooltiptext">Información y detalles de venta del concierto 💸</span>
                             <a href="{{ route('admin.sellsDetail', ['id'=> $concert->id]) }}">

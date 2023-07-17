@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('payment_method');
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('concert_id')->constrained('concerts');
+            $table->timestamps();
         });
     }
 
