@@ -123,7 +123,7 @@
                                         <span class="tooltiptext"> ¡Presiona el botón para descargar el comprobante de tu compra!🧾</span>
                                     <a href="{{ route('pdf.descargar', ['id' => $detailOrder->voucher->id]) }}">
                                         <button class="buttonDetail">
-                                            Comprobante
+                                            Descargar
                                         </button>
                                     </a>
                                     </div>

@@ -51,6 +51,7 @@
                     <th>Cantidad de entradas</th>
                     <th>Total pagado</th>
                     <th>Medio de pago</th>
+                    <th>Comprobante</th>
                 </tr>
             </thead>
             <tbody>
@@ -122,7 +123,7 @@
                             <div class="tooltipDer">
                                 <span class="tooltiptext"> ¡Presiona el botón para descargar el comprobante de esta compra!🧾</span>
                                 <a href="{{ route('pdf.descargar', ['id' => $detailOrder->voucherId ])}}">
-                                    <button class="buttonDetail">Comprobante</button>
+                                    <button class="buttonDetail">Descargar</button>
                                 </a>
                             </div>
 
