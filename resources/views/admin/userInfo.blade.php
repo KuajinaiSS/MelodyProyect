@@ -14,9 +14,9 @@
 @if(auth()->user()->role === 1)
 
     <img src="{{asset('img/marker.png')}}" class="marker2" width="25" height="6">
-    @if ($detailOrders == null && $user == null)
+    @if ($detailOrders == null && $user == null || $user->role === 1)
         <h1 class="title">¡Busca un Usuario!</h1>
-    @elseif($detailOrders != null && $user != null)
+    @elseif($detailOrders != null && $user != null && $user->role === 0)
         <h1 class="userName">{{$user->name}}</h1>
     @endif
 
@@ -32,13 +32,15 @@
             </div>
         </form>
         <div class="tooltip">
-            <span class="tooltiptext"> Limpia la busqueda para ingresar una nueva 🧹 </span>
+            <span class="tooltiptext"> Limpia la búsqueda para ingresar una nueva 🧹 </span>
         <a href="{{route('users')}}" class="clearSearch">Limpiar Filtros</a>
         </div>
     </div>
     @if ($user == null && $message != null)
             <div class="noData">{{$message}}</div>
-    @elseif ($detailOrders != null && $detailOrders->count() === 0 && $user != null)
+    @elseif($user != null && $user->role === 1)
+            <div class="noData">El correo electrónico no existe</div>
+    @elseif ($detailOrders != null && $detailOrders->count() === 0 && $user != null && $user->role === 0)
         <div class="noData">El cliente {{$user->name}} no ha adquirido entradas</div>
     @elseif($detailOrders != null && $detailOrders->count() > 0)
         <table>

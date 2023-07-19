@@ -14,69 +14,71 @@
 </head>
 
 <body>
-    <div class="forms">
-        <div class="logo">
-            <img src="{{ asset('img/MelodyLogo.png') }}" class="img" width="45" height="45">
-            <h1 class="logoNombre">Melody</h1>
-        </div>
-        <p>¡Crea tu cuenta!</p>
-        <form id="form" action="{{ route('register') }}" method="POST" novalidate>
-            @csrf
-            <div class="name">
-                <div><label>NOMBRE</label></div>
-                <div class="tooltipIzq">
-                    <span class="tooltiptext"> Recuerda que el nombre debe tener como mínimo 3 caracteres, los cuales deben ser solo letras
-                        <br>
-                        (づ ᴗ _ᴗ)づ♡
-                     </span>
-                <input id="name" name="name"
-                    type="text" width="400px">
-                </div>
-                @error('name')
-                    <div class="errorMsg">
-                        <p>{{ $message }}</p>
+    <div class="formContainer">
+        <div class="forms">
+            <div class="logo">
+                <img src="{{ asset('img/MelodyLogo.png') }}" class="img" width="45" height="45">
+                <h1 class="logoNombre">Melody</h1>
+            </div>
+            <p>¡Crea tu cuenta!</p>
+            <form id="form" action="{{ route('register') }}" method="POST" novalidate>
+                @csrf
+                <div class="name">
+                    <div><label>NOMBRE</label></div>
+                    <div class="tooltipIzq">
+                        <span class="tooltiptext"> Recuerda que el nombre debe tener como mínimo 3 caracteres, los cuales deben ser solo letras
+                            <br>
+                            (づ ᴗ _ᴗ)づ♡
+                            </span>
+                    <input id="name" name="name"
+                        type="text" width="400px">
                     </div>
-                @enderror
-            </div>
-            <div class="email">
-                <div><label>CORREO ELECTRÓNICO</label></div>
-                <div class="tooltipIzq">
-                    <span class="tooltiptext"> Recuerda que el correo electrónico debe ser único y debe estar en su correcto formato
-                        <br>
-                        ⸜(｡˃ ᵕ ˂ )⸝♡
-                     </span>
-                <input id="email" name="email"
-                    type="text">
+                    @error('name')
+                        <div class="errorMsg">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @enderror
                 </div>
-                @error('email')
-                    <div class="errorMsg">
-                        <p>{{ $message }}</p>
+                <div class="email">
+                    <div><label>CORREO ELECTRÓNICO</label></div>
+                    <div class="tooltipIzq">
+                        <span class="tooltiptext"> Recuerda que el correo electrónico debe ser único y debe estar en su correcto formato
+                            <br>
+                            ⸜(｡˃ ᵕ ˂ )⸝♡
+                            </span>
+                    <input id="email" name="email"
+                        type="text">
                     </div>
-                @enderror
-            </div>
-            <div class="password">
-                <div><label>CONTRASEÑA</label></div>
-                <div class="tooltipIzq">
-                    <span class="tooltiptext"> Recuerda que la contraseña debe contener solo letras y al menos un numero, además debe tener como mínimo 8 caracteres
-                        <br>
-                        (˶ᵔ ᵕ ᵔ˶ )
-                     </span>
-                <input id="password" name="password"
-                    type="password">
+                    @error('email')
+                        <div class="errorMsg">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @enderror
                 </div>
-                @error('password')
-                    <div class="errorMsg">
-                        <p>{{ $message }}</p>
+                <div class="password">
+                    <div><label>CONTRASEÑA</label></div>
+                    <div class="tooltipIzq">
+                        <span class="tooltiptext"> Recuerda que la contraseña debe contener solo letras y al menos un número, además debe tener como mínimo 8 caracteres
+                            <br>
+                            (˶ᵔ ᵕ ᵔ˶ )
+                            </span>
+                    <input id="password" name="password"
+                        type="password">
                     </div>
-                @enderror
-            </div>
-            <div class="register"><a href="{{ route('login') }}">¿Ya tienes cuenta? ¡Inicia sesión aquí!</a></div>
-            <div class="tooltip" style="width: 400px">
-                <span class="tooltiptext" style="margin-top: -50px"> ¡Presiona el botón para registrar tu cuenta! </span>
-            <input id="button" type="button" value="REGISTRAR" class="store">
-            </div>
-        </form>
+                    @error('password')
+                        <div class="errorMsg">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @enderror
+                </div>
+                <div class="register"><a href="{{ route('login') }}">¿Ya tienes cuenta? ¡Inicia sesión aquí!</a></div>
+                <div class="tooltip" style="width: 400px">
+                    <span class="tooltiptext" style="margin-top: -50px"> ¡Presiona el botón para registrar tu cuenta! </span>
+                <input id="button" type="button" value="REGISTRAR" class="store">
+                </div>
+            </form>
 
+        </div>
     </div>
 </body>
 

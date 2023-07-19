@@ -23,11 +23,14 @@ body{
 
 }
 
+.formContainer{
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    height: 98vh;
+}
+
 .forms{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
     width: 400px;
     background: white;
     border-radius: 15px;
@@ -83,11 +86,6 @@ body{
     color: #545454;
     font-size: 25px;
 }
-
-.forms{
-    justify-content: center;
-}
-
 
 form .name{
     padding: 0 40px;

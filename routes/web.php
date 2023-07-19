@@ -43,42 +43,66 @@ Route::post('login', [LoginController::class, 'store']);
 //logout route
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
-
-// concert route
-Route::get('concerts',[ConcertController::class, 'index'])->name('concerts');
-Route::post('concert-by-Date',[ConcertController::class, 'searchByDate'])->name('concert.byDate');
-Route::get('concert-create',[ConcertController::class, 'create'])->name('concert.create');
-Route::post('concert-create',[ConcertController::class, 'store'])->name('concert');
-
-// buy route
-Route::get('buy/{id}',[BuyController::class, 'create'])->name('buy');
-Route::post('sold/{id}',[BuyController::class, 'store'])->name('concert.buy');
-
-
-// admin routes
-Route::get('concertsDetail',[ConcertController::class, 'indexConcertDetails'])->name('admin.concertsDetail');
-Route::get('/sellsDetail/{id}',[ConcertController::class, 'indexSellsConcertDetails'])->name('admin.sellsDetail');
-
-
-// clients routes
-Route::get('myConcerts',[ConcertController::class, 'indexMyConcerts'])->name('client.myConcerts');
-
 // home routes
 Route::get('home',[HomeController::class, 'index'])->name('viewHome');
 
-// Voucher
-Route::get('/detail-order/{id}', [VoucherController::class, 'generatePDF'])->name('generate.pdf');
-Route::get('descargar-pdf/{id}', [VoucherController::class, 'downloadPDF'])->name('pdf.descargar');
-Route::get('/pdf', [VoucherController::class, 'pdf'])->name('pdf.example');
+Route::middleware(['verifiedAdmin'])->group(function () {
+    // admin routes
+    Route::get('concertsDetail',[ConcertController::class, 'indexConcertDetails'])->name('admin.concertsDetail');
+    Route::get('/sellsDetail/{id}',[ConcertController::class, 'indexSellsConcertDetails'])->name('admin.sellsDetail');
 
-// Thanks route
-Route::get('thanksMsg',[ThanksController::class, 'index'])->name('thanksMsg');
+    // Create concert
+    Route::get('concert-create',[ConcertController::class, 'create'])->name('concert.create');
+    Route::post('concert-create',[ConcertController::class, 'store'])->name('concert');
 
-// UserInfo
-Route::get('users',[UserController::class, 'index'] )->name('users');
-Route::get('user-info',[UserController::class, 'getUser'] )->name('user.info');
+    // User info
+    Route::get('users',[UserController::class, 'index'] )->name('users');
+    Route::get('user-info',[UserController::class, 'getUser'] )->name('user.info');
 
- // Collection
-Route::get('/collection', [CollectionController::class, 'index'])->name('admin.collection');
-Route::get('/all-concert-sales', [CollectionController::class, 'allConcertsTotalSales']);
-Route::get('/all-detail-orders', [CollectionController::class, 'allDetailOrders']);
+    // Collection
+    Route::get('/collection', [CollectionController::class, 'index'])->name('admin.collection');
+
+    // Concerts details
+    Route::get('/all-concert-sales', [CollectionController::class, 'allConcertsTotalSales']);
+    Route::get('/all-detail-orders', [CollectionController::class, 'allDetailOrders']);
+
+});
+
+
+Route::middleware(['verifiedClient'])->group(function () {
+    // concert route
+    Route::get('concerts',[ConcertController::class, 'index'])->name('concerts');
+    Route::post('concert-by-Date',[ConcertController::class, 'searchByDate'])->name('concert.byDate');
+
+    // buy route
+    Route::get('buy/{id}',[BuyController::class, 'create'])->name('buy');
+    Route::post('sold/{id}',[BuyController::class, 'store'])->name('concert.buy');
+
+    // clients routes
+    Route::get('myConcerts',[ConcertController::class, 'indexMyConcerts'])->name('client.myConcerts');
+
+    // Voucher
+    Route::get('/detail-order/{id}', [VoucherController::class, 'generatePDF'])->name('generate.pdf');
+    Route::get('descargar-pdf/{id}', [VoucherController::class, 'downloadPDF'])->name('pdf.descargar');
+    Route::get('/pdf', [VoucherController::class, 'pdf'])->name('pdf.example');
+
+    // Thanks route
+    Route::get('thanksMsg',[ThanksController::class, 'index'])->name('thanksMsg');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

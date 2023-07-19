@@ -29,7 +29,7 @@
                     </div>
                 </form>
                 <div class="tooltip">
-                    <span class="tooltiptext" style="margin-top:-20px"> Limpia la busqueda para ingresar una nueva 🧹 </span>
+                    <span class="tooltiptext" style="margin-top:-20px"> Limpia la búsqueda para ingresar una nueva 🧹 </span>
                     <a href="{{ route('concerts') }}" class="clearSearch" style="display: block">Limpiar Filtros</a>
                 </div>
             </div>

@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth']);
+    }
     /**
      * Display a listing of the resource.
      */
@@ -33,7 +37,7 @@ class UserController extends Controller
             ]);
         }
         else{
-            $detailOrders = DetailOrder::where('user_id', "=", $user->id)->get();
+            $detailOrders = DetailOrder::where('user_id', "=", $user->id)->orderBy('created_at','asc')->get();
             foreach($detailOrders as $detailOrder){
 
                 $voucher = Voucher::where('detail_order_id',"=",$detailOrder->id)->first();
