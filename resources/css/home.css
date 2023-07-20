@@ -51,15 +51,40 @@
     margin-right: auto;
     justify-content: center;
     display: grid;
-    grid-template-columns: 400px;
     gap: auto;
     margin-top: 40px;
 }
 
-@media(min-width:768px )
+@media(min-width:1200px )
 {
     .container{
         grid-template-columns: 400px 400px 400px;
+    }
+}
+
+@media(max-width:1199px )
+{
+    .container{
+        grid-template-columns: 400px 400px;
+    }
+}
+
+@media(max-width:799px )
+{
+    .container{
+        grid-template-columns: 400px;
+    }
+}
+
+
+@media(max-width:1320px )
+{
+    .marker{
+        scale: 0;
+    }
+
+    .marker2{
+        scale: 0;
     }
 }
 
@@ -93,6 +118,7 @@
     background-color: #009e6c;
     transform: translateY(4px);
 }
+
 .buttonSpend {
     margin-top: 30px;
     font-family: League Spartan;
@@ -188,6 +214,7 @@
     padding-bottom: 9px;
     padding-left: 12px;
     padding-right: 12px;
+
 }
 
 .clearSearch:hover{
@@ -209,5 +236,68 @@
     text-align: center;
     margin-bottom: 20px;
 }
+
+.search2{
+    display: flex;
+    justify-content: center;
+}
+.search2 input{
+    font-family: Helvetica World;
+    font-size: 20px;
+    border-radius: 30px;
+    border-width: 2px;
+    border-color: #232220;
+    border-style: solid;
+}
+.searchBtn2{
+    margin-top: 15px;
+    margin-right: 10px;
+    background-color: #2194ff; /*#2194ff*/
+    width: 80px;
+    height: 45px;
+    background-image: url(../../public/img/searchImg.png);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+}
+
+.actions{
+    display: flex;
+    justify-content: center;
+    height: 60px;
+
+}
+
+.clearSearch2{
+    margin-top: 15px;
+    margin-left: 10px;
+    width: 80px;
+    height: 40px;
+    border-radius: 30px;
+    border-width: 2px;
+    border-color: #232220;
+    border-style: solid;
+    text-decoration: none;
+    background-color: #d9d9d9;
+    background-image: url(../../public/img/broom.png);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@media(min-width:739px){
+    .search2{
+        display: none;
+    }
+}
+
+
+@media(max-width:738px) {
+    .search{
+        display: none;
+    }
+}
+
 
 

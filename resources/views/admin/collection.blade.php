@@ -22,13 +22,14 @@
             <option value="pie-payment" class="option">Total vendido en términos de porcentaje</option>
         </select>
     </div>
-    <div id="chartContainer" class="chartContainer">
-        <div id='errorMsg' class="errorMsg"></div>
-        <div id="chart" hidden>
-            <canvas id="myChart" width="600" class="myChart" ></canvas>
+    <div class="container">
+        <div id="chartContainer" class="chartContainer">
+            <div id='errorMsg' class="errorMsg"></div>
+            <div id="chart" hidden>
+                <canvas id="myChart" width="600" class="myChart" ></canvas>
+            </div>
         </div>
     </div>
-
 
 @section('script')
     <script src="{{ asset('assets/js/graphics.js') }}"></script>

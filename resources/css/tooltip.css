@@ -111,3 +111,21 @@
     visibility: visible;
     opacity: 1;
 }
+
+@media(max-width: 1000px){
+    .tooltip:hover .tooltiptext{
+        scale: 0;
+    }
+    .tooltipIzq:hover .tooltiptext{
+        scale: 0;
+    }
+    .tooltipDer:hover .tooltiptext{
+        scale: 0;
+    }
+}
+
+@media(max-width: 1300px){
+    .tooltip:hover .tooltiptext{
+        scale: 0;
+    }
+}

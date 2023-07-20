@@ -36,6 +36,20 @@
         <a href="{{route('users')}}" class="clearSearch">Limpiar Filtros</a>
         </div>
     </div>
+    <div class="search2">
+        <form action="{{route('user.info')}}" method="GET" novalidate>
+                <input class= "byEmail" id="byEmail" name="byEmail" type="search" placeholder="Ingresa un correo electrónico">
+
+                <div class="actions">
+                    <input type="submit" value="" class="searchBtn2">
+                    <a href="{{route('users')}}" class="clearSearch2"></a>
+                </div>
+
+        </form>
+
+
+
+    </div>
     @if ($user == null && $message != null)
             <div class="noData">{{$message}}</div>
     @elseif($user != null && $user->role === 1)
@@ -140,8 +154,6 @@
             </tbody>
         </table>
     @endif
-
-
     </div>
 
 @elseif(auth()->user()->role === 0)

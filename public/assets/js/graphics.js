@@ -282,7 +282,9 @@ function generateChart() {
                 },
                 animation: {
                     duration: 0,
-                }
+                },
+                responsive: true, // Permite que el gráfico sea responsive
+                maintainAspectRatio: false, // Evita que el gráfico mantenga el aspecto original
                 },
                 plugins: [ChartDataLabels]
             });

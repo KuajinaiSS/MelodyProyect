@@ -16,7 +16,7 @@
                     @csrf
                     <div class="tooltip">
                         <span class="tooltiptext" style="margin-top:-20px"> Busca un concierto por su fecha 🔍</span>
-                    <input class="byDate" id="byDate" name="byDate" type="date" onkeydown="return false">
+                    <input class="byDate" id="byDate" name="byDate" type="date" onkeydown="return false" >
                     </div>
                     @error('concert_name')
                         <div class="errorMsg">
@@ -27,11 +27,29 @@
                         <span class="tooltiptext" style="margin-top:-20px"> ¡Presiona el botón para buscar!</span>
                     <input type="submit" value="Buscar" class="searchBtn">
                     </div>
+
                 </form>
                 <div class="tooltip">
                     <span class="tooltiptext" style="margin-top:-20px"> Limpia la búsqueda para ingresar una nueva 🧹 </span>
                     <a href="{{ route('concerts') }}" class="clearSearch" style="display: block">Limpiar Filtros</a>
                 </div>
+
+            </div>
+            <div class="search2">
+                <form action="{{ route('concert.byDate') }}" method="POST" novalidate>
+                    @csrf
+                    <input class="byDate" id="byDate" name="byDate" type="date" onkeydown="return false" >
+                    @error('concert_name')
+                        <div class="errorMsg">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @enderror
+                    <div class="actions">
+                        <input type="submit" value="" class="searchBtn2">
+                        <a href="{{route('concerts')}}" class="clearSearch2"></a>
+                    </div>
+                </form>
+
             </div>
 
             @if ($concerts->count() === 0)

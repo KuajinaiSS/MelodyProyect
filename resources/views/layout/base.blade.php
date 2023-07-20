@@ -100,17 +100,81 @@
 
             <ul class="userLoggedIn">
                 <li>
-                    <a href="#options" class="userOptions">
+                    <a class="userOptions">
                         Bienvenido, {{ auth()->user()->name }}
                     </a>
                     <form action="{{ route('logout') }}" method="POST" class="verticalMenu">
                         @csrf
-                <li><input type="submit" value="Cerrar Sesión" class="logout"></li>
-                </form>
-
+                        <li>
+                            <input type="submit" value="Cerrar Sesión" class="logout">
+                        </li>
+                    </form>
                 </li>
+
+                <div class="sideMenu">
+                    <label for="btnMenu" ><img src="{{ asset('img/menuImg.png') }}" class="menuImg"></label>
+                    <input type="checkbox" id="btnMenu">
+                    <div class="menuContainer">
+
+                        <div class="menuContent">
+                            <label for="btnMenu"><img src="{{ asset('img/close.png') }}" class="closeImg"></label>
+                            <nav>
+                                <p class="userOptions">
+
+                                    Bienvenido,
+                                    <br>
+                                    {{ auth()->user()->name }}
+
+                                </p>
+                                <a href="{{ route('viewHome') }}">
+                                    ●  Inicio
+                                </a>
+
+                                @if (auth()->user()->role === 1)
+
+                                    <a href="{{ route('admin.concertsDetail') }}">
+                                        ● Conciertos
+                                    </a>
+
+                                    <a href="{{ route('concert.create') }}">
+                                        ● Crear Concierto
+                                    </a>
+
+                                    <a href="{{ route('admin.collection') }}">
+                                        ● Recaudaciones
+                                    </a>
+
+                                    <a href="{{ route('users') }}">
+                                        ● Usuarios
+                                    </a>
+
+                                @else
+
+                                    <a href="{{ route('concerts') }}">
+                                        ● Conciertos
+                                    </a>
+
+                                    <a href="{{ route('client.myConcerts') }}">
+                                        ● Mis Conciertos
+                                    </a>
+
+                                @endif
+                                <a>
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <input type="submit" value="● Cerrar Sesión" class="logout">
+                                    </form>
+                                </a>
+                            </nav>
+                        </div>
+
+                    </div>
+
+                </div>
             </ul>
             <img src="{{ asset('img/userLoggedIn.png') }}" class="loggedInImg">
+
+
         </header>
 
 

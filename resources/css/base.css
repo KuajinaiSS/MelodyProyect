@@ -176,6 +176,110 @@ header {
 
 }
 
+.menuImg{
+    cursor: pointer;
+    height: 40px;
+    width: auto;
+}
+
+.closeImg{
+    position: relative;
+    cursor: pointer;
+    height: 20px;
+    width: auto;
+    left: 200px;
+    margin: 15px;
+}
+
+#btnMenu{
+    display: none;
+}
+
+.menuContainer{
+
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: all 500ms ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#btnMenu:checked ~ .menuContainer{
+    opacity: 1;
+    visibility: visible;
+}
+
+.menuContent{
+
+    width: 250px;
+    background: #232220;
+    opacity: 0.99;
+    height: auto;
+    position: relative;
+    transition: all 500ms ease;
+
+}
+
+#btnMenu:checked ~ .menuContainer .menuContent{
+
+}
+
+
+.menuContent nav a{
+    text-decoration: none;
+    color: white;
+    display: block;
+    text-decoration: none;
+    padding: 20px;
+    border-left: 5px solid transparent;
+    transition: all 400ms ease;
+}
+
+.menuContent nav a:hover{
+    color: #b1b1b1;
+}
+
+.logout{
+    font-family: League Spartan;
+    font-size: 20px;
+    display: block;
+    border: none;
+	color: white;
+	text-decoration: none;
+    background-color: #232220;
+}
+.userOptions{
+    color: white;
+    margin-left: 15px;
+}
+
+.logout:hover{
+    color: #b1b1b1;
+}
+
+
+
+@media(min-width:1336px) {
+    .sideMenu{
+        display: none;
+    }
+}
+
+@media(max-width:1335px){
+    .nav-links{
+        display: none;
+    }
+
+    .userLoggedIn li{
+        display: none;
+    }
+    .loggedInImg{
+        display: none;
+    }
+}
+
 
 
 

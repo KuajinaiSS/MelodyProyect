@@ -42,6 +42,12 @@
 
 }
 
+@media(max-width:600px){
+    .content{
+        width: 400px;
+    }
+}
+
 .info{
     text-align: center;
     margin-top: 50px;

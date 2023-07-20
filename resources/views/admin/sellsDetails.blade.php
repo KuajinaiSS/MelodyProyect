@@ -35,96 +35,98 @@
     @endif
 
     @if($allData->count() > 0)
-    <table>
-        <thead>
-            <tr>
-                <th>Número de reserva</th>
-                <th>Nombre del cliente</th>
-                <th>Correo del cliente</th>
-                <th>Fecha de la compra</th>
-                <th>Cantidad de entradas compradas</th>
-                <th>Medio de pago</th>
-                <th>Total pagado</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            @foreach ($allData as $data)
-
+    <div class="tableContainer">
+        <table>
+            <thead>
                 <tr>
-                    {{-- Numero de reserva LISTO--}}
-                    <td>
-                        <p>
-                            {{ $data['detail_order']->reservation_number }}
-                        </p>
-                    </td>
+                    <th>Número de reserva</th>
+                    <th>Nombre del cliente</th>
+                    <th>Correo del cliente</th>
+                    <th>Fecha de la compra</th>
+                    <th>Cantidad de entradas compradas</th>
+                    <th>Medio de pago</th>
+                    <th>Total pagado</th>
+                </tr>
+            </thead>
+            <tbody>
 
-                    {{-- Nombre del cliente LISTO--}}
-                    <td>
-                        <p>
-                            {{ $data['user']->name }}
-                        </p>
-                    </td>
+                @foreach ($allData as $data)
 
-                    {{-- Correo del cliente LISTO--}}
-                    <td>
-                        <p>
-                            {{ $data['user']->email }}
-                        </p>
-                    </td>
-
-                    {{-- Fecha de la compra --}}
-                    <td>
-                        <p>
-                            {{ date('d/m/Y H:i', strtotime( $data['detail_order']->created_at ))  }}
-                        </p>
-                    </td>
-
-                    {{-- Cantidad de entradas compradas LISTO--}}
-                    <td>
-                        <p>
-                            {{ $data['detail_order']->quantity }}
-                        </p>
-                    </td>
-
-                    {{-- >Medio de pago LISTO--}}
-                    <td>
-                        <p>
-                            @if ($data['detail_order']->payment_method === 1)
+                    <tr>
+                        {{-- Numero de reserva LISTO--}}
+                        <td>
                             <p>
-                                Efectivo
+                                {{ $data['detail_order']->reservation_number }}
                             </p>
-                            @elseif ($data['detail_order']->payment_method === 2)
+                        </td>
+
+                        {{-- Nombre del cliente LISTO--}}
+                        <td>
                             <p>
-                                Transferencia
+                                {{ $data['user']->name }}
                             </p>
-                            @elseif ($data['detail_order']->payment_method === 3)
+                        </td>
+
+                        {{-- Correo del cliente LISTO--}}
+                        <td>
                             <p>
-                                Tarjeta de Crédito
+                                {{ $data['user']->email }}
                             </p>
-                            @elseif ($data['detail_order']->payment_method === 4)
+                        </td>
+
+                        {{-- Fecha de la compra --}}
+                        <td>
                             <p>
-                                Tarjeta de Débito
+                                {{ date('d/m/Y H:i', strtotime( $data['detail_order']->created_at ))  }}
                             </p>
-                            @endif
-                        </p>
-                    </td>
+                        </td>
 
-                    {{-- Total pagado LISTO --}}
-                    <td>
-                        <p>
-                            ${{ number_format($data['detail_order']->total, 0, '.', '.') }}
-                        </p>
-                    </td>
+                        {{-- Cantidad de entradas compradas LISTO--}}
+                        <td>
+                            <p>
+                                {{ $data['detail_order']->quantity }}
+                            </p>
+                        </td>
 
-            @endforeach
+                        {{-- >Medio de pago LISTO--}}
+                        <td>
+                            <p>
+                                @if ($data['detail_order']->payment_method === 1)
+                                <p>
+                                    Efectivo
+                                </p>
+                                @elseif ($data['detail_order']->payment_method === 2)
+                                <p>
+                                    Transferencia
+                                </p>
+                                @elseif ($data['detail_order']->payment_method === 3)
+                                <p>
+                                    Tarjeta de Crédito
+                                </p>
+                                @elseif ($data['detail_order']->payment_method === 4)
+                                <p>
+                                    Tarjeta de Débito
+                                </p>
+                                @endif
+                            </p>
+                        </td>
 
-            <tfoot>
-                <th class="finalRow"> </th>
-            </tfoot>
+                        {{-- Total pagado LISTO --}}
+                        <td>
+                            <p>
+                                ${{ number_format($data['detail_order']->total, 0, '.', '.') }}
+                            </p>
+                        </td>
 
-        </tbody>
-    </table>
+                @endforeach
+
+                <tfoot>
+                    <th class="finalRow"> </th>
+                </tfoot>
+
+            </tbody>
+        </table>
+    </div>
     @endif
 
 

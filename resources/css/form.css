@@ -315,6 +315,13 @@ form .concert_name{
     transform: translate(440px,-75px);
 }
 
+
+@media(max-width:1320px )
+{
+    .marker{
+        scale: 0;
+    }
+}
 .pageFooter{
     position: fixed;
     bottom: 0%;

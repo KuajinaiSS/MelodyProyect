@@ -22,85 +22,87 @@
     @endif
 
     @if($concerts->count() > 0)
-    <table>
-        <thead>
-            <tr>
-                <th>Nombre del Concierto</th>
-                <th>Fecha del concierto</th>
-                <th>Cantidad de entradas</th>
-                <th>Cantidad de entradas vendidas</th>
-                <th>Cantidad de entradas disponibles</th>
-                <th>Monto total vendido</th>
-                <th> </th>
-            </tr>
-        </thead>
-        <tbody>
-
-            @foreach ($concerts as $concert)
+    <div class="tableContainer">
+        <table>
+            <thead>
                 <tr>
-                    {{-- Nombre del Concierto LISTO --}}
-                    <td>
-                        <p>
-                            {{$concert->concert_name }}
+                    <th>Nombre del Concierto</th>
+                    <th>Fecha del concierto</th>
+                    <th>Cantidad de entradas</th>
+                    <th>Cantidad de entradas vendidas</th>
+                    <th>Cantidad de entradas disponibles</th>
+                    <th>Monto total vendido</th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
 
-                        </p>
-                    </td>
-                    {{-- Fecha del concierto LISTO --}}
-                    <td>
-                        <p>
-                            {{ $concert->date  }}
-                        </p>
-                    </td>
-                    {{-- Cantidad de entradas LISTO --}}
-                    <td>
-                        <p>
-                            {{ $concert->stock }}
-                        </p>
-                    </td>
-                    {{-- Cantidad de entradas vendidas --}}
-                    <td>
-                        <p>
-                            {{ $concert->stock - $concert->available_stock }}
-                        </p>
-                    </td>
-                    {{-- Cantidad de entradas disponibles --}}
-                    <td>
-                        <p>
-                            {{ $concert->available_stock }}
-                        </p>
-                    </td>
-                    {{-- Monto total vendido --}}
-                    <td>
-                        <p>
-                            ${{number_format(($concert->price * ($concert->stock - $concert->available_stock)),0,'.','.') }}
-                        </p>
-                    </td>
+                @foreach ($concerts as $concert)
+                    <tr>
+                        {{-- Nombre del Concierto LISTO --}}
+                        <td>
+                            <p>
+                                {{$concert->concert_name }}
 
-                    {{-- Detalle LISTO--}}
-                    <td>
-                        @if ($concert->available_stock != $concert->stock)
-                        <div class="tooltipDer">
-                            <span class="tooltiptext">Información y detalles de venta del concierto 💸</span>
-                            <a href="{{ route('admin.sellsDetail', ['id'=> $concert->id]) }}">
-                                <button class="buttonDetail">Ver Detalle</button>
-                            </a>
-                        </div>
-                        @else
-                        <div class="tooltipDer">
-                            <span class="tooltiptext">Este concierto no ha vendido entradas ☹️</span>
-                            <button class="buttonDetailOff" deactive>Ver Detalle</button>
-                        </div>
-                        @endif
+                            </p>
+                        </td>
+                        {{-- Fecha del concierto LISTO --}}
+                        <td>
+                            <p>
+                                {{ $concert->date  }}
+                            </p>
+                        </td>
+                        {{-- Cantidad de entradas LISTO --}}
+                        <td>
+                            <p>
+                                {{ $concert->stock }}
+                            </p>
+                        </td>
+                        {{-- Cantidad de entradas vendidas --}}
+                        <td>
+                            <p>
+                                {{ $concert->stock - $concert->available_stock }}
+                            </p>
+                        </td>
+                        {{-- Cantidad de entradas disponibles --}}
+                        <td>
+                            <p>
+                                {{ $concert->available_stock }}
+                            </p>
+                        </td>
+                        {{-- Monto total vendido --}}
+                        <td>
+                            <p>
+                                ${{number_format(($concert->price * ($concert->stock - $concert->available_stock)),0,'.','.') }}
+                            </p>
+                        </td>
 
-                    </td>
-            @endforeach
+                        {{-- Detalle LISTO--}}
+                        <td>
+                            @if ($concert->available_stock != $concert->stock)
+                            <div class="tooltipDer">
+                                <span class="tooltiptext">Información y detalles de venta del concierto 💸</span>
+                                <a href="{{ route('admin.sellsDetail', ['id'=> $concert->id]) }}">
+                                    <button class="buttonDetail">Ver Detalle</button>
+                                </a>
+                            </div>
+                            @else
+                            <div class="tooltipDer">
+                                <span class="tooltiptext">Este concierto no ha vendido entradas ☹️</span>
+                                <button class="buttonDetailOff" deactive>Ver Detalle</button>
+                            </div>
+                            @endif
 
-            <tfoot>
-                <th class="finalRow"> </th>
-            </tfoot>
+                        </td>
+                @endforeach
 
-        </tbody>
-    </table>
+                <tfoot>
+                    <th class="finalRow"> </th>
+                </tfoot>
+
+            </tbody>
+        </table>
+    </div>
     @endif
     </div>
 
